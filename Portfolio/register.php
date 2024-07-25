@@ -48,7 +48,7 @@ session_start();
             <div class="text-center w-[90%] lg:text-left md:w-[50%]">
                 <h1 class="text-3xl md:text-5xl font-bold">Login now!</h1>
                 <p class="py-6">
-                    Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
+                    Provident cupiditates voluptatems et in. Quaerat fugiat At assumenda excepturi exercitationem
                     quasi. In deleniti eaque aut repudiandae et a id nisi.
                 </p>
             </div>

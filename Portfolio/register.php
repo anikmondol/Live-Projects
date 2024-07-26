@@ -43,7 +43,7 @@ session_start();
 <body>
     <!-- hero section start -->
 
-    <div class="h-[100vh] flex items-center justify-center w-full bg-gradient-to-r from-[#544d63] to-[#a4d4dd]">
+    <div class="h-[100vh] flex items-center justify-center w-full bg-gradient-to-r from-[#f8a5c2] to-[#a4d4dd]">
         <div class="hero-content flex-col md:flex-row-reverse lg:gap-10">
             <div class="text-center w-[90%] lg:text-left md:w-[50%]">
                 <h1 class="text-3xl md:text-5xl font-bold">Login now!</h1>
@@ -62,12 +62,16 @@ session_start();
                         <input name="username" type="text" class="grow" placeholder="Username" />
                     </div>
                     <!-- name error start -->
-                     <?php
-                     if(isset($_SESSION["name_error"])){
-                     ?>
-                     <p class="text-red-600"><?php echo $_SESSION["name_error"]; ?></p>
-                     <?php } unset($_SESSION["name_error"]);?>
+                    <?php
+                    if (isset($_SESSION["name_error"])) {
+                    ?>
+                        <p class="text-red-600"><?php echo $_SESSION["name_error"]; ?></p>
+                    <?php }
+                    unset($_SESSION["name_error"]); ?>
                     <!-- name error end -->
+
+
+
 
                     <div class="input input-bordered flex items-center gap-2">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="h-4 w-4 opacity-70">
@@ -76,17 +80,53 @@ session_start();
                         </svg>
                         <input name="email" type="text" class="grow" placeholder="Email" />
                     </div>
-                    <div class="input input-bordered flex items-center gap-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="" class="h-4 w-4 opacity-70">
-                            <path fill-rule="evenodd" d="M14 6a4 4 0 0 1-4.899 3.899l-1.955 1.955a.5.5 0 0 1-.353.146H5v1.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-2.293a.5.5 0 0 1 .146-.353l3.955-3.955A4 4 0 1 1 14 6Zm-4-2a.75.75 0 0 0 0 1.5.5.5 0 0 1 .5.5.75.75 0 0 0 1.5 0 2 2 0 0 0-2-2Z" clip-rule="evenodd" />
-                        </svg>
-                        <input name="password" type="password" placeholder="Password" class=" grow" />
+
+                    <!-- name error start -->
+                    <?php
+                    if (isset($_SESSION["email_error"])) {
+                    ?>
+                        <p class="text-red-600"><?php echo $_SESSION["email_error"]; ?></p>
+                    <?php }
+                    unset($_SESSION["email_error"]); ?>
+                    <!-- name error end -->
+
+                    <div>
+                        <div class="input input-bordered flex items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="" class="h-4 w-4 opacity-70">
+                                <path fill-rule="evenodd" d="M14 6a4 4 0 0 1-4.899 3.899l-1.955 1.955a.5.5 0 0 1-.353.146H5v1.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-2.293a.5.5 0 0 1 .146-.353l3.955-3.955A4 4 0 1 1 14 6Zm-4-2a.75.75 0 0 0 0 1.5.5.5 0 0 1 .5.5.75.75 0 0 0 1.5 0 2 2 0 0 0-2-2Z" clip-rule="evenodd" />
+                            </svg>
+                            <input id="myInput" name="password" type="password" placeholder="Password" class=" grow" />
+
+                        </div>
+                        <input class="my-3 lead" type="checkbox" onclick="myFunction()"> Show Password
                     </div>
+
+
+                    <!-- password error start -->
+                    <?php
+                    if (isset($_SESSION["password_error"])) {
+                    ?>
+                        <p class="text-red-600"><?php echo $_SESSION["password_error"]; ?></p>
+                    <?php }
+                    unset($_SESSION["password_error"]); ?>
+                    <!-- password error end -->
+
+
                     <div class="input input-bordered flex items-center gap-2">
                         <i class="fa-solid fa-circle-check"></i>
                         <input name="confirm_password" type="password" placeholder="Confirm Password" class="grow " />
 
                     </div>
+
+                    <!-- Confirm password error start -->
+                    <?php
+                    if (isset($_SESSION["c_password_error"])) {
+                    ?>
+                        <p class="text-red-600"><?php echo $_SESSION["c_password_error"]; ?></p>
+                    <?php }
+                    unset($_SESSION["c_password_error"]); ?>
+                    <!-- Confirm password error end -->
+
                     <div>
                         <button type="submit" name="submit_btn" class="btn btn-info text-blue-100">Submit</button>
                     </div>
@@ -99,6 +139,16 @@ session_start();
 
 
 
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myInput");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+        }
+    </script>
 
 </body>
 

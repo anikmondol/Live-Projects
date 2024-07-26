@@ -49,7 +49,7 @@ session_start();
                 <h1 class="text-3xl md:text-5xl font-bold">Login now!</h1>
                 <p class="py-6">
                     Provident cupiditates voluptatems et in. Quaerat fugiat At assumenda excepturi exercitationem
-                    quasi. In deleniti eaque aut repudiandae et a id nisi.
+                    quasi. In deleniti eaque aut repudiandaes et a id nisi.
                 </p>
             </div>
             <div class="card bg-orange-100 w-full max-w-sm shrink-0 shadow-2xl">

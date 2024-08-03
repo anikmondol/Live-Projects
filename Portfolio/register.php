@@ -34,7 +34,7 @@ require"./config/database.php";
                 
                 <p class="text-center md:text-start text-[18px]">
                 Please sign-in to your account and continue to the dashboard.
-                Don't have an account? <a class="underline" href="./login.php">Sign Up</a>
+                Don't have an account? <a class="hover:underline hover:text-green-600 text-base font-semibold" href="./login.php">Sign Up</a>
                 </p>
             </div>
             <div class="card bg-orange-100 w-full max-w-sm shrink-0 shadow-2xl py-1">

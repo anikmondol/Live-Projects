@@ -1,10 +1,12 @@
 <?php
 
+
+require "./config/database.php";
 session_start();
 
 
 if (isset($_POST["submit_btn"])) {
-    
+
     $flag = false;
 
 
@@ -31,7 +33,6 @@ if (isset($_POST["submit_btn"])) {
 
 
     // password validation
-
     $password = $_POST["password"];
 
 
@@ -70,18 +71,29 @@ if (isset($_POST["submit_btn"])) {
     }
 
 
+    // condition for go dashboard
 
-    if ($flag) {
-        echo "khrap";
-    } else {
-       
-      echo "valo na";
+    if (!$flag) {
+
+        $encrypt = sha1($password);
+        $count_query = "SELECT COUNT(*) AS 'result' FROM users WHERE email='$email' AND password='$encrypt'";
+        $connect = mysqli_query($connect_db, $count_query);
+
+        if (mysqli_fetch_assoc($connect)['result'] == 1) {
+            $get_data_query = "SELECT * FROM `users` WHERE email='$email'";
+            $connect = mysqli_query($connect_db, $get_data_query);
+
+            $user = mysqli_fetch_assoc($connect);
+
+            $_SESSION['auth_id'] = $user['id'];
+            $_SESSION['auth_name'] = $user['name'];
+            $_SESSION['auth_email'] = $user['email'];
+
+            header("location: ./dashboard/home.php");
+
+        } else {
+            $_SESSION['login_error'] = "credential doesn't match";
+            header("location: login.php");
+        }
     }
-
 }
-
-
-
-
-
-?>

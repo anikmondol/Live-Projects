@@ -2,19 +2,15 @@
 
 session_start();
 
-require"./config/database.php";
+require"../config/database.php";
 
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-
 </head>
 
 <body>
@@ -28,7 +24,7 @@ require"./config/database.php";
 
             
             <h2 class="flex justify-center md:justify-start  text-3xl font-semibold text-gray-500 dark:text-white">
-                <img class="w-8 h-8 mr-2" src="./images/neptune.png" alt="logo">
+                <img class="w-8 h-8 mr-2" src="../images/neptune.png" alt="logo">
                 Portfolio Web</h2>
                 
                 

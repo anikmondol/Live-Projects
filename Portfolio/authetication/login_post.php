@@ -1,7 +1,7 @@
 <?php
 
 
-require "./config/database.php";
+require"../config/database.php";
 session_start();
 
 
@@ -87,9 +87,10 @@ if (isset($_POST["submit_btn"])) {
 
             $_SESSION['auth_id'] = $user['id'];
             $_SESSION['auth_name'] = $user['name'];
+            $_SESSION['team_name'] = $user['name'];
             $_SESSION['auth_email'] = $user['email'];
 
-            header("location: ./dashboard/home.php");
+            header("location: ../dashboard/home/home.php");
 
         } else {
             $_SESSION['login_error'] = "credential doesn't match";

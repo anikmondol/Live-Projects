@@ -3,7 +3,13 @@
 session_start();
 
 
-require "./config/database.php";
+require"../config/database.php";
+
+if (isset($_SESSION['auth_id'])) {
+    header("location: ../dashboard/home/home.php");
+}
+
+
 
 ?>
 
@@ -22,7 +28,7 @@ require "./config/database.php";
 
         <div class=" bg-gradient-to-r from-red-100 to-blue-200  flex flex-col items-center justify-center px-6 py-8 mx-auto h-screen">
             <p class="flex items-center mb-6 text-3xl font-semibold text-gray-500 dark:text-white">
-                <img class="w-8 h-8 mr-2" src="./images/neptune.png" alt="logo">
+                <img class="w-8 h-8 mr-2" src="../images/neptune.png" alt="logo">
                 Portfolio Web
             <p class="text-center  lg:w-2/4 mb-4 ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo voluptatum sed dolore, fuga quis expedita.Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo voluptatum sed dolore, fuga quis expedita.</p>
             </p>
@@ -108,7 +114,7 @@ require "./config/database.php";
 
                         <p class="text-base font-light text-gray-500 dark:text-gray-400">
                             Please enter your credentials to create an account.
-                            Already have an account? <a href="./register.php" class="hover:underline hover:text-green-600 text-base font-semibold">Sign up</a>
+                            Already have an account? <a href="./register.php" class="hover:underline hover:text-green-600 text-base font-semibold">Sign In</a>
                         </p>
                     </form>
                 </div>

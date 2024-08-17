@@ -121,16 +121,24 @@ if (isset($_POST["submit_btn"])) {
         header("location: register.php");
     }
 
-
-    if ($flag) {
-        echo "khrap";
-    } else {
-        $encrypted_pass = sha1($password);
-        $insert_data = "INSERT INTO users (name, email, password) VALUES ('$username', '$email', '$encrypted_pass')";
-        mysqli_query($connect_db, $insert_data);
-        $_SESSION['successful'] = "Register Successful!!";
-        $_SESSION['successful_email'] = "$email";
-        $_SESSION['successful_password'] = "$password";
-        header("location: login.php");
-    }
+ // duplicate email validation
+ $email_query = "SELECT COUNT(*) AS result FROM `users` WHERE email='$email'";
+ $connect = mysqli_query($connect_db, $email_query);
+ $result = mysqli_fetch_assoc($connect)['result'];
+ if ($flag) {
+     echo "wrong";
+ } else {
+     if ($result > 0) {
+         $_SESSION['duplicate'] = "email is duplicate !!";
+         header("location: register.php");
+     } else {
+         $encrypt_pass = sha1($password);
+         $createQuery = "INSERT INTO `users`( name, email, password) VALUES ('$name', '$email', '$encrypt_pass')";
+         mysqli_query($connect_db, $createQuery);
+         $_SESSION['register_success'] = "Registration Complete !!";
+         $_SESSION['register_email'] = "$email";
+         $_SESSION['register_password'] = "$password";
+         header("location: login.php");
+     }
+ }
 }

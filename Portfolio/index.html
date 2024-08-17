@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Web</title>
+
+
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <!-- font -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <!-- daisyUI link and tailwind css link -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+
+    <!-- google font link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+
+    <!-- flowbite css link -->
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css" rel="stylesheet" />
+
+
+    <!-- flowbite js link -->
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
+
+    <!-- custom css file link -->
+    <link rel="stylesheet" href="styles/index.css">
+
+
+
+</head>
+
+<body class="container ">
+    <header>
+
+        <nav class="shadow-2xl">
+            <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+                <a class="flex items-center space-x-3 rtl:space-x-reverse">
+                    <span class="self-center text-xl md:text-2xl font-bold whitespace-nowrap text-[#FFFFFF]">Anik Mondal</span>
+                </a>
+                <div class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+                    <button type="button"
+                        class="flex text-sm rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+                        id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown"
+                        data-dropdown-placement="bottom">
+                        <span class="sr-only">Open user menu</span>
+                        <img class="w-10 h-10 rounded-full" src="front_assets/blog/comment_avatar01.jpg" alt="user photo">
+                    </button>
+                    <!-- Dropdown menu -->
+                    <div class="z-50 hidden my-4 text-base list-none divide-y divide-gray-100 shadow-2xl bg-white"
+                        id="user-dropdown" style="background-color: aliceblue !important;">
+                        <div class="px-4 py-3 bg-white">
+                            <span class="block text-sm text-gray-900 dark:text-white">Bonnie Green</span>
+                            <span
+                                class="block text-sm  text-gray-500 truncate dark:text-gray-400">name@flowbite.com</span>
+                        </div>
+                        <ul class="py-2 bg-white" aria-labelledby="user-menu-button">
+                            <li>
+                                <a href="#"
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Dashboard</a>
+                            </li>
+                            <li>
+                                <a href="#"
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Settings</a>
+                            </li>
+                            <li>
+                                <a href="#"
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Earnings</a>
+                            </li>
+                            <li>
+                                <a href="#"
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign
+                                    out</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <button data-collapse-toggle="navbar-user" type="button"
+                        class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                        aria-controls="navbar-user" aria-expanded="false">
+                        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 17 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M1 1h15M1 7h15M1 13h15" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-user">
+                    <ul
+                        class="flex flex-col font-medium p-4 md:p-0 mt-4 border  rounded-lg  md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 text-white">
+                        <li>
+                            <a href="#"
+                                class="block py-2 px-3 text-white  rounded md:bg-transparent md:p-0 hover:text-[#8CC090] font-bold duration-500"
+                                aria-current="page">Home</a>
+                        </li>
+                        <li>
+                            <a href="#"
+                                class="block py-2 px-3 text-white  rounded md:bg-transparent md:p-0 hover:text-[#8CC090] duration-500 font-bold"
+                                aria-current="page">About</a>
+                        </li>
+                        <li>
+                            <a href="#"
+                                class="block py-2 px-3 text-white  rounded md:bg-transparent md:p-0 hover:text-[#8CC090] font-bold duration-500"
+                                aria-current="page">Services</a>
+                        </li>
+                        <li>
+                            <a href="#"
+                                class="block py-2 px-3 text-white  rounded md:bg-transparent md:p-0 hover:text-[#8CC090] font-bold duration-500"
+                                aria-current="page">Portfolio</a>
+                        </li>
+                        <li class="flex md:hidden lg:flex">
+                            <a href="#"
+                                class="block py-2 px-3 text-white  rounded md:bg-transparent md:p-0 hover:text-[#8CC090] font-bold duration-500"
+                                aria-current="page">Contact</a>
+                        </li>
+                        <li class="flex md:hidden lg:flex">
+                            <a href="#"
+                                class="block py-2 px-3 text-white   rounded md:bg-transparent md:p-0 hover:text-[#8CC090] font-bold duration-500"
+                                aria-current="page">Login/Register</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    </header>
+    <main>
+        <!-- hero section -->
+        <section class="hero min-h-screen py-16">
+            <div class="hero-content flex-col lg:flex-row-reverse gap-10 md:gap-0 justify-center">
+                <div class="lg:w-5/12 relative flex justify-center items-center">
+                    <div class="sipner-img mx-auto">
+                        <img class="" src="./front_assets/shape/dot_circle.png" alt="">
+                    </div>
+                    <div class="absolute banner-man-image">
+                        <img src="./front_assets/banner/banner_img.png" />
+                    </div>
+                    
+                </div>
+                <div class="ld:w-7/12 space-y-4 mt-4 md:mt-0">
+                    <h4 class="text-2xl lg:text-3xl font-bold text-[#8CC090]" style="font-style: italic;">Hello!</h4>
+                    <h1 class="text-4xl lg:text-7xl font-semibold lg:font-black text-gray-200 my-2" style="font-style: italic;">I am Anik
+                        Mondal</h1>
+                    <p class=" text-gray-400 font-medium mb-3">
+                        I'm Will I am Anik Mondal , professional web developer with long time experience in this <br> field​. With a strong foundation in HTML, CSS, and JavaScript
+
+                    </p>
+                    <div class="my-5 flex gap-4">
+                        <a href="">
+                            <button type="button"
+                                class="text-cyan-400 border-2 border-[#8CC090] hover:border-red-500 hover:text-white rounded-full px-4 py-3 text-center duration-500">
+                                <i class="fa-brands fa-facebook text-2xl"></i>
+                            </button>
+                        </a>
+                        <a href="">
+                            <button type="button"
+                                class="text-cyan-400 border-2 border-[#8CC090] hover:border-red-500 hover:text-white rounded-full px-4 py-3 text-center duration-500">
+                                <i class="fa-brands fa-github text-2xl"></i>
+                            </button>
+                        </a>
+                        <a href="">
+                            <button type="button"
+                                class="text-cyan-400 border-2 border-[#8CC090] hover:border-red-500 hover:text-white rounded-full px-4 py-3 text-center duration-500">
+                                <i class="fa-brands fa-linkedin text-2xl"></i>
+                            </button>
+                        </a>
+                        <a href="">
+                            <button type="button"
+                                class="text-cyan-400 border-2 border-[#8CC090] hover:border-red-500 hover:text-white rounded-full px-4 py-3 text-center duration-500">
+                                <i class="fa-brands fa-whatsapp text-2xl"></i>
+                            </button>
+                        </a>
+                    </div>
+                    <div>
+                        <button
+                            class="btn text-base text-gray-500 hover:text-gray-800 border-2 duration-1000 hover:border-cyan-400">SEE
+                            PORTFOLIO </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- about -->
+        <!-- <div class="hero bg-[#152136] min-h-screen shadow-2xl">
+            <div class="hero-content flex-col lg:flex-row">
+              <img
+                src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp"
+                class="max-w-sm rounded-lg shadow-2xl" />
+              <div>
+                <h4 class="text-xl lg:text-3xl font-bold text-[#8CC090]" style="font-style: italic;">Hello!</h4>
+                    <h1 class="text-4xl font-black text-gray-200 my-2" style="font-style: italic;">I am Anik
+                        Mondal</h1>
+                    <p class=" text-gray-400 font-medium mb-3">
+                        I'm Will I am Anik Mondal , professional web developer with long time experience in this field​.
+                    </p>
+                <button class="btn btn-primary">Get Started</button>
+              </div>
+            </div>
+          </div> -->
+    </main>
+    <footer>
+
+    </footer>
+</body>
+
+
+</html>

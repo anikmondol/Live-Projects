@@ -71,6 +71,13 @@ require"../config/database.php";
                     unset($_SESSION["email_error"]); ?>
                     <!-- email error end -->
 
+                     <!-- duplicate error start -->
+                     <?php if (isset($_SESSION["duplicate"])) {
+                    ?>
+                        <div id="emailHelp" class="form-text m-b-md text-red-400"> <?php echo $_SESSION["duplicate"]; ?> *</div>
+                    <?php }
+                    unset($_SESSION["duplicate"]); ?>
+                    <!-- duplicate error end -->
 
 
                     <div>

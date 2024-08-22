@@ -1,14 +1,12 @@
-
-
-body{
+body {
     font-family: "Montserrat", sans-serif;
-    background: #152136 !important; 
+    background: #152135 !important;
 }
 
-.sipner-img{
-    animation: spin 15s linear 1.9s infinite;
+.sipner-img {
+    animation: spin 1s linear 1s infinite;
     width: 100%;
-    height:100%;
+    height: 100%;
 }
 
 
@@ -16,40 +14,53 @@ body{
     0% {
         transform: rotate(0deg);
     }
+
     25% {
         transform: rotate(100deg);
     }
+
     50% {
         transform: rotate(180deg);
     }
+
     100% {
         transform: rotate(360deg);
     }
 }
-.banner-man-image{
-    top: -118px;
 
+.banner-man-image {
+    top: -118px;
+    max-width: 215px;
 }
 
+
+/* mobile device */
 
 
 @media screen and (max-width: 576px) {
-    .banner-man-image{
+
+    /* banner */
+    .banner-man-image {
         top: -80px;
         max-width: 215px;
     }
-    .sipner-img{
+
+    .sipner-img {
         animation: spin 15s linear 1.9s infinite;
         width: 60%;
-        height:60%;
+        height: 60%;
     }
-    
 
 
 }
 
+/* tablet device */
+
+
 @media screen and (min-width: 576px) and (max-width: 992px) {
-    .banner-man-image{
+
+    /* banner */
+    .banner-man-image {
         top: -50px;
         max-width: 500px;
     }

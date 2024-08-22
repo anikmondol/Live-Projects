@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 
 <head>
     <meta charset="UTF-8">
@@ -41,17 +41,16 @@
     <!-- custom css file link -->
     <link rel="stylesheet" href="styles/index.css">
 
-
-
 </head>
 
-<body class="container ">
+<body>
     <header>
 
         <nav class="shadow-2xl">
             <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
                 <a class="flex items-center space-x-3 rtl:space-x-reverse">
-                    <span class="self-center text-xl md:text-2xl font-bold whitespace-nowrap text-[#FFFFFF]">Anik Mondal</span>
+                    <span class="self-center text-xl md:text-2xl font-bold whitespace-nowrap text-[#FFFFFF]">Anik
+                        Mondal</span>
                 </a>
                 <div class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
                     <button type="button"
@@ -59,7 +58,8 @@
                         id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown"
                         data-dropdown-placement="bottom">
                         <span class="sr-only">Open user menu</span>
-                        <img class="w-10 h-10 rounded-full" src="front_assets/blog/comment_avatar01.jpg" alt="user photo">
+                        <img class="w-10 h-10 rounded-full" src="front_assets/blog/comment_avatar01.jpg"
+                            alt="user photo">
                     </button>
                     <!-- Dropdown menu -->
                     <div class="z-50 hidden my-4 text-base list-none divide-y divide-gray-100 shadow-2xl bg-white"
@@ -140,23 +140,25 @@
     </header>
     <main>
         <!-- hero section -->
-        <section class="hero min-h-screen py-16">
-            <div class="hero-content flex-col lg:flex-row-reverse gap-10 md:gap-0 justify-center">
-                <div class="lg:w-5/12 relative flex justify-center items-center">
+        <section class="hero min-h-screen pt-16 lg:py-16">
+            <div class="hero-content flex-col lg:flex-row-reverse gap-10 md:gap-0 justify-between">
+                <div class="lg:w-4/12 relative flex justify-center items-center">
                     <div class="sipner-img mx-auto">
                         <img class="" src="./front_assets/shape/dot_circle.png" alt="">
                     </div>
                     <div class="absolute banner-man-image">
                         <img src="./front_assets/banner/banner_img.png" />
                     </div>
-                    
                 </div>
-                <div class="ld:w-7/12 space-y-4 mt-4 md:mt-0">
-                    <h4 class="text-2xl lg:text-3xl font-bold text-[#8CC090]" style="font-style: italic;">Hello!</h4>
-                    <h1 class="text-4xl lg:text-7xl font-semibold lg:font-black text-gray-200 my-2" style="font-style: italic;">I am Anik
+                <div class="lg:w-8/12 space-y-5 mt-4 md:mt-0">
+                    <h4 class="text-xl lg:text-3xl font-bold text-[#8CC090] mt-3 md:mt-0" style="font-style: italic;">
+                        Hello!</h4>
+                    <h1 class="text-4xl lg:text-7xl font-semibold lg:font-black text-gray-200 my-2"
+                        style="font-style: italic;">I am Anik
                         Mondal</h1>
                     <p class=" text-gray-400 font-medium mb-3">
-                        I'm Will I am Anik Mondal , professional web developer with long time experience in this <br> field​. With a strong foundation in HTML, CSS, and JavaScript
+                        I'm Will I am Anik Mondal , professional web developer with long time experience in this <br>
+                        field​. With a strong foundation in HTML, CSS, and JavaScript
 
                     </p>
                     <div class="my-5 flex gap-4">
@@ -187,29 +189,54 @@
                     </div>
                     <div>
                         <button
-                            class="btn text-base text-gray-500 hover:text-gray-800 border-2 duration-1000 hover:border-cyan-400">SEE
+                            class="btn text-base text-gray-500 hover:text-red-400 border-2 duration-1000 hover:border-cyan-400 hover:shadow-xl">SEE
                             PORTFOLIO </button>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- about -->
-        <!-- <div class="hero bg-[#152136] min-h-screen shadow-2xl">
-            <div class="hero-content flex-col lg:flex-row">
-              <img
-                src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp"
-                class="max-w-sm rounded-lg shadow-2xl" />
-              <div>
-                <h4 class="text-xl lg:text-3xl font-bold text-[#8CC090]" style="font-style: italic;">Hello!</h4>
-                    <h1 class="text-4xl font-black text-gray-200 my-2" style="font-style: italic;">I am Anik
-                        Mondal</h1>
+        <!-- about section-->
+        <section class="hero min-h-screen py-5 lg:py-16">
+            <div class="hero-content flex-col lg:flex-row-reverse gap-10 md:gap-4 justify-between">
+                <div class="lg:w-7/12 space-y-4 mt-4 md:mt-0">
+                    <h4 class="text-xl lg:text-xl font-bold text-[#8CC090]" style="font-style: italic;">Introduction
+                    </h4>
+                    <h3 class="text-2xl lg:text-4xl font-semibold lg:font-black text-yellow-50 my-2"
+                        style="font-style: italic;">About Me</h3>
                     <p class=" text-gray-400 font-medium mb-3">
-                        I'm Will I am Anik Mondal , professional web developer with long time experience in this field​.
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum, sed repudiandae odit deserunt,
+                        quas quibusdam necessitatibus nesciunt eligendi esse sit non reprehenderit quisquam asperiores
+                        maxime blanditiis culpa vitae velit. Numquam!
+
                     </p>
-                <button class="btn btn-primary">Get Started</button>
-              </div>
+                    <h5 class="text-[18px] font-black text-yellow-50">Education :</h5>
+                    <div class="flex flex-col md:flex-row md:items-center md:gap-5 space-y-2">
+                        <h4 class="text-xl font-bold text-yellow-50">2020</h4>
+                        <div class="w-10">
+                            <hr>
+                        </div>
+                        <div>
+                            <p>PHD of Interaction Design & Animation</p>
+                            <progress class="progress progress-success w-56" value="70" max="100"></progress>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="lg:w-5/12 relative md:flex md:justify-center items-center">
+                    <div class="sipner-img mx-auto hidden md:flex">
+                        <img class="" src="./front_assets/shape/dot_circle.png" alt="">
+                    </div>
+                    <div class="about-man-image md:absolute mx-auto">
+                        <img src="./front_assets/banner/banner_img2.png" />
+                    </div>
+
+                </div>
             </div>
-          </div> -->
+        </section>
+
+
+
     </main>
     <footer>
 

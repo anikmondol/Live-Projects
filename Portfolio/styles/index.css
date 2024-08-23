@@ -10,6 +10,7 @@ body {
 }
 
 
+
 @keyframes spin {
     0% {
         transform: rotate(0deg);
@@ -32,6 +33,20 @@ body {
     top: -80px;
     max-width: 450px;
 }
+
+.service-card:hover .service-shape {
+    transform: scale(1);
+    transition: all .5s ease-in-out;
+}
+
+.service-card:hover .service-shape {
+    color: rgb(14, 111, 196);
+    transform:  rotateY(360deg);
+}
+
+
+
+
 
 
 /* mobile device */

@@ -14,19 +14,27 @@ document.addEventListener('DOMContentLoaded', function () {
     //   loop: true,
     //   effect: "cube"
     // });
-  
+
     // Team slider
-  
-    var swiper = new Swiper(".mySwiper", {
+
+    var swiper = new Swiper(".mySwiper1", {
         loop: true,
         navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
         },
-      });
-  
+    });
+
+
+    var swiper = new Swiper(".mySwiper2", {
+        slidesPerView: 5,
+        spaceBetween: 40,
+        freeMode: true,
+        loop: true
+    });
+
     // service
-  
+
     // var serviceSwiper = new Swiper(".serviceSwiper", {
     //   slidesPerView: 3,
     //   spaceBetween: 40,
@@ -36,6 +44,5 @@ document.addEventListener('DOMContentLoaded', function () {
     //     prevEl: ".swiper-button-prev",
     //   },
     // });
-    
-  });
-  
+
+});

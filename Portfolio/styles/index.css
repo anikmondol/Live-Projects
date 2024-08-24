@@ -4,7 +4,7 @@ body {
 }
 
 .sipner-img {
-    animation: spin 90s linear  infinite;
+    animation: spin 90s linear infinite;
     width: 90%;
     height: 98%;
 }
@@ -34,6 +34,8 @@ body {
     max-width: 450px;
 }
 
+/* service */
+
 .service-card:hover .service-shape {
     transform: scale(1);
     transition: all .5s ease-in-out;
@@ -41,12 +43,34 @@ body {
 
 .service-card:hover .service-shape {
     color: rgb(14, 111, 196);
-    transform:  rotateY(360deg);
+    transform: rotateY(360deg);
 }
 
+/* achievement */
 
+.achievement-shape:hover .achievement-icon {
+    transform: scale(1);
+    transition: all .5s ease-in-out;
+}
 
+.achievement-shape:hover .achievement-icon {
+    color: rgb(14, 111, 196);
+    transform: rotateY(360deg);
+}
 
+/* swiperjs btn */
+
+.service-nav{
+    height: 55px !important;
+    width: 55px !important;
+    border-radius: 50%;
+    background-color: rgb(167, 237, 237);
+}
+
+.service-nav::after{
+    font-size: 20px !important;
+    color: white !important;
+}
 
 
 /* mobile device */
@@ -61,10 +85,46 @@ body {
     }
 
     .sipner-img {
-        animation: spin 90s linear  infinite;
-       width: 200px;
+        animation: spin 90s linear infinite;
+        width: 200px;
         height: 60%;
     }
+
+    .service-card:hover .service-shape {
+        transform: scale(1);
+        transition: all .5s ease-in-out;
+    }
+
+    .service-card:hover .service-shape {
+        color: rgb(14, 111, 196);
+        transform: rotateX(360deg);
+    }
+
+    /* achievement */
+
+    .achievement-shape:hover .achievement-icon {
+        transform: scale(1);
+        transition: all .5s ease-in-out;
+    }
+
+    .achievement-shape:hover .achievement-icon {
+        color: rgb(14, 111, 196);
+        transform: rotateY(360deg);
+    }
+
+    /* swiperjs btn */
+
+.service-nav{
+    height: 40px !important;
+    width: 40px !important;
+    border-radius: 50%;
+    background-color: rgb(167, 237, 237);
+}
+
+.service-nav::after{
+    font-size: 16px !important;
+    color: white !important;
+}
 
 
 }
@@ -79,4 +139,11 @@ body {
         top: -50px;
         max-width: 500px;
     }
+
+      /* banner */
+      .about-man-image {
+        top: 40px;
+        max-width: 500px;
+    }
+
 }

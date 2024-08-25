@@ -31,7 +31,7 @@ body {
 
 .banner-man-image {
     top: -80px;
-    max-width: 450px;
+    max-width: 400px;
 }
 
 /* service */
@@ -70,6 +70,29 @@ body {
 .service-nav::after{
     font-size: 20px !important;
     color: white !important;
+}
+
+/* tablet device */
+
+
+@media screen and (max-width: 992px) {
+
+    .banner-man-image {
+        top: -70px;
+        max-width: 300px;
+    }
+      /* banner */
+      .about-man-image {
+        top: 40px;
+        max-width: 300px;
+    }
+
+    .sipner-img {
+        animation: spin 90s linear infinite;
+        width: 60%;
+        height: 68%;
+    }
+
 }
 
 
@@ -129,21 +152,3 @@ body {
 
 }
 
-/* tablet device */
-
-
-@media screen and (min-width: 576px) and (max-width: 992px) {
-
-    /* banner */
-    .banner-man-image {
-        top: -50px;
-        max-width: 500px;
-    }
-
-      /* banner */
-      .about-man-image {
-        top: 40px;
-        max-width: 500px;
-    }
-
-}

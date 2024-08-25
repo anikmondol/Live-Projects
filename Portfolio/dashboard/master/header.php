@@ -9,10 +9,17 @@ if (!isset($_SESSION['auth_id'])) {
 }
 
 $explode = explode('/', $_SERVER['PHP_SELF']);
-
 $link = end($explode);
 
+
+$id = $_SESSION['auth_id'];
+$user_query = "SELECT * FROM users WHERE id='$id'";
+$user_connect = mysqli_query($connect_db, $user_query);
+$user = mysqli_fetch_assoc($user_connect);
+
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,21 +42,17 @@ $link = end($explode);
                 </h2>
             </div>
             <div class="py-2 px-5 mb-2 flex items-center ">
-                <div class="avatar online placeholder ">
-                    <div class="bg-cyan-200 text-neutral-content w-10 rounded-full ">
-                        <span class="text-xl text-purple-500">
-                            <?php
-                            $string = ucfirst($_SESSION['auth_name']);
-                            $firstTwoChars = substr($string, 0, 2);
-                            echo $firstTwoChars;
-                            ?>
-                        </span>
+                <div class="avatar online">
+                    <div class="w-12 rounded-full">
+                        <?php if ($user['image'] == 'default.webp'): ?>
+                            <img src="../../public/default/<?= $user['image'] ?>">
+                        <?php else : ?>
+                            <img src="../../public/profile/<?= $user['image'] ?>">
+                        <?php endif; ?>
                     </div>
                 </div>
                 <div class="pl-3">
-                    <h2 class="text-xl font-medium">
-                        <?= ucfirst($_SESSION['auth_name']); ?>
-                    </h2>
+                    <?= $_SESSION['auth_name']; ?>
                 </div>
             </div>
             <div class="flex flex-col flex-auto gap-4 md:gap-5 mx-3">
@@ -76,6 +79,14 @@ $link = end($explode);
                         <h1 class="font-normal text-green-7000 text-sm lg:text-xl"><a href="../profile/profile.php">Setting</a></h1>
                     </div>
                 </div>
+
+                <div class="p-3 px-5 <?= ($link == 'links.php') ? 'bg-slate-200 hover:bg-slate-200' : '' ?> hover:bg-green-200 rounded">
+                    <div class="flex flex-row space-x-3 items-center">
+                        <i class="fa-solid fa-link font-normal text-gray-500 text-sm lg:text-xl"></i>
+                        <h1 class="font-normal text-green-7000 text-sm lg:text-xl"><a href="../links/links.php">Links</a></h1>
+                    </div>
+                </div>
+                
                 <div class="p-3 px-5 <?= ($link == '') ? 'bg-slate-200 hover:bg-slate-200' : '' ?> hover:bg-green-200 rounded">
                     <div class="flex flex-row space-x-3 items-center">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6  text-green-700">

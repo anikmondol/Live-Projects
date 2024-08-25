@@ -51,8 +51,7 @@ include "../../config/database.php";
     </section>
 
     <section>
-        <div class="grid lg:grid-cols-3 sm-grid-cols gap-[25px] px-[18px] py-4">
-
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-[25px] px-[18px] py-4">
             <!-- name update -->
             <div class="card flex items-center p-4 justify-between bg-red-50 rounded shadow-lg" style="overflow-y: scroll; height: 300px;">
                 <div class="font-bold">
@@ -78,6 +77,7 @@ include "../../config/database.php";
                                 <div id="emailHelp" class="form-text text-success text-base mt-3"><?= $_SESSION["name_update"] ?></div>
                             <?php endif;
                             unset($_SESSION["name_update"]); ?>
+                            <!-- name update end -->
 
                             <div>
                                 <button type="submit" name="name_btn" class="btn btn-primary my-3"><i class="fa-solid fa-rotate-right" style="color: #ffffff;"></i>Update</button>
@@ -148,9 +148,9 @@ include "../../config/database.php";
                             <?php endif;
                             unset($_SESSION["old_password_update"]); ?>
                             <!-- old_password_update end -->
-                                <br>
+                            <br>
                             <label class="pb-4 font-medium">New Password</label>
-                           <br>
+                            <br>
                             <input type="text" name="new_password" placeholder="Type here" class="input input-bordered w-full max-w-xs my-4" />
 
                             <!-- new_pass_error start -->
@@ -214,6 +214,43 @@ include "../../config/database.php";
                     </form>
                 </div>
             </div>
+
+             <!-- Image update -->
+             <div class="card flex items-center p-4 justify-between bg-red-50 rounded shadow-lg" style="overflow-y: scroll; height: 300px;">
+                <div class="font-bold">
+                    USER-IMAGE
+                </div>
+                <div>
+                <form action="update.php" method="post" enctype="multipart/form-data">
+                        <div>
+                            <label class="pb-4 font-medium">UserImage</label>
+                            <input type="file" name="image"  class="input input-bordered w-full max-w-xs my-4 pt-2" />
+
+                        <!-- image error start -->
+                        <?php if (isset($_SESSION["image_error"])) :
+                            ?>
+                                <div id="emailHelp" class="form-text text-red-400 text-base mt-3"><?= $_SESSION["image_error"] ?></div>
+                            <?php endif;
+                            unset($_SESSION["image_error"]); ?>
+                            <!-- image error end -->
+
+                            <!-- image update start -->
+                            <?php if (isset($_SESSION["image_update"])) :
+                            ?>
+                                <div id="emailHelp" class="form-text text-success text-base mt-3"><?= $_SESSION["image_update"] ?></div>
+                            <?php endif;
+                            unset($_SESSION["image_update"]); ?>
+                             <!-- image update start -->
+
+                            <div>
+                                <button type="submit" name="image_btn" class="btn btn-primary my-3"><i class="fa-solid fa-rotate-right" style="color: #ffffff;"></i>Update</button>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+
         </div>
     </section>
 

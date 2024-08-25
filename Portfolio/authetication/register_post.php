@@ -133,7 +133,7 @@ if (isset($_POST["submit_btn"])) {
          header("location: register.php");
      } else {
          $encrypt_pass = sha1($password);
-         $createQuery = "INSERT INTO `users`( name, email, password) VALUES ('$name', '$email', '$encrypt_pass')";
+         $createQuery = "INSERT INTO `users`(name, email, password) VALUES ('$username', '$email', '$encrypt_pass')";
          mysqli_query($connect_db, $createQuery);
          $_SESSION['register_success'] = "Registration Complete !!";
          $_SESSION['register_email'] = "$email";

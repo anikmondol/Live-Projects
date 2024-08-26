@@ -53,7 +53,7 @@ include "../../config/database.php";
     <section>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-[25px] px-[18px] py-4">
             <!-- name update -->
-            <div class="card flex items-center p-4 justify-between bg-red-50 rounded shadow-lg" style="overflow-y: scroll; height: 300px;">
+            <div class="card flex items-center p-4 justify-between bg-red-50 rounded shadow-lg" style="overflow-y: scroll; height: 280px;">
                 <div class="font-bold">
                     USER-NAME
                 </div>
@@ -89,7 +89,7 @@ include "../../config/database.php";
             </div>
 
             <!-- email update -->
-            <div class="card flex items-center p-4 justify-between bg-red-50 rounded shadow-lg" style="overflow-y: scroll; height: 300px;">
+            <div class="card flex items-center p-4 justify-between bg-red-50 rounded shadow-lg" style="overflow-y: scroll; height: 280px;">
                 <div class="font-bold">
                     USER-EMAIL
                 </div>
@@ -123,7 +123,7 @@ include "../../config/database.php";
             </div>
 
             <!-- password update -->
-            <div class="card flex items-center p-4 justify-between bg-red-50 rounded shadow-lg" style="overflow-y: scroll; height: 300px;">
+            <div class="card flex items-center p-4 justify-between bg-red-50 rounded shadow-lg" style="overflow-y: scroll; height: 280px;">
                 <div class="font-bold mb-16">
                     USER-PASSWORD
                 </div>
@@ -216,7 +216,7 @@ include "../../config/database.php";
             </div>
 
              <!-- Image update -->
-             <div class="card flex items-center p-4 justify-between bg-red-50 rounded shadow-lg" style="overflow-y: scroll; height: 300px;">
+             <div class="card flex items-center p-4 justify-between bg-red-50 rounded shadow-lg" style="overflow-y: scroll; height: 280px;">
                 <div class="font-bold">
                     USER-IMAGE
                 </div>

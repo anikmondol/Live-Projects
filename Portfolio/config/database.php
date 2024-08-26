@@ -11,7 +11,8 @@ $connect_db = mysqli_connect("localhost", "root", "", "Portfolio");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Web</title>
+    
+   
 
 
     <!-- font awesome -->

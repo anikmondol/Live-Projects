@@ -15,7 +15,6 @@ if (isset($_SESSION['auth_id'])) {
     $link_query = "SELECT * FROM links WHERE user_id='$id'";
     $link_connect = mysqli_query($connect_db, $link_query);
     $link = mysqli_fetch_assoc($link_connect);
-
 }
 
 
@@ -29,7 +28,9 @@ if (isset($_SESSION['auth_id'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Web</title>
+    <title>Portfolio_Front</title>
+    <link rel="shortcut icon" href="./neptune.png" type="image/x-icon">
+    
 
 
     <!-- font awesome -->
@@ -73,9 +74,9 @@ if (isset($_SESSION['auth_id'])) {
 </head>
 
 <body>
-    <header class="shadow-2xl">
-        <nav class="xl:max-w-[1280px] mx-auto">
-            <div class="flex flex-wrap items-center justify-between p-4 container mx-auto">
+    <header id="header" class="shadow-2xl transition-all duration-500 top-0 left-0 right-0 z-10">
+        <nav class="">
+            <div class="flex flex-wrap items-center justify-between py-4 mx-auto xl:max-w-[1280px] ">
                 <a class="flex items-center space-x-3 rtl:space-x-reverse">
                     <span
                         class="self-center text-xl md:text-[22px] font-bold whitespace-nowrap text-[#FFFFFF]">Portfolio</span>
@@ -131,35 +132,43 @@ if (isset($_SESSION['auth_id'])) {
                     <ul
                         class="flex flex-col font-medium p-4 md:p-0 mt-4 border  rounded-lg  md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 text-white">
                         <li>
-                            <a href="#"
+                            <a href="#hero"
                                 class="block py-2 px-3 text-white  rounded md:bg-transparent md:p-0 hover:text-[#8CC090] font-bold duration-500"
                                 aria-current="page">Home</a>
                         </li>
                         <li>
-                            <a href="#"
+                            <a href="#about"
                                 class="block py-2 px-3 text-white  rounded md:bg-transparent md:p-0 hover:text-[#8CC090] duration-500 font-bold"
                                 aria-current="page">About</a>
                         </li>
                         <li>
-                            <a href="#"
+                            <a href="#services"
                                 class="block py-2 px-3 text-white  rounded md:bg-transparent md:p-0 hover:text-[#8CC090] font-bold duration-500"
                                 aria-current="page">Services</a>
                         </li>
                         <li>
-                            <a href="#"
+                            <a href="#portfolio"
                                 class="block py-2 px-3 text-white  rounded md:bg-transparent md:p-0 hover:text-[#8CC090] font-bold duration-500"
                                 aria-current="page">Portfolio</a>
                         </li>
                         <li class="flex md:hidden lg:flex">
-                            <a href="#"
+                            <a href="#contact"
                                 class="block py-2 px-3 text-white  rounded md:bg-transparent md:p-0 hover:text-[#8CC090] font-bold duration-500"
                                 aria-current="page">Contact</a>
                         </li>
+                        <?php if (isset($_SESSION['auth_id'])) : ?>
                         <li class="flex md:hidden lg:flex">
+                            <a href="./authetication/login.php"
+                                class="block py-2 px-3 text-white   rounded md:bg-transparent md:p-0 hover:text-[#8CC090] font-bold duration-500"
+                                aria-current="page">Dashboard</a>
+                        </li>
+                        <?php else: ?>
+                            <li class="flex md:hidden lg:flex">
                             <a href="./authetication/login.php"
                                 class="block py-2 px-3 text-white   rounded md:bg-transparent md:p-0 hover:text-[#8CC090] font-bold duration-500"
                                 aria-current="page">Login/Register</a>
                         </li>
+                        <?php endif; ?>
                     </ul>
                 </div>
             </div>
@@ -167,7 +176,7 @@ if (isset($_SESSION['auth_id'])) {
     </header>
     <main>
         <!-- hero section -->
-        <section class="xl:max-w-[1280px] mx-auto py-16">
+        <section id="hero" class="xl:max-w-[1280px] mx-auto py-16 pt-36">
             <div class="hero-content flex-col lg:flex-row-reverse gap-10 md:gap-0 justify-between ">
                 <div class="lg:w-5/12 relative flex justify-center items-center">
                     <div class="sipner-img mx-auto">
@@ -194,25 +203,25 @@ if (isset($_SESSION['auth_id'])) {
                         field​. With a strong foundation in HTML, CSS, and JavaScript
                     </p>
                     <div class="my-5 flex gap-4">
-                        <a href="<?= $link['facebook'] ?>" target="_blank" >
+                        <a href="<?= $link['facebook'] ?>" target="_blank">
                             <button type="button"
                                 class="text-cyan-400 border-2 border-[#8CC090] hover:border-red-500 hover:text-white rounded-full px-4 py-3 text-center duration-500">
                                 <i class="fa-brands fa-facebook text-2xl"></i>
                             </button>
                         </a>
-                        <a href="<?= $link['github'] ?>" target="_blank" >
+                        <a href="<?= $link['github'] ?>" target="_blank">
                             <button type="button"
                                 class="text-cyan-400 border-2 border-[#8CC090] hover:border-red-500 hover:text-white rounded-full px-4 py-3 text-center duration-500">
                                 <i class="fa-brands fa-github text-2xl"></i>
                             </button>
                         </a>
-                        <a href="<?= $link['linkedin'] ?>" target="_blank" >
+                        <a href="<?= $link['linkedin'] ?>" target="_blank">
                             <button type="button"
                                 class="text-cyan-400 border-2 border-[#8CC090] hover:border-red-500 hover:text-white rounded-full px-4 py-3 text-center duration-500">
                                 <i class="fa-brands fa-linkedin text-2xl"></i>
                             </button>
                         </a>
-                        <a href="<?= $link['whatsapp'] ?>" target="_blank" >
+                        <a href="<?= $link['whatsapp'] ?>" target="_blank">
                             <button type="button"
                                 class="text-cyan-400 border-2 border-[#8CC090] hover:border-red-500 hover:text-white rounded-full px-4 py-3 text-center duration-500">
                                 <i class="fa-brands fa-whatsapp text-2xl"></i>
@@ -228,7 +237,7 @@ if (isset($_SESSION['auth_id'])) {
             </div>
         </section>
         <!-- about section-->
-        <section class="xl:max-w-[1280px] mx-auto py-16">
+        <section id="about" class="xl:max-w-[1280px] mx-auto py-16">
             <div class="hero-content flex-col lg:flex-row-reverse gap-10 md:gap-12 justify-between container mx-auto">
                 <div class="lg:w-7/12 space-y-4 mt-4 md:mt-0">
                     <h4 class="text-base lg:text-xl font-bold text-[#8CC090]" style="font-style: italic;">Introduction
@@ -293,7 +302,7 @@ if (isset($_SESSION['auth_id'])) {
             </div>
         </section>
         <!-- services -->
-        <section class="xl:max-w-[1280px] mx-auto py-16 px-4 md:px-8">
+        <section id="services" class="xl:max-w-[1280px] mx-auto py-16 px-4 md:px-8 lg:px-0">
             <h4 class="text-base lg:text-xl font-bold text-[#8CC090] text-center" style="font-style: italic;">WHAT WE DO
             </h4>
             <h3 class="text-2xl lg:text-4xl font-semibold lg:font-black text-yellow-50 my-1 text-center"
@@ -344,7 +353,7 @@ if (isset($_SESSION['auth_id'])) {
             </div>
         </section>
         <!-- portfolio -->
-        <section class="xl:max-w-[1280px] mx-auto py-16 px-4 md:px-8">
+        <section id="portfolio" class="xl:max-w-[1280px] mx-auto py-16 px-4 md:px-8 lg:px-0">
             <h4 class="text-base lg:text-xl font-bold text-[#8CC090] text-center" style="font-style: italic;">Portfolio
                 Showcase
             </h4>
@@ -430,8 +439,8 @@ if (isset($_SESSION['auth_id'])) {
             </div>
         </section>
         <!-- client -->
-        <section class="shadow-2xl bg-[#1a2435] ">
-            <div class="grid grid-cols-2 lg:grid-cols-4 justify-between gap-5 xl:max-w-[1280px] mx-auto py-16 px-4 md:px-8">
+        <section id="client" class="shadow-2xl bg-[#1a2435] ">
+            <div class="grid grid-cols-2 lg:grid-cols-4 justify-between gap-5 xl:max-w-[1280px] mx-auto py-16 px-4 md:px-8 lg:px-0">
                 <div class="text-center p-6 rounded-xl achievement-shape">
                     <div class="text-5xl text-[#8CC090] achievement-icon">
                         <i class="fa-solid fa-award"></i>
@@ -464,7 +473,7 @@ if (isset($_SESSION['auth_id'])) {
             </div>
         </section>
         <!-- testimonialSwiper -->
-        <section class="xl:max-w-[1280px] mx-auto py-16 px-4 md:px-8">
+        <section id="testimonial" class="xl:max-w-[1280px] mx-auto py-16 px-4 md:px-8 lg:px-0">
             <div>
                 <h4 class="text-sm md:text-xl font-bold text-[#8CC090] text-center uppercase"
                     style="font-style: italic;">testimonial
@@ -556,7 +565,7 @@ if (isset($_SESSION['auth_id'])) {
             </div>
         </section>
         <!-- sponsorship -->
-        <section class="hidden lg:flex shadow-2xl py-16 bg-[#1a2435] p-4">
+        <section id="sponsorship" class="hidden lg:flex shadow-2xl py-16 bg-[#1a2435] p-4">
             <!-- Swiper -->
             <div class="xl:max-w-[1280px] mx-auto md:px-8">
                 <div class="swiper mySwiper2">
@@ -595,8 +604,8 @@ if (isset($_SESSION['auth_id'])) {
                 </div>
             </div>
         </section>
-        <!-- Contact -->
-        <section class="xl:max-w-[1280px] mx-auto py-16 px-4 md:px-8">
+        <!-- contact -->
+        <section id="contact" class="xl:max-w-[1280px] mx-auto py-16 px-4 md:px-8 lg:px-0">
             <div class="flex flex-col lg:flex-row justify-between gap-10">
                 <div class="w-full lg:w-6/12">
                     <h4 class="text-sm md:text-base font-bold text-[#8CC090] uppercase" style="font-style: italic;">
@@ -642,9 +651,9 @@ if (isset($_SESSION['auth_id'])) {
                             <textarea name="" id="" placeholder="Your Message *"
                                 class="w-full h-[170px] py-5 pl-8 bg-[#19273E] text-[#9da5b3] outline-none text-[18px]"></textarea>
                         </div>
-                       <div>
-                        <button  class="py-2 font-medium px-8 border-[1px] text-yellow-50 hover:bg-slate-500 duration-1000 hover:border-slate-500"> Send </button>
-                       </div>
+                        <div>
+                            <button class="py-2 font-medium px-8 border-[1px] text-yellow-50 hover:bg-slate-500 duration-1000 hover:border-slate-500"> Send </button>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -656,7 +665,7 @@ if (isset($_SESSION['auth_id'])) {
 </body>
 
 <!-- ======== Custom js Link ======== -->
-<script src="./javascrip/custom.js"></script>
+<script src="./javascript/custom.js"></script>
 
 <!-- ======== Swiper js Link ======== -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -667,6 +676,32 @@ if (isset($_SESSION['auth_id'])) {
 
     // Set the year in the HTML
     document.getElementById('year').textContent = currentYear;
+
+
+    // Get the navbar element
+    const navbar = document.getElementById("header");
+
+    // Get the offset position of the navbar
+    const sticky = navbar.offsetTop + 200;
+
+    // Add the sticky class to the navbar when you reach its scroll position
+    // Remove the sticky class when you leave the scroll position
+    function stickyNavbar() {
+        console.log(window.pageYOffset);
+
+        if (window.pageYOffset >= sticky) {
+            navbar.classList.add("sticky");
+            navbar.classList.add("bg-blue-300");
+        } else {
+            navbar.classList.remove("sticky");
+            navbar.classList.remove("bg-blue-300");
+        }
+    }
+
+    // When the user scrolls the page, execute stickyNavbar
+    window.onscroll = function() {
+        stickyNavbar();
+    };
 </script>
 
 </html>

@@ -51,12 +51,12 @@ include "../../config/database.php";
     </section>
 
     <section>
-        <div class="grid grid-cols-1 w-1/2 mx-auto px-[18px] py-4">
+        <div class="grid grid-cols-1 md:w-1/2 mx-auto px-[18px] py-4">
             
 
             <!-- password update -->
             <div class="card flex items-center p-4 justify-between bg-red-50 rounded shadow-lg">
-                <div class="font-bold mb-16">
+                <div class="font-bold mb-8">
                     USER-PASSWORD
                 </div>
                 <div>

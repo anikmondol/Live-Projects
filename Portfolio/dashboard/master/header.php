@@ -26,6 +26,8 @@ $user = mysqli_fetch_assoc($user_connect);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio_Dashboard</title>
+    <link rel="shortcut icon" href="../../images/neptune.png" type="image/x-icon">
 </head>
 
 <body>
@@ -56,6 +58,14 @@ $user = mysqli_fetch_assoc($user_connect);
                 </div>
             </div>
             <div class="flex flex-col flex-auto gap-4 md:gap-5 mx-3">
+                <div class="p-3 px-5 hover:bg-green-200 rounded">
+                    <div class="flex flex-row space-x-3 items-center">
+                    <i class="fa-solid fa-globe font-normal text-gray-500 text-sm lg:text-xl"></i>
+                        <h1 class="font-normal text-gray-700 text-sm lg:text-xl">
+                            <a target="_blank" href="../../index.php">Web Site</a>
+                        </h1>
+                    </div>
+                </div>
                 <div class="p-3 px-5 <?= ($link == 'home.php') ? 'bg-slate-200 hover:bg-slate-200' : '' ?> hover:bg-green-200 rounded">
                     <div class="flex flex-row space-x-3 items-center">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" class="h-6 w-6  text-green-700">
@@ -79,31 +89,18 @@ $user = mysqli_fetch_assoc($user_connect);
                         <h1 class="font-normal text-green-7000 text-sm lg:text-xl"><a href="../profile/profile.php">Setting</a></h1>
                     </div>
                 </div>
-
                 <div class="p-3 px-5 <?= ($link == 'links.php') ? 'bg-slate-200 hover:bg-slate-200' : '' ?> hover:bg-green-200 rounded">
                     <div class="flex flex-row space-x-3 items-center">
                         <i class="fa-solid fa-link font-normal text-gray-500 text-sm lg:text-xl"></i>
                         <h1 class="font-normal text-green-7000 text-sm lg:text-xl"><a href="../links/links.php">Links</a></h1>
                     </div>
                 </div>
-                
-                <div class="p-3 px-5 <?= ($link == '') ? 'bg-slate-200 hover:bg-slate-200' : '' ?> hover:bg-green-200 rounded">
+                <div class="p-3 px-5 <?= ($link == 'services.php') ? 'bg-slate-200 hover:bg-slate-200' : '' ?> hover:bg-green-200 rounded">
                     <div class="flex flex-row space-x-3 items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6  text-green-700">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
-                        </svg>
-                        <h1 class="font-normal text-gray-700 text-sm lg:text-xl">Home</h1>
+                        <i class="fa-solid fa-hand-holding-medical font-normal text-gray-500 text-sm lg:text-xl"></i>
+                        <h1 class="font-normal text-green-7000 text-sm lg:text-xl"><a href="../services/services.php">Services</a></h1>
                     </div>
                 </div>
-                <div class="p-3 px-5 <?= ($link == '') ? 'bg-slate-200 hover:bg-slate-200' : '' ?> hover:bg-green-200 rounded">
-                    <div class="flex flex-row space-x-3 items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6  text-green-700">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 13.5V3.75m0 9.75a1.5 1.5 0 0 1 0 3m0-3a1.5 1.5 0 0 0 0 3m0 3.75V16.5m12-3V3.75m0 9.75a1.5 1.5 0 0 1 0 3m0-3a1.5 1.5 0 0 0 0 3m0 3.75V16.5m-6-9V3.75m0 3.75a1.5 1.5 0 0 1 0 3m0-3a1.5 1.5 0 0 0 0 3m0 9.75V10.5" />
-                        </svg>
-                        <h1 class="font-normal text-gray-700 text-sm lg:text-xl">Scrives</h1>
-                    </div>
-                </div>
-
 
             </div>
 

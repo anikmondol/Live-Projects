@@ -15,6 +15,10 @@ if (isset($_SESSION['auth_id'])) {
     $link_query = "SELECT * FROM links WHERE user_id='$id'";
     $link_connect = mysqli_query($connect_db, $link_query);
     $link = mysqli_fetch_assoc($link_connect);
+
+    $services_query = "SELECT * FROM services WHERE status='active'";
+    $services = mysqli_query($connect_db, $services_query);
+
 }
 
 
@@ -30,19 +34,11 @@ if (isset($_SESSION['auth_id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio_Front</title>
     <link rel="shortcut icon" href="./neptune.png" type="image/x-icon">
-    
+
 
 
     <!-- font awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-
-    <!-- font -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
     <!-- daisyUI link and tailwind css link -->
@@ -157,17 +153,17 @@ if (isset($_SESSION['auth_id'])) {
                                 aria-current="page">Contact</a>
                         </li>
                         <?php if (isset($_SESSION['auth_id'])) : ?>
-                        <li class="flex md:hidden lg:flex">
-                            <a href="./authetication/login.php"
-                                class="block py-2 px-3 text-white   rounded md:bg-transparent md:p-0 hover:text-[#8CC090] font-bold duration-500"
-                                aria-current="page">Dashboard</a>
-                        </li>
+                            <li class="flex md:hidden lg:flex">
+                                <a href="./authetication/login.php"
+                                    class="block py-2 px-3 text-white   rounded md:bg-transparent md:p-0 hover:text-[#8CC090] font-bold duration-500"
+                                    aria-current="page">Dashboard</a>
+                            </li>
                         <?php else: ?>
                             <li class="flex md:hidden lg:flex">
-                            <a href="./authetication/login.php"
-                                class="block py-2 px-3 text-white   rounded md:bg-transparent md:p-0 hover:text-[#8CC090] font-bold duration-500"
-                                aria-current="page">Login/Register</a>
-                        </li>
+                                <a href="./authetication/login.php"
+                                    class="block py-2 px-3 text-white   rounded md:bg-transparent md:p-0 hover:text-[#8CC090] font-bold duration-500"
+                                    aria-current="page">Login/Register</a>
+                            </li>
                         <?php endif; ?>
                     </ul>
                 </div>
@@ -308,48 +304,23 @@ if (isset($_SESSION['auth_id'])) {
             <h3 class="text-2xl lg:text-4xl font-semibold lg:font-black text-yellow-50 my-1 text-center"
                 style="font-style: italic;">Services and Solutions</h3>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-10 gap-8">
-                <div
-                    class="flex flex-col md:flex-row gap-3 shadow-2xl bg-[#1a2539] p-5 md:gap-6 service-card rounded-lg">
-                    <div class="text-[45px] text-[#8CC090] service-shape">
-                        <i class="fa-brands fa-react"></i>
+                <?php
+                $number = 1;
+                foreach ($services as $service) :
+                ?>
+                    <div
+                        class="flex flex-col md:flex-row gap-3 shadow-2xl bg-[#1a2539] p-5 md:gap-6 service-card rounded-lg">
+                        <div class="text-[45px] text-[#8CC090] service-shape">
+                            <i class="<?= $service['icon']; ?>"></i>
+                        </div>
+                        <div>
+                            <h5 class="text-[18px] font-black text-yellow-50"> <?= $service['title']; ?></h5>
+                            <p class="text-gray-400 font-medium pr-2"><?= $service['description']; ?></p>
+                        </div>
                     </div>
-                    <div>
-                        <h5 class="text-[18px] font-black text-yellow-50">Unlimited Features</h5>
-                        <p class="text-gray-400 font-medium pr-2">Lorem ipsum dolor, sit amet consectetur adipisicing
-                            elit.
-                            Labore modi, repellendus illo rem
-                            repudiandae ex cum, error repellat, culpa pariatur alias voluptatum aliquid velit numquam!
-                            Autem, consequatur! Veniam, dolor temporibus.</p>
-                    </div>
-                </div>
-                <div
-                    class="flex flex-col md:flex-row gap-3 shadow-2xl bg-[#1a2539] p-5 md:gap-6 service-card rounded-lg">
-                    <div class="text-[45px] text-[#8CC090] service-shape">
-                        <i class="fa-regular fa-calendar-plus"></i>
-                    </div>
-                    <div>
-                        <h5 class="text-[18px] font-black text-yellow-50">Creative Design</h5>
-                        <p class="text-gray-400 font-medium pr-2">Lorem ipsum dolor, sit amet consectetur adipisicing
-                            elit.
-                            Labore modi, repellendus illo rem
-                            repudiandae ex cum, error repellat, culpa pariatur alias voluptatum aliquid velit numquam!
-                            Autem, consequatur! Veniam, dolor temporibus.</p>
-                    </div>
-                </div>
-                <div
-                    class="flex flex-col md:flex-row gap-3 shadow-2xl bg-[#1a2539] p-5 md:gap-6 service-card rounded-lg">
-                    <div class="text-[45px] text-[#8CC090] service-shape">
-                        <i class="fa-solid fa-tv"></i>
-                    </div>
-                    <div>
-                        <h5 class="text-[18px] font-black text-yellow-50">Ultra Responsive</h5>
-                        <p class="text-gray-400 font-medium pr-2">Lorem ipsum dolor, sit amet consectetur adipisicing
-                            elit.
-                            Labore modi, repellendus illo rem
-                            repudiandae ex cum, error repellat, culpa pariatur alias voluptatum aliquid velit numquam!
-                            Autem, consequatur! Veniam, dolor temporibus.</p>
-                    </div>
-                </div>
+
+                <?php endforeach; ?>
+
             </div>
         </section>
         <!-- portfolio -->

@@ -50,7 +50,7 @@ include "../../fonts/fonts.php";
 <div class="min-h-screen bg-blue-50 rounded">
     <section class="flex flex-col bg-white p-4">
         <div class="flex flex-row space-x-3">
-            <h3 class="font-bold text-gray-600 p-1 text-2xl">Services Create</h3>
+            <h3 class="font-bold text-gray-600 p-1 text-2xl">Portfolio Create</h3>
         </div>
     </section>
 
@@ -58,36 +58,39 @@ include "../../fonts/fonts.php";
         <div class="px-4 lg:px-0 py-4 w-full lg:w-3/5 mx-auto">
             <div class="card flex items-center p-4 justify-between bg-red-50 rounded shadow-lg">
                 <div class="font-bold">
-                    USER-SERVICES
+                    USER-PORTFOLIO
                 </div>
                 <div>
-                    <form action="store.php" method="post">
-                        <div class="w-lg:800px">
+                    <form action="store.php" method="post" enctype="multipart/form-data">
+                        <div class="lg:w-[800px]">
                             <div>
-                                <label class="pb-4 font-medium">Title</label>
+                                <label class="pb-4 font-medium">Project Title</label>
                                 <br>
-                                <input type="text" name="title" placeholder="Type here" class="input input-bordered lg:w-[760px]  my-4" />
+                                <div>
+                                    <input type="text" name="title" placeholder="Type here" class="input input-bordered lg:w-[760px]  my-4" />
+                                </div>
+                            </div>
+                            <div>
+                                <label class="pb-4 font-medium">Project Sub-Title</label>
+                                <br>
+                                <div>
+                                    <input type="text" name="subtitle" placeholder="Type here" class="input input-bordered lg:w-[760px]  my-4" />
+                                </div>
                             </div>
                             <div>
                                 <label class="pb-4 font-medium">Description</label>
                                 <br>
                                 <input type="text" name="description" placeholder="Type here" class="input input-bordered lg:w-[760px]  my-4" />
                             </div>
+
+                            <picture class="d-block my-4">
+                                <img id="port_img" src="../../public/default/default1.jpg" alt="" style="width: 100%; height: 300px; object-fit:contain;">
+                            </picture>
+
                             <div>
-                                <label class="pb-4 font-medium">Icon</label>
+                                <label class="pb-4 font-medium">Image</label>
                                 <br>
-                                <input readonly type="text" name="icon" placeholder="Type here" class="input input-bordered lg:w-[760px]  my-4 icon_value" />
-                            </div>
-                            <div class="card my-3">
-                                <div style="overflow-X: hidden; height:200px;">
-                                    <div class="fa-2x">
-                                        <?php foreach ($fonts as $font) : ?>
-                                            <span class="m-2">
-                                                <i class=" <?= $font ?>" onclick="myFun(event)"></i>
-                                            </span>
-                                        <?php endforeach; ?>
-                                    </div>
-                                </div>
+                                <input onchange="document.getElementById('port_img').src= window.URL.createObjectURL(this.files[0])" type="file" name="image" placeholder="Type here" class="input input-bordered lg:w-[760px]  my-4 pt-2" />
                             </div>
                             <div>
                                 <button type="submit" name="create" class="btn btn-primary my-3"><i class="fa-solid fa-rotate-right" style="color: #ffffff;"></i>Update</button>
@@ -107,15 +110,6 @@ include "../../fonts/fonts.php";
 
 
 </div>
-
-<script>
-    let icon_value = document.querySelector('.icon_value');
-
-    function myFun(e) {
-        icon_value.value = e.target.classList.value
-
-    }
-</script>
 
 
 

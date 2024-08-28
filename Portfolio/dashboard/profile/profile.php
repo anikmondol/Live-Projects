@@ -114,7 +114,6 @@ include "../../config/database.php";
                             <?php endif;
                             unset($_SESSION["update_email"]); ?>
                             <div>
-
                                 <button type="submit" name="email_btn" class="btn btn-primary my-3"><i class="fa-solid fa-rotate-right" style="color: #ffffff;"></i>Update</button>
                             </div>
                         </div>

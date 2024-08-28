@@ -103,7 +103,7 @@ $users = mysqli_query($connect_db, $users_query);
     <!-- table section end -->
 
     <!-- second grid start here -->
-    <section class="p-4 lg:p-0">
+    <!-- <section class="p-4 lg:p-0">
         <div class="grid lg:grid-cols-3 lg:p-4 gap-4">
             <div class="col-span-2 lg:col-span-2 flex flex-col p-3 bg-white rounded shadow-sm">
                 <b class="flex flex-row text-gray-500 py-2">Property Release for today</b>
@@ -115,7 +115,7 @@ $users = mysqli_query($connect_db, $users_query);
                 <canvas id="chartRadar"></canvas>
             </div>
         </div>
-    </section>
+    </section> -->
     <!-- second grid end here -->
 
 

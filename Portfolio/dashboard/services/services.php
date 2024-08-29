@@ -53,45 +53,86 @@ $services = mysqli_query($connect_db, $services_query);
         <div class="flex flex-row space-x-3">
             <h3 class="font-bold text-gray-600 p-1 text-2xl">Service</h3>
         </div>
-       <div>
-       <?php if (isset($_SESSION['create_done'])) :    ?>
-            <div role="alert" class="alert px-2">
-                <i class="fa-solid fa-thumbs-up text-2xl text-green-300"></i>
-                <div>
-                    <h5 class="text-base font-medium"><?= $_SESSION['create_done'] ?></h5>
-                </div>
-            </div>
-
-        <?php endif;
-        unset($_SESSION['create_done']); ?>
-       </div>
-
         <div>
-        <?php if (isset($_SESSION['delete_done'])) :    ?>
-            <div role="alert" class="alert px-2">
-
-                <i class="fa-solid fa-skull-crossbones text-2xl text-red-300"></i>
-                <div>
-                    <h5 class="text-base font-medium"> <?= $_SESSION['delete_done'] ?></h5>
+            <?php if (isset($_SESSION['create_done'])) :    ?>
+                <div role="alert" class="alert px-2">
+                    <i class="fa-solid fa-thumbs-up text-2xl text-green-300"></i>
+                    <div>
+                        <h5 class="text-base font-medium"><?= $_SESSION['create_done'] ?></h5>
+                    </div>
                 </div>
-            </div>
 
-        <?php endif;
-        unset($_SESSION['delete_done']); ?>
+            <?php endif;
+            unset($_SESSION['create_done']); ?>
         </div>
 
         <div>
-        <?php if (isset($_SESSION['service_update'])) :    ?>
-            <div role="alert" class="alert px-2">
+            <?php if (isset($_SESSION['create_error'])) : ?>
+                <div role="alert" class="alert px-2">
 
-                <i class="fa-solid fa-hourglass text-2xl text-green-300"></i>
-                <div>
-                    <h5 class="text-base font-medium"> <?= $_SESSION['service_update'] ?></h5>
+                    <i class="fa-solid fa-skull-crossbones text-2xl text-red-300"></i>
+                    <div>
+                        <h5 class="text-base font-medium"> <?= $_SESSION['create_error'] ?></h5>
+                    </div>
                 </div>
-            </div>
 
-        <?php endif;
-        unset($_SESSION['service_update']); ?>
+            <?php endif;
+            unset($_SESSION['create_error']); ?>
+
+        <div>
+            <?php if (isset($_SESSION['delete_done'])) :    ?>
+                <div role="alert" class="alert px-2">
+
+                    <i class="fa-solid fa-skull-crossbones text-2xl text-red-300"></i>
+                    <div>
+                        <h5 class="text-base font-medium"> <?= $_SESSION['delete_done'] ?></h5>
+                    </div>
+                </div>
+
+            <?php endif;
+            unset($_SESSION['delete_done']); ?>
+        </div>
+
+        <div>
+            <?php if (isset($_SESSION['service_update'])) :    ?>
+                <div role="alert" class="alert px-2">
+
+                    <i class="fa-solid fa-hourglass text-2xl text-green-300"></i>
+                    <div>
+                        <h5 class="text-base font-medium"> <?= $_SESSION['service_update'] ?></h5>
+                    </div>
+                </div>
+
+            <?php endif;
+            unset($_SESSION['service_update']); ?>
+        </div>
+
+        <div>
+            <?php if (isset($_SESSION['active_status'])) :    ?>
+                <div role="alert" class="alert px-2">
+
+                    <i class="fa-solid fa-bell text-2xl text-green-300"></i>
+                    <div>
+                        <h5 class="text-base font-medium"> <?= $_SESSION['active_status'] ?></h5>
+                    </div>
+                </div>
+
+            <?php endif;
+            unset($_SESSION['active_status']); ?>
+        </div>
+
+        <div>
+            <?php if (isset($_SESSION['deactive_status'])) :    ?>
+                <div role="alert" class="alert px-2">
+
+                    <i class="fa-solid fa-bell-slash text-2xl text-red-300"></i>
+                    <div>
+                        <h5 class="text-base font-medium"> <?= $_SESSION['deactive_status'] ?></h5>
+                    </div>
+                </div>
+
+            <?php endif;
+            unset($_SESSION['deactive_status']); ?>
         </div>
 
     </section>
@@ -134,18 +175,18 @@ $services = mysqli_query($connect_db, $services_query);
                                 <?= $service['title']; ?>
                             </td>
                             <td class="border text-base border-gray-300">
-                            <a href="store.php?status_id=<?= $service['id'] ?>" class="p-1 rounded-sm text-white <?= ($service['status'] == 'deactive') ? 'bg-red-400' : 'bg-green-400'; ?>">
-                                        <?= $service['status'] ?>
-                                        </a>
+                                <a href="store.php?status_id=<?= $service['id'] ?>" class="p-1 rounded-sm text-white <?= ($service['status'] == 'deactive') ? 'bg-red-400' : 'bg-green-400'; ?>">
+                                    <?= $service['status'] ?>
+                                </a>
                             </td>
                             <td class="border text-base border-gray-300">
                                 <div class="flex justify-evenly gap-2">
-                                <a href="./edit.php?edit=<?= $service['id'] ?>">
-                                    <i class="fa-2x fa-regular fa-pen-to-square text-cyan-500"></i>
-                                </a>
-                                <a href="./store.php?id=<?= $service['id'] ?>">
-                                    <i class="fa-2x fa-regular fa-trash-can text-red-400"></i>
-                                </a>
+                                    <a href="./edit.php?edit=<?= $service['id'] ?>">
+                                        <i class="fa-2x fa-regular fa-pen-to-square text-cyan-500"></i>
+                                    </a>
+                                    <a href="./store.php?id=<?= $service['id'] ?>">
+                                        <i class="fa-2x fa-regular fa-trash-can text-red-400"></i>
+                                    </a>
                                 </div>
                             </td>
                         </tr>

@@ -9,9 +9,9 @@ if (isset($_POST['create'])) {
     $description = $_POST['description'];
     $icon = $_POST['icon'];
 
-    if (!$title && !$description && !$icon) {
+    if (!$title || !$description || !$icon) {
         $_SESSION["create_error"] = "something error try more !!!";
-        header("location: create.php");
+        header("location: services.php");
     } else {
         if ($title && $description && $icon) {
             $query = "INSERT INTO services (title,description,icon) VALUES ('$title','$description','$icon')";
@@ -44,7 +44,7 @@ if (isset($_GET['status_id'])) {
 
         $update_query = "UPDATE services SET status='active' WHERE id='$status_id'";
         mysqli_query($connect_db, $update_query);
-        $_SESSION["services_status"] = "services status active successfully complete !!!";
+        $_SESSION["active_status"] = "services status active successfully complete !!!";
         header("location: services.php");
 
        
@@ -52,7 +52,7 @@ if (isset($_GET['status_id'])) {
        
         $update_query = "UPDATE services SET status='deactive' WHERE id='$status_id'";
         mysqli_query($connect_db, $update_query);
-        $_SESSION["services_status"] = "services status deactive successfully complete !!!";
+        $_SESSION["deactive_status"] = "services status deactive successfully complete !!!";
         header("location: services.php");
     }
 }

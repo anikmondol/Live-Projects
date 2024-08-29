@@ -49,6 +49,21 @@ $portfolios = mysqli_query($connect_db, $portfolio_query);
         <div class="flex flex-row space-x-3">
             <h3 class="font-bold text-gray-600 p-1 text-2xl">Service</h3>
         </div>
+
+        <div>
+            <?php if (isset($_SESSION['portfolio_update'])) :    ?>
+                <div role="alert" class="alert px-2">
+
+                    <i class="fa-solid fa-hourglass text-2xl text-green-300"></i>
+                    <div>
+                        <h5 class="text-base font-medium"> <?= $_SESSION['portfolio_update'] ?></h5>
+                    </div>
+                </div>
+
+            <?php endif;
+            unset($_SESSION['portfolio_update']); ?>
+        </div>
+
         <div>
             <?php if (isset($_SESSION['port_create'])) : ?>
                 <div role="alert" class="alert px-2">
@@ -74,6 +89,48 @@ $portfolios = mysqli_query($connect_db, $portfolio_query);
 
             <?php endif;
             unset($_SESSION['port_error']); ?>
+        </div>
+
+        <div>
+            <?php if (isset($_SESSION['active_status'])) :    ?>
+                <div role="alert" class="alert px-2">
+
+                    <i class="fa-solid fa-bell text-2xl text-green-300"></i>
+                    <div>
+                        <h5 class="text-base font-medium"> <?= $_SESSION['active_status'] ?></h5>
+                    </div>
+                </div>
+
+            <?php endif;
+            unset($_SESSION['active_status']); ?>
+        </div>
+
+        <div>
+            <?php if (isset($_SESSION['deactive_status'])) :    ?>
+                <div role="alert" class="alert px-2">
+
+                    <i class="fa-solid fa-bell-slash text-2xl text-red-300"></i>
+                    <div>
+                        <h5 class="text-base font-medium"> <?= $_SESSION['deactive_status'] ?></h5>
+                    </div>
+                </div>
+
+            <?php endif;
+            unset($_SESSION['deactive_status']); ?>
+        </div>
+
+        <div>
+            <?php if (isset($_SESSION['delete_done'])) :    ?>
+                <div role="alert" class="alert px-2">
+
+                    <i class="fa-solid fa-skull-crossbones text-2xl text-red-300"></i>
+                    <div>
+                        <h5 class="text-base font-medium"> <?= $_SESSION['delete_done'] ?></h5>
+                    </div>
+                </div>
+
+            <?php endif;
+            unset($_SESSION['delete_done']); ?>
         </div>
 
     </section>
@@ -109,25 +166,25 @@ $portfolios = mysqli_query($connect_db, $portfolio_query);
 
                         <tr class="border-b border-gray-300">
                             <th class="border text-base border-gray-300">
-                            <?= $number++ ?>
+                                <?= $number++ ?>
                             </th>
                             <td class="border text-base border-gray-300">
-                            <img class="rounded-sm" src="../../public/portfolio/<?= $portfolio['image'] ?>" alt="portfolio image" style="width: 80px; height: 80px; object-fit: cover;">
+                                <img class="rounded-sm" src="../../public/portfolio/<?= $portfolio['image'] ?>" alt="portfolio image" style="width: 70px; height: 50px; object-fit: cover;">
                             </td>
                             <td class="border text-base border-gray-300">
-                            <?= $portfolio['title'] ?>
+                                <?= $portfolio['title'] ?>
                             </td>
                             <td class="border text-base border-gray-300">
-                                <a href="" class="p-1 rounded-sm text-white bg-red-400">
-                                <?= $portfolio['status'] ?>
+                                <a href="store.php?status_id=<?= $portfolio['id'] ?>" class="p-1 rounded-sm text-white <?= ($portfolio['status'] == 'deactive') ? 'bg-red-400' : 'bg-green-400'; ?>">
+                                    <?= $portfolio['status'] ?>
                                 </a>
                             </td>
                             <td class="border text-base border-gray-300">
                                 <div class="flex justify-evenly gap-2">
-                                    <a href="">
+                                    <a href="./edit.php?edit_id=<?= $portfolio['id'] ?>">
                                         <i class="fa-2x fa-regular fa-pen-to-square text-cyan-500"></i>
                                     </a>
-                                    <a href="">
+                                    <a href="./store.php?id_delete=<?= $portfolio['id'] ?>"
                                         <i class="fa-2x fa-regular fa-trash-can text-red-400"></i>
                                     </a>
                                 </div>

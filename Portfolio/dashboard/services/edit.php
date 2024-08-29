@@ -72,22 +72,24 @@ if (isset($_GET['edit'])) {
                 USER-EDIT
                 </div>
                 <div>
-                    <form action="store.php?edit_id=<?= $service['id'] ?>" method="post">
-                        <div>
+                <form action="store.php?edit_id=<?= $service['id'] ?>" method="post">
+                        <div class="w-lg:800px">
                             <div>
                                 <label class="pb-4 font-medium">Title</label>
                                 <br>
-                                <input type="text" name="title" placeholder="Type here" class="input input-bordered w-full max-w-xs my-4" value="<?= $service['title']; ?>" />
+                                <input type="text" name="title" placeholder="Type here" class="input input-bordered lg:w-[760px]  my-4" value="<?= $service['title']; ?>"/>
                             </div>
                             <div>
                                 <label class="pb-4 font-medium">Description</label>
                                 <br>
-                                <input type="text" name="description" placeholder="Type here" class="input input-bordered w-full max-w-xs my-4" value="<?= $service['description']; ?>" />
+                                <textarea
+                                    placeholder="description"
+                                    class="textarea textarea-bordered textarea-lg lg:w-[760px]" name="description"><?= $service['description']; ?></textarea>
                             </div>
                             <div>
                                 <label class="pb-4 font-medium">Icon</label>
                                 <br>
-                                <input readonly type="text" name="icon" placeholder="Type here" class="input input-bordered w-full max-w-xs my-4 icon_value" value="<?= $service['icon']; ?>"/>
+                                <input readonly type="text" name="icon" placeholder="Type here" class="input input-bordered lg:w-[760px]  my-4 icon_value" value="<?= $service['icon']; ?>"/>
                             </div>
                             <div class="card my-3">
                                 <div style="overflow-X: hidden; height:200px;">

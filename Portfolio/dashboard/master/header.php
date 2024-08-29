@@ -106,10 +106,10 @@ $user = mysqli_fetch_assoc($user_connect);
                         <h1 class="font-normal text-green-7000 text-sm lg:text-xl"><a href="../services/services.php">Services</a></h1>
                     </div>
                 </div>
-                <div class="p-3 px-5 <?= ($link == 'portfolios.php') ? 'bg-slate-200 hover:bg-slate-200' : '' ?> hover:bg-green-200 rounded">
+                <div class="p-3 px-5 <?= ($link == 'portfolio.php') ? 'bg-slate-200 hover:bg-slate-200' : '' ?> hover:bg-green-200 rounded">
                     <div class="flex flex-row space-x-3 items-center">
                         <i class="fa-solid fa-address-book font-normal text-gray-500 text-sm lg:text-xl"></i>
-                        <h1 class="font-normal text-green-7000 text-sm lg:text-xl"><a href="../portfolios/portfolios.php">Portfolios</a></h1>
+                        <h1 class="font-normal text-green-7000 text-sm lg:text-xl"><a href="../portfolios/portfolio.php">Portfolios</a></h1>
                     </div>
                 </div>
 

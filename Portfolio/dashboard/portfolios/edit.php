@@ -5,6 +5,18 @@ include "../master/header.php";
 include "../../fonts/fonts.php";
 
 
+if (isset($_GET['edit_id'])) {
+    $id =  $_GET['edit_id'];
+
+    $select_query = "SELECT * FROM portfolios WHERE id='$id'";
+    $connect = mysqli_query($connect_db, $select_query);
+    $portfolio = mysqli_fetch_assoc($connect);
+
+}
+
+
+
+
 ?>
 
 
@@ -61,20 +73,20 @@ include "../../fonts/fonts.php";
                     USER-PORTFOLIO
                 </div>
                 <div>
-                    <form action="store.php" method="post" enctype="multipart/form-data">
+                <form action="store.php?edit_id=<?= $portfolio['id'] ?>" method="post" enctype="multipart/form-data">
                         <div class="lg:w-[800px]">
                             <div>
                                 <label class="pb-4 font-medium">Project Title</label>
                                 <br>
                                 <div>
-                                    <input type="text" name="title" placeholder="Type here" class="input input-bordered lg:w-[760px]  my-4" />
+                                    <input type="text" name="title" placeholder="Type here" class="input input-bordered lg:w-[760px]  my-4"/ value="<?= $portfolio['title'] ?>">
                                 </div>
                             </div>
                             <div>
                                 <label class="pb-4 font-medium">Project Sub-Title</label>
                                 <br>
                                 <div>
-                                    <input type="text" name="subtitle" placeholder="Type here" class="input input-bordered lg:w-[760px]  my-4" />
+                                    <input type="text" name="subtitle" placeholder="Type here" class="input input-bordered lg:w-[760px]  my-4" value="<?= $portfolio['subtitle'] ?>">
                                 </div>
                             </div>
                             <div>
@@ -82,11 +94,11 @@ include "../../fonts/fonts.php";
                                 <br>
                                 <textarea
                                     placeholder="description"
-                                    class="textarea textarea-bordered textarea-lg lg:w-[760px]" name="description"></textarea>
+                                    class="textarea textarea-bordered textarea-lg lg:w-[760px]" name="description"><?= $portfolio['description'] ?></textarea>
                             </div>
 
                             <picture class="d-block my-4">
-                                <img id="port_img" src="../../public/default/default1.jpg" alt="" style="width: 100%; height: 300px; object-fit:contain;">
+                                <img id="port_img" src="../../public/portfolio/<?= $portfolio['image'] ?>" alt="" style="width: 100%; height: 300px; object-fit:contain;">
                             </picture>
 
                             <div>
@@ -95,7 +107,7 @@ include "../../fonts/fonts.php";
                                 <input onchange="document.getElementById('port_img').src= window.URL.createObjectURL(this.files[0])" type="file" name="image" placeholder="Type here" class="input input-bordered lg:w-[760px]  my-4 pt-2" />
                             </div>
                             <div>
-                                <button type="submit" name="create" class="btn btn-primary my-3"><i class="fa-solid fa-rotate-right" style="color: #ffffff;"></i>Update</button>
+                                <button type="submit" name="update" class="btn btn-primary my-3"><i class="fa-solid fa-rotate-right" style="color: #ffffff;"></i>Update</button>
                             </div>
 
                         </div>

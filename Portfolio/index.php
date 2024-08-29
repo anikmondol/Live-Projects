@@ -19,6 +19,8 @@ if (isset($_SESSION['auth_id'])) {
     $services_query = "SELECT * FROM services WHERE status='active'";
     $services = mysqli_query($connect_db, $services_query);
 
+    $services_query = "SELECT * FROM portfolios WHERE status='active'";
+    $portfolios = mysqli_query($connect_db, $services_query);
 }
 
 
@@ -305,7 +307,6 @@ if (isset($_SESSION['auth_id'])) {
                 style="font-style: italic;">Services and Solutions</h3>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-10 gap-8">
                 <?php
-                $number = 1;
                 foreach ($services as $service) :
                 ?>
                     <div
@@ -318,9 +319,7 @@ if (isset($_SESSION['auth_id'])) {
                             <p class="text-gray-400 font-medium pr-2"><?= $service['description']; ?></p>
                         </div>
                     </div>
-
                 <?php endforeach; ?>
-
             </div>
         </section>
         <!-- portfolio -->
@@ -330,83 +329,30 @@ if (isset($_SESSION['auth_id'])) {
             </h4>
             <h3 class="text-2xl lg:text-4xl font-semibold lg:font-black text-yellow-50 my-1 text-center"
                 style="font-style: italic;">My Recent Best Works</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-10 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-10 gap-6">
+
+            <?php
+                foreach ($portfolios as $portfolio) :
+                ?>
                 <div class="relative overflow-hidden group">
                     <div
-                        class="absolute top-0 left-0 w-full h-full bg-[rgba(20,20,20,0.5)] flex items-end text-white opacity-0 transition-all duration-500 ease-in-out group-hover:opacity-100">
+                        class="absolute top-0 left-0 w-full h-full bg-[rgba(20,20,20,0.5)] flex items-end text-white opacity-0 transition-all duration-700 ease-in-out group-hover:opacity-100">
                         <div
                             class="-translate-y-5 transition-all duration-700 ease-in-out mb-12 ml-12 md:ml-6 group-hover:translate-y-0">
-                            <h4 class="text-[#8CC090] text-base font-bold">Design</h4>
-                            <h2 class="text-yellow-100 text-3xl font-semibold">Hamble Triangle</h2>
+                            <h4 class="text-[#8CC090] text-base font-bold"><?= $portfolio['subtitle'] ?></h4>
+                            <h2 class="text-yellow-100 text-2xl lg:text-3xl font-semibold"><?= $portfolio['subtitle'] ?></h2>
                             <div
                                 class="flex items-center gap-3 text-[#8CC090] text-base font-bold hover:text-cyan-400 hover:text-[18px] duration-700">
-                                <p>More information </p>
-                                <a href="" class="font-normal"><i
-                                        class="fa-solid fa-arrow-right-long hover-right-icon text-2xl"></i></a>
+                                <a href="./dashboard/portfolios/single_portfolio.php?id=<?= $portfolio['id'] ?>" class="flex items-center gap-2"><?= $portfolio['title'] ?><i class="fa-solid fa-arrow-right-long hover-right-icon text-2xl"></i></a>
                             </div>
                         </div>
                     </div>
                     <div>
-                        <img class="rounded-lg  mx-auto" src="./front_assets/images/1.jpg" alt="">
+                        <img class="rounded-lg  mx-auto h-[400px] lg:h-[620px] object-cover" src="./public/portfolio/<?= $portfolio['image']; ?>" alt="img">
                     </div>
                 </div>
-                <div class="relative overflow-hidden group w-full h-full">
-                    <div
-                        class="absolute top-0 left-0 w-full h-full bg-[rgba(20,20,20,0.5)] flex items-end text-white opacity-0 transition-all duration-500 ease-in-out group-hover:opacity-100">
-                        <div
-                            class="-translate-y-5 transition-all duration-700 ease-in-out mb-12 ml-12 md:ml-6 group-hover:translate-y-0">
-                            <h4 class="text-[#8CC090] text-base font-bold">Design</h4>
-                            <h2 class="text-yellow-100 text-3xl font-semibold">Hamble Triangle</h2>
-                            <div
-                                class="flex items-center gap-3 text-[#8CC090] text-base font-bold hover:text-cyan-400 hover:text-[18px] duration-700">
-                                <p>More information </p>
-                                <a href="" class="font-normal"><i
-                                        class="fa-solid fa-arrow-right-long hover-right-icon text-2xl"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <img class="rounded-lg  mx-auto" src="./front_assets/images/2.jpg" alt="">
-                    </div>
-                </div>
-                <div class="relative overflow-hidden group w-full h-full">
-                    <div
-                        class="absolute top-0 left-0 w-full h-full bg-[rgba(20,20,20,0.5)] flex items-end text-white opacity-0 transition-all duration-500 ease-in-out group-hover:opacity-100">
-                        <div
-                            class="-translate-y-5 transition-all duration-700 ease-in-out mb-12 ml-12 md:ml-6 group-hover:translate-y-0">
-                            <h4 class="text-[#8CC090] text-base font-bold">Design</h4>
-                            <h2 class="text-yellow-100 text-3xl font-semibold">Hamble Triangle</h2>
-                            <div
-                                class="flex items-center gap-3 text-[#8CC090] text-base font-bold hover:text-cyan-400 hover:text-[18px] duration-700">
-                                <p>More information </p>
-                                <a href="" class="font-normal"><i
-                                        class="fa-solid fa-arrow-right-long hover-right-icon text-2xl"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <img class="rounded-lg  mx-auto" src="./front_assets/images/3.jpg" alt="">
-                    </div>
-                </div>
-                <div class="relative overflow-hidden group w-full h-full">
-                    <div
-                        class="absolute top-0 left-0 w-full h-full bg-[rgba(20,20,20,0.5)] flex items-end text-white opacity-0 transition-all duration-500 ease-in-out group-hover:opacity-100">
-                        <div
-                            class="-translate-y-5 transition-all duration-700 ease-in-out mb-12 ml-12 md:ml-6 group-hover:translate-y-0">
-                            <h4 class="text-[#8CC090] text-base font-bold">Design</h4>
-                            <h2 class="text-yellow-100 text-3xl font-semibold">Hamble Triangle</h2>
-                            <div
-                                class="flex items-center gap-3 text-[#8CC090] text-base font-bold hover:text-cyan-400 hover:text-[18px] duration-700">
-                                <p>More information </p>
-                                <a href="" class="font-normal"><i
-                                        class="fa-solid fa-arrow-right-long hover-right-icon text-2xl"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <img class="rounded-lg  mx-auto" src="./front_assets/images/4.jpg" alt="">
-                    </div>
-                </div>
+                <?php endforeach; ?>
+
             </div>
         </section>
         <!-- client -->

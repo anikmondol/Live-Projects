@@ -71,7 +71,9 @@ include "../../fonts/fonts.php";
                             <div>
                                 <label class="pb-4 font-medium">Description</label>
                                 <br>
-                                <input type="text" name="description" placeholder="Type here" class="input input-bordered lg:w-[760px]  my-4" />
+                                <textarea
+                                    placeholder="description"
+                                    class="textarea textarea-bordered textarea-lg lg:w-[760px]" name="description"></textarea>
                             </div>
                             <div>
                                 <label class="pb-4 font-medium">Icon</label>

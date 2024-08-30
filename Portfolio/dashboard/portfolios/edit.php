@@ -22,6 +22,7 @@ if (isset($_GET['edit_id'])) {
 
 
 
+
 <!-- content start -->
 
 <!-- first grid stars here -->
@@ -67,47 +68,48 @@ if (isset($_GET['edit_id'])) {
     </section>
 
     <section>
-        <div class="px-4 lg:px-0 py-4 w-full lg:w-3/5 mx-auto">
-            <div class="card flex items-center p-4 justify-between bg-red-50 rounded shadow-lg">
+        <div class="px-4 lg:px-0 py-4 w-full lg:w-4/5 mx-auto">
+            <div class="card flex items-center p-4 md:justify-between bg-red-50 rounded shadow-lg">
                 <div class="font-bold">
                     USER-PORTFOLIO
                 </div>
                 <div>
-                <form action="store.php?edit_id=<?= $portfolio['id'] ?>" method="post" enctype="multipart/form-data">
-                        <div class="lg:w-[800px]">
+                    <form action="store.php" method="post" enctype="multipart/form-data">
+                        <div class="lg:w-[800px] px-2">
                             <div>
                                 <label class="pb-4 font-medium">Project Title</label>
                                 <br>
                                 <div>
-                                    <input type="text" name="title" placeholder="Type here" class="input input-bordered lg:w-[760px]  my-4"/ value="<?= $portfolio['title'] ?>">
+                                    <input type="text" name="title" placeholder="Type here" class="input input-bordered w-[300px] md:w-[400px] lg:w-[760px]  my-4" value="<?= $portfolio['title'] ?>" />
                                 </div>
                             </div>
                             <div>
                                 <label class="pb-4 font-medium">Project Sub-Title</label>
                                 <br>
                                 <div>
-                                    <input type="text" name="subtitle" placeholder="Type here" class="input input-bordered lg:w-[760px]  my-4" value="<?= $portfolio['subtitle'] ?>">
+                                    <input type="text" name="subtitle" placeholder="Type here" class="input input-bordered w-[300px] md:w-[400px] lg:w-[760px]  my-4" value="<?= $portfolio['subtitle'] ?>" />
                                 </div>
                             </div>
                             <div>
                                 <label class="pb-4 font-medium">Description</label>
                                 <br>
+                                <br>
                                 <textarea
                                     placeholder="description"
-                                    class="textarea textarea-bordered textarea-lg lg:w-[760px]" name="description"><?= $portfolio['description'] ?></textarea>
+                                    class="textarea textarea-bordered textarea-lg w-[300px] md:w-[400px] lg:w-[760px]" name="description"><?= $portfolio['description'] ?></textarea>
                             </div>
 
                             <picture class="d-block my-4">
-                                <img id="port_img" src="../../public/portfolio/<?= $portfolio['image'] ?>" alt="" style="width: 100%; height: 300px; object-fit:contain;">
+                                <img class="w-full h-[200px] md:h-[300px] object-contain" id="port_img"id="port_img" src="../../public/portfolio/<?= $portfolio['image'] ?>" alt="image">
                             </picture>
 
                             <div>
                                 <label class="pb-4 font-medium">Image</label>
                                 <br>
-                                <input onchange="document.getElementById('port_img').src= window.URL.createObjectURL(this.files[0])" type="file" name="image" placeholder="Type here" class="input input-bordered lg:w-[760px]  my-4 pt-2" />
+                                <input onchange="document.getElementById('port_img').src= window.URL.createObjectURL(this.files[0])" type="file" name="image" placeholder="Type here" class="input input-bordered w-[300px] md:w-[400px] lg:w-[760px]  my-4 pt-2" />
                             </div>
                             <div>
-                                <button type="submit" name="update" class="btn btn-primary my-3"><i class="fa-solid fa-rotate-right" style="color: #ffffff;"></i>Update</button>
+                                <button type="submit" name="create" class="btn btn-primary my-3"><i class="fa-solid fa-rotate-right" style="color: #ffffff;"></i>Update</button>
                             </div>
 
                         </div>

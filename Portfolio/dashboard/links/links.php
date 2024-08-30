@@ -51,54 +51,69 @@ include "../../config/database.php";
     </section>
 
     <section>
-        <div class="grid grid-cols-1 md:w-1/2 mx-auto px-[18px] py-4">
-            
-
-            <!-- password update -->
-            <div class="card flex items-center p-4 justify-between bg-red-50 rounded shadow-lg">
-                <div class="font-bold mb-8">
+        <div class="px-4 lg:px-0 py-4 w-full lg:w-4/5 mx-auto">
+            <div class="card flex py-5 items-center justify-between bg-red-50 rounded shadow-lg">
+                <div class="font-bold">
                     USER-PASSWORD
                 </div>
                 <div>
-                <form action="links_manage.php" method="post">
-                        <div>
-                            <label class="pb-4 font-medium">Facebook</label>
-                            <br>
-                            <input type="text" name="facebook" placeholder="Type here" class="input input-bordered w-full max-w-xs my-4" />
-
-                            <label class="pb-4 font-medium">Github</label>
-                            <br>
-                            <input type="text" name="github" placeholder="Type here" class="input input-bordered w-full max-w-xs my-4" />
-
-
-                            <label class="pb-4 font-medium">Linkedin</label>
-                            <br>
-                            <input type="text" name="linkedin" placeholder="Type here" class="input input-bordered w-full max-w-xs my-4" />
-
-                            <label class="pb-4 font-medium">Whatsapp</label>
-                            <br>
-                            <input type="text" name="whatsapp" placeholder="Type here" class="input input-bordered w-full max-w-xs my-4" />
-
-                           
-
+                    <form action="links_manage.php" method="post">
+                        <div class="lg:w-[800px]  pt-4 px-2">
                             <div>
-                                <button type="submit" name="link_btn" class="btn btn-primary my-3"><i class="fa-solid fa-rotate-right" style="color: #ffffff;"></i>Update</button>
+                                <label class="pb-4 font-medium">Facebook</label>
+                                <br>
+                                <br>
+                                <div class="pb-6">
+                                    <input name="facebook" type="text" placeholder="Type here"
+                                        class="w-full py-3 pl-8 text-[#262a31] outline-none text-[18px] md:w-[435px] lg:w-[700px]" />
+                                </div>
+                            </div>
+                            <div>
+                                <label class="pb-4 font-medium">Github</label>
+                                <br>
+                                <br>
+                                <div class="pb-6">
+                                    <input name="github" type="text" placeholder="Type here"
+                                        class="w-full py-3 pl-8 text-[#262a31] outline-none text-[18px] md:w-[435px] lg:w-[700px]" />
+                                </div>
+                            </div>
+                            
+                           
+                            <div>
+                                <label class="pb-4 font-medium">Linkedin</label>
+                                <br>
+                                <br>
+                                <div class="pb-6">
+                                    <input name="linkedin" type="text" placeholder="Type here"
+                                        class="w-full py-3 pl-8 text-[#262a31] outline-none text-[18px] md:w-[435px] lg:w-[700px]" />
+                                </div>
+                            </div>
+                            <div>
+                                <label class="pb-4 font-medium">Whatsapp</label>
+                                <br>
+                                <br>
+                                <div class="pb-6">
+                                    <input name="whatsapp" type="text" placeholder="Type here"
+                                        class="w-full py-3 pl-8 text-[#262a31] outline-none text-[18px] md:w-[435px] lg:w-[700px]" />
+                                </div>
                             </div>
 
                              <!-- link_update start -->
-                         <?php if (isset($_SESSION["link_update"])) :
+                            <?php if (isset($_SESSION["link_update"])) :
                             ?>
                                 <div id="emailHelp" class="form-text text-success text-base mt-3"><?= $_SESSION["link_update"] ?></div>
                             <?php endif;
                             unset($_SESSION["link_update"]); ?>
-                        <!-- link_update end -->
-
+                            <!-- link_update end -->
+                            <div>
+                                <button type="submit" name="link_btn" class="btn btn-primary my-3"><i class="fa-solid fa-rotate-right" style="color: #ffffff;"></i>Update</button>
+                            </div>
                         </div>
                     </form>
                 </div>
             </div>
 
-        
+
 
         </div>
     </section>

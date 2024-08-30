@@ -66,19 +66,29 @@ include "../../fonts/fonts.php";
                             <div>
                                 <label class="pb-4 font-medium">Title</label>
                                 <br>
-                                <input type="text" name="title" placeholder="Type here" class="input input-bordered lg:w-[760px]  my-4" />
+                                <br>
+                                <div class="pb-6">
+                                    <input name="title" type="text" placeholder="Type here"
+                                        class="w-full py-3 pl-8 text-[#262a31] outline-none text-[18px]" />
+                                </div>
                             </div>
                             <div>
                                 <label class="pb-4 font-medium">Description</label>
                                 <br>
-                                <textarea
-                                    placeholder="description"
-                                    class="textarea textarea-bordered textarea-lg lg:w-[760px]" name="description"></textarea>
+                                <br>
+                                <div class="pb-6">
+                                    <textarea name="description" id="" placeholder="description"
+                                        class="w-full h-[170px] py-5 pl-8 text-[#262a31] outline-none text-[18px]"></textarea>
+                                </div>
                             </div>
                             <div>
                                 <label class="pb-4 font-medium">Icon</label>
                                 <br>
-                                <input readonly type="text" name="icon" placeholder="Type here" class="input input-bordered lg:w-[760px]  my-4 icon_value" />
+                                <br>
+                                <div class="pb-6">
+                                    <input name="icon" type="text" placeholder="Type here"
+                                        class="w-full py-3 pl-8 text-[#262a31] outline-none text-[18px]" />
+                                </div>
                             </div>
                             <div class="card my-3">
                                 <div style="overflow-X: hidden; height:200px;">

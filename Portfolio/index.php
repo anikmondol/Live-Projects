@@ -5,14 +5,17 @@ include "./config/database.php";
 
 
 
-if (isset($_SESSION['auth_id'])) {
-    $id = $_SESSION['auth_id'];
+// if (isset($_SESSION['auth_id'])) {
+//     $id = $_SESSION['auth_id'];
 
-    $user_query = "SELECT * FROM users WHERE id='$id'";
+    
+// }
+
+$user_query = "SELECT * FROM users ";
     $user_connect = mysqli_query($connect_db, $user_query);
     $user = mysqli_fetch_assoc($user_connect);
 
-    $link_query = "SELECT * FROM links WHERE user_id='$id'";
+    $link_query = "SELECT * FROM links";
     $link_connect = mysqli_query($connect_db, $link_query);
     $link = mysqli_fetch_assoc($link_connect);
 
@@ -21,7 +24,6 @@ if (isset($_SESSION['auth_id'])) {
 
     $services_query = "SELECT * FROM portfolios WHERE status='active'";
     $portfolios = mysqli_query($connect_db, $services_query);
-}
 
 
 
@@ -73,8 +75,8 @@ if (isset($_SESSION['auth_id'])) {
 
 <body>
     <header id="header" class="shadow-2xl transition-all duration-500 top-0 left-0 right-0 z-10">
-        <nav class="">
-            <div class="flex flex-wrap items-center justify-between py-4 mx-auto xl:max-w-[1280px] ">
+        <nav class="xl:max-w-[1280px] mx-auto">
+            <div class="flex flex-wrap items-center justify-between py-4 mx-auto xl:max-w-[1280px] px-4 lg:px-0">
                 <a class="flex items-center space-x-3 rtl:space-x-reverse">
                     <span
                         class="self-center text-xl md:text-[22px] font-bold whitespace-nowrap text-[#FFFFFF]">Portfolio</span>
@@ -174,8 +176,8 @@ if (isset($_SESSION['auth_id'])) {
     </header>
     <main>
         <!-- hero section -->
-        <section id="hero" class="xl:max-w-[1280px] mx-auto py-16 pt-36">
-            <div class="hero-content flex-col lg:flex-row-reverse gap-10 md:gap-0 justify-between ">
+        <section id="hero" class="xl:max-w-[1280px] mx-auto py-20 lg:py-28 px-4 lg:px-0">
+            <div class="flex flex-col lg:flex-row-reverse gap-10 md:gap-0 justify-between ">
                 <div class="lg:w-5/12 relative flex justify-center items-center">
                     <div class="sipner-img mx-auto">
                         <img class="" src="./front_assets/shape/dot_circle.png" alt="">
@@ -200,7 +202,7 @@ if (isset($_SESSION['auth_id'])) {
                         professional web developer with long time experience in this
                         field​. With a strong foundation in HTML, CSS, and JavaScript
                     </p>
-                    <div class="my-5 flex gap-4">
+                    <div class="my-8 flex gap-4">
                         <a href="<?= $link['facebook'] ?>" target="_blank">
                             <button type="button"
                                 class="text-cyan-400 border-2 border-[#8CC090] hover:border-red-500 hover:text-white rounded-full px-4 py-3 text-center duration-500">
@@ -235,8 +237,8 @@ if (isset($_SESSION['auth_id'])) {
             </div>
         </section>
         <!-- about section-->
-        <section id="about" class="xl:max-w-[1280px] mx-auto py-16">
-            <div class="hero-content flex-col lg:flex-row-reverse gap-10 md:gap-12 justify-between container mx-auto">
+        <section id="about" class="xl:max-w-[1280px] mx-auto py-20 lg:py-36 px-4 lg:px-0">
+            <div class="flex flex-col lg:flex-row-reverse gap-10 md:gap-0 justify-between ">
                 <div class="lg:w-7/12 space-y-4 mt-4 md:mt-0">
                     <h4 class="text-base lg:text-xl font-bold text-[#8CC090]" style="font-style: italic;">Introduction
                     </h4>
@@ -300,7 +302,7 @@ if (isset($_SESSION['auth_id'])) {
             </div>
         </section>
         <!-- services -->
-        <section id="services" class="xl:max-w-[1280px] mx-auto py-16 px-4 md:px-8 lg:px-0">
+        <section id="services" class="xl:max-w-[1280px] mx-auto py-20 lg:py-28 px-4 lg:px-0">
             <h4 class="text-base lg:text-xl font-bold text-[#8CC090] text-center" style="font-style: italic;">WHAT WE DO
             </h4>
             <h3 class="text-2xl lg:text-4xl font-semibold lg:font-black text-yellow-50 my-1 text-center"
@@ -323,7 +325,7 @@ if (isset($_SESSION['auth_id'])) {
             </div>
         </section>
         <!-- portfolio -->
-        <section id="portfolio" class="xl:max-w-[1280px] mx-auto py-16 px-4 md:px-8 lg:px-0">
+        <section id="portfolio" class="xl:max-w-[1280px] mx-auto py-20 lg:py-28 px-4 lg:px-0">
             <h4 class="text-base lg:text-xl font-bold text-[#8CC090] text-center" style="font-style: italic;">Portfolio
                 Showcase
             </h4>
@@ -357,7 +359,7 @@ if (isset($_SESSION['auth_id'])) {
         </section>
         <!-- client -->
         <section id="client" class="shadow-2xl bg-[#1a2435] ">
-            <div class="grid grid-cols-2 lg:grid-cols-4 justify-between gap-5 xl:max-w-[1280px] mx-auto py-16 px-4 md:px-8 lg:px-0">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-between gap-5 xl:max-w-[1280px] mx-auto py-20 lg:py-28 px-4 lg:px-0">
                 <div class="text-center p-6 rounded-xl achievement-shape">
                     <div class="text-5xl text-[#8CC090] achievement-icon">
                         <i class="fa-solid fa-award"></i>
@@ -390,7 +392,7 @@ if (isset($_SESSION['auth_id'])) {
             </div>
         </section>
         <!-- testimonialSwiper -->
-        <section id="testimonial" class="xl:max-w-[1280px] mx-auto py-16 px-4 md:px-8 lg:px-0">
+        <section id="testimonial" class="xl:max-w-[1280px] mx-auto py-20 lg:py-28 px-4 lg:px-0">
             <div>
                 <h4 class="text-sm md:text-xl font-bold text-[#8CC090] text-center uppercase"
                     style="font-style: italic;">testimonial
@@ -484,7 +486,7 @@ if (isset($_SESSION['auth_id'])) {
         <!-- sponsorship -->
         <section id="sponsorship" class="hidden lg:flex shadow-2xl py-16 bg-[#1a2435] p-4">
             <!-- Swiper -->
-            <div class="xl:max-w-[1280px] mx-auto md:px-8">
+            <div class="xl:max-w-[1280px] mx-auto py-20 lg:py-28 px-4 lg:px-0">
                 <div class="swiper mySwiper2">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
@@ -522,7 +524,7 @@ if (isset($_SESSION['auth_id'])) {
             </div>
         </section>
         <!-- contact -->
-        <section id="contact" class="xl:max-w-[1280px] mx-auto py-16 px-4 md:px-8 lg:px-0">
+        <section id="contact"  class="xl:max-w-[1280px] mx-auto py-20 lg:py-28 px-4 lg:px-0">
             <div class="flex flex-col lg:flex-row justify-between gap-10">
                 <div class="w-full lg:w-6/12">
                     <h4 class="text-sm md:text-base font-bold text-[#8CC090] uppercase" style="font-style: italic;">

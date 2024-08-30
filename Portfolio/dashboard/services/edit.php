@@ -11,7 +11,6 @@ if (isset($_GET['edit'])) {
     $select_query = "SELECT * FROM services WHERE id='$id'";
     $connect = mysqli_query($connect_db, $select_query);
     $service = mysqli_fetch_assoc($connect);
-
 }
 
 
@@ -65,31 +64,40 @@ if (isset($_GET['edit'])) {
     </section>
 
     <section>
-        <div class=" px-[18px] py-4 w-3/5 mx-auto">
-            <!-- name update -->
+        <div class="px-4 lg:px-0 py-4 w-full lg:w-3/5 mx-auto">
             <div class="card flex items-center p-4 justify-between bg-red-50 rounded shadow-lg">
                 <div class="font-bold">
-                USER-EDIT
+                    USER-EDIT
                 </div>
                 <div>
-                <form action="store.php?edit_id=<?= $service['id'] ?>" method="post">
+                    <form action="store.php?edit_id=<?= $service['id'] ?>" method="post">
                         <div class="w-lg:800px">
                             <div>
                                 <label class="pb-4 font-medium">Title</label>
                                 <br>
-                                <input type="text" name="title" placeholder="Type here" class="input input-bordered lg:w-[760px]  my-4" value="<?= $service['title']; ?>"/>
+                                <br>
+                                <div class="pb-6">
+                                    <input name="title" type="text" placeholder="Type here"
+                                        class="w-full py-3 pl-8 text-[#262a31] outline-none text-[18px]" value="<?= $service['title']; ?>" />
+                                </div>
                             </div>
                             <div>
                                 <label class="pb-4 font-medium">Description</label>
                                 <br>
-                                <textarea
-                                    placeholder="description"
-                                    class="textarea textarea-bordered textarea-lg lg:w-[760px]" name="description"><?= $service['description']; ?></textarea>
+                                <br>
+                                <div class="pb-6">
+                                    <textarea name="description" id="" placeholder="description"
+                                        class="w-full h-[170px] py-5 pl-8 text-[#262a31] outline-none text-[18px]"><?= $service['description']; ?></textarea>
+                                </div>
                             </div>
                             <div>
                                 <label class="pb-4 font-medium">Icon</label>
                                 <br>
-                                <input readonly type="text" name="icon" placeholder="Type here" class="input input-bordered lg:w-[760px]  my-4 icon_value" value="<?= $service['icon']; ?>"/>
+                                <br>
+                                <div class="pb-6">
+                                    <input readonly name="icon" type="text" placeholder="Type here"
+                                        class="w-full py-3 pl-8 text-[#262a31] outline-none text-[18px]" value="<?= $service['icon']; ?>"/>
+                                </div>
                             </div>
                             <div class="card my-3">
                                 <div style="overflow-X: hidden; height:200px;">
@@ -103,7 +111,7 @@ if (isset($_GET['edit'])) {
                                 </div>
                             </div>
                             <div>
-                                <button type="submit" name="update" class="btn btn-primary my-3"><i class="fa-solid fa-rotate-right" style="color: #ffffff;"></i>Update</button>
+                                <button type="submit" name="create" class="btn btn-primary my-3"><i class="fa-solid fa-rotate-right" style="color: #ffffff;"></i>Update</button>
                             </div>
 
                         </div>

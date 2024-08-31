@@ -41,7 +41,7 @@ $user = mysqli_fetch_assoc($user_connect);
     <div class="flex flex-col md:flex-row">
 
         <!-- nav component start here -->
-        <nav class="flex flex-col bg-gray-50 h-screen justify-between md:w-2/6 lg:w-1/6">
+        <nav class="flex flex-col h-screen justify-between md:w-2/6 lg:w-1/6">
             <div class="py-2 px-5">
                 <h2 class="flex justify-center md:justify-start items-center font-semibold text-gray-500 dark:text-white">
                     <img class="w-8 h-8 mr-2" src="../../images/neptune.png" alt="logo">
@@ -112,7 +112,24 @@ $user = mysqli_fetch_assoc($user_connect);
                         <h1 class="font-normal text-green-7000 text-sm lg:text-xl"><a href="../portfolios/portfolio.php">Portfolios</a></h1>
                     </div>
                 </div>
-
+                <div class="p-3 px-5 <?= ($link == 'educations.php') ? 'bg-slate-200 hover:bg-slate-200' : '' ?> hover:bg-green-200 rounded">
+                    <div class="flex flex-row space-x-3 items-center">
+                        <i class="fa-solid fa-user-graduate font-normal text-gray-500 text-sm lg:text-xl"></i>
+                        <h1 class="font-normal text-green-7000 text-sm lg:text-xl"><a href="../educations/educations.php">Educations</a></h1>
+                    </div>
+                </div>
+                <div class="p-3 px-5 <?= ($link == 'testimonials.php') ? 'bg-slate-200 hover:bg-slate-200' : '' ?> hover:bg-green-200 rounded">
+                    <div class="flex flex-row space-x-3 items-center">
+                        <i class="fa-solid fa-users-viewfinder font-normal text-gray-500 text-sm lg:text-xl"></i>
+                        <h1 class="font-normal text-green-7000 text-sm lg:text-xl"><a href="../testimonials/testimonials.php">Testimonials</a></h1>
+                    </div>
+                </div>
+                <div class="p-3 px-5 <?= ($link == 'feedbacks.php') ? 'bg-slate-200 hover:bg-slate-200' : '' ?> hover:bg-green-200 rounded">
+                    <div class="flex flex-row space-x-3 items-center">
+                        <i class="fa-solid fa-message font-normal text-gray-500 text-sm lg:text-xl"></i>
+                        <h1 class="font-normal text-green-7000 text-sm lg:text-xl"><a href="../feedbacks/feedbacks.php">Feedbacks</a></h1>
+                    </div>
+                </div>                
             </div>
 
         </nav>

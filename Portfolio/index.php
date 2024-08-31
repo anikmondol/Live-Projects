@@ -4,26 +4,28 @@ session_start();
 include "./config/database.php";
 
 
-
-// if (isset($_SESSION['auth_id'])) {
-//     $id = $_SESSION['auth_id'];
-
-    
-// }
-
 $user_query = "SELECT * FROM users ";
-    $user_connect = mysqli_query($connect_db, $user_query);
-    $user = mysqli_fetch_assoc($user_connect);
+$user_connect = mysqli_query($connect_db, $user_query);
+$user = mysqli_fetch_assoc($user_connect);
 
-    $link_query = "SELECT * FROM links";
-    $link_connect = mysqli_query($connect_db, $link_query);
-    $link = mysqli_fetch_assoc($link_connect);
+$link_query = "SELECT * FROM links";
+$link_connect = mysqli_query($connect_db, $link_query);
+$link = mysqli_fetch_assoc($link_connect);
 
-    $services_query = "SELECT * FROM services WHERE status='active'";
-    $services = mysqli_query($connect_db, $services_query);
+$services_query = "SELECT * FROM services WHERE status='active'";
+$services = mysqli_query($connect_db, $services_query);
 
-    $services_query = "SELECT * FROM portfolios WHERE status='active'";
-    $portfolios = mysqli_query($connect_db, $services_query);
+$portfolios_query = "SELECT * FROM portfolios WHERE status='active'";
+$portfolios = mysqli_query($connect_db, $portfolios_query);
+
+$educations_query = "SELECT * FROM educations WHERE status='active'";
+$educations = mysqli_query($connect_db, $educations_query);
+
+$testimonials_query = "SELECT * FROM testimonials WHERE status='active'";
+$testimonials = mysqli_query($connect_db, $testimonials_query);
+
+$feedbacks_query = "SELECT * FROM feedbacks WHERE status='active'";
+$feedbacks = mysqli_query($connect_db, $feedbacks_query);
 
 
 
@@ -199,8 +201,7 @@ $user_query = "SELECT * FROM users ";
 
                     <p class="text-gray-400 font-medium mb-3">
                         I'm <?= (isset($user['name'])) ? $user['name'] : 'Anik Mondal' ?>,
-                        professional web developer with long time experience in this
-                        field​. With a strong foundation in HTML, CSS, and JavaScript
+                        a professional web developer with long time experience in this field​. Committed to advancing my knowledge in the IT field, always eager to explore and adopt new technologies for web development. Dedicated to continuous learning and staying current with industry trends.
                     </p>
                     <div class="my-8 flex gap-4">
                         <a href="<?= $link['facebook'] ?>" target="_blank">
@@ -230,68 +231,44 @@ $user_query = "SELECT * FROM users ";
                     </div>
                     <div>
                         <button
-                            class="btn text-base text-gray-500 hover:text-red-400 border-2 duration-1000 hover:border-cyan-400 hover:shadow-xl">SEE
-                            PORTFOLIO </button>
+                            class="btn text-base text-gray-500 hover:text-red-500 border-2 duration-1000 hover:border-cyan-400 hover:shadow-xl"> Download CV</button>
                     </div>
                 </div>
             </div>
         </section>
         <!-- about section-->
         <section id="about" class="xl:max-w-[1280px] mx-auto py-20 lg:py-36 px-4 lg:px-0">
-            <div class="flex flex-col lg:flex-row-reverse gap-10 md:gap-0 justify-between ">
+            <div class="flex flex-col lg:flex-row-reverse gap-16 md:gap-0 justify-between ">
                 <div class="lg:w-7/12 space-y-4 mt-4 md:mt-0">
                     <h4 class="text-base lg:text-xl font-bold text-[#8CC090]" style="font-style: italic;">Introduction
                     </h4>
                     <h3 class="text-2xl lg:text-4xl font-semibold lg:font-black text-yellow-50 my-1"
                         style="font-style: italic;">About Me</h3>
                     <p class=" text-gray-400 font-medium mb-3">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum, sed repudiandae odit deseru
-                        quas quibusdam necessitatibus nesciunt eligendi esse sit non reprehenderit quisquam asperiores
-                        maxime blanditiis culpa vitae velit. Numquam!
+                        Hi, my name is Anik Mondal. I am a Jr. PHP & Laravel Developer . But I mostly work in frontend development I have more than 1 year experience in web design and web development.I have skills in HTML5, CSS3, bootstrap, tailwind css, javaScript, Es6, PHP, Laravel, Mysqul etc.
                     </p>
                     <h5 class="text-[18px] font-black text-yellow-50">Education :</h5>
-                    <div class="flex flex-col md:flex-row md:items-center md:gap-5 space-y-2">
-                        <h4 class="text-xl font-bold text-yellow-50">2020</h4>
-                        <div class="w-10">
-                            <hr>
+                    <?php
+                    foreach ($educations as $education) :
+                    ?>
+                        <div class="flex items-center justify-between md:justify-start md:flex-row md:items-center gap-5 space-y-2">
+                            <div class="w-[100px] flex gap-5 justify-between items-center">
+                                <h4 class="text-xl font-bold text-yellow-50"><?= $education['year']; ?></h4>
+                                <div class="w-16 md:w-10 text-white">
+                                    <hr>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="text-gray-300 font-medium pr-2"><?= $education['title']; ?></p>
+                                <div class="w-[180px] md:w-[300px]">
+                                    <progress class="progress progress-success" value="<?= $education['ration']; ?>" max="100"></progress>
+                                </div>
+                            </div>
                         </div>
-                        <div>
-                            <p class="text-gray-300 font-medium pr-2">PHD of Interaction Design & Animation</p>
-                            <progress class="progress progress-success w-56" value="70" max="100"></progress>
-                        </div>
-                    </div>
-                    <div class="flex flex-col md:flex-row md:items-center md:gap-5 space-y-2">
-                        <h4 class="text-xl font-bold text-yellow-50">2020</h4>
-                        <div class="w-10">
-                            <hr>
-                        </div>
-                        <div>
-                            <p class="text-gray-300 font-medium pr-2">Master of Database Administration</p>
-                            <progress class="progress progress-success w-56" value="80" max="100"></progress>
-                        </div>
-                    </div>
-                    <div class="flex flex-col md:flex-row md:items-center md:gap-5 space-y-2">
-                        <h4 class="text-xl font-bold text-yellow-50">2020</h4>
-                        <div class="w-10">
-                            <hr>
-                        </div>
-                        <div>
-                            <p class="text-gray-300 font-medium pr-2">Bachelor of Computer Engineering</p>
-                            <progress class="progress progress-success w-56" value="50" max="100"></progress>
-                        </div>
-                    </div>
-                    <div class="flex flex-col md:flex-row md:items-center md:gap-5 space-y-2">
-                        <h4 class="text-xl font-bold text-yellow-50">2010</h4>
-                        <div class="w-10">
-                            <hr>
-                        </div>
-                        <div>
-                            <p class="text-gray-300 font-medium pr-2">Diploma of Computer</p>
-                            <progress class="progress progress-success w-56" value="100" max="100"></progress>
-                        </div>
-                    </div>
+                    <?php endforeach; ?>
+
                 </div>
-                <div class="lg:w-5/12 relative md:flex md:justify-center items-center">
+                <div class="lg:w-5/12 md:pt-12 relative md:flex md:justify-center items-center">
                     <div class="sipner-img mx-auto hidden md:flex">
                         <img class="" src="./front_assets/shape/dot_circle.png" alt="">
                     </div>
@@ -333,61 +310,53 @@ $user_query = "SELECT * FROM users ";
                 style="font-style: italic;">My Recent Best Works</h3>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-10 gap-6">
 
-            <?php
+                <?php
                 foreach ($portfolios as $portfolio) :
                 ?>
-                <div class="relative overflow-hidden group">
-                    <div
-                        class="absolute top-0 left-0 w-full h-full bg-[rgba(20,20,20,0.5)] flex items-end text-white opacity-0 transition-all duration-700 ease-in-out group-hover:opacity-100">
+                    <div class="relative overflow-hidden group">
                         <div
-                            class="-translate-y-5 transition-all duration-700 ease-in-out mb-12 ml-12 md:ml-6 group-hover:translate-y-0">
-                            <h4 class="text-[#8CC090] text-base font-bold"><?= $portfolio['subtitle'] ?></h4>
-                            <h2 class="text-yellow-100 text-2xl lg:text-3xl font-semibold"><?= $portfolio['subtitle'] ?></h2>
+                            class="absolute top-0 left-0 w-full h-full bg-[rgba(20,20,20,0.5)] flex items-end text-white opacity-0 transition-all duration-700 ease-in-out group-hover:opacity-100">
                             <div
-                                class="flex items-center gap-3 text-[#8CC090] text-base font-bold hover:text-cyan-400 hover:text-[18px] duration-700">
-                                <a href="./dashboard/portfolios/single_portfolio.php?id=<?= $portfolio['id'] ?>" class="flex items-center gap-2"><?= $portfolio['title'] ?><i class="fa-solid fa-arrow-right-long hover-right-icon text-2xl"></i></a>
+                                class="-translate-y-5 transition-all duration-700 ease-in-out mb-12 ml-12 md:ml-6 group-hover:translate-y-0">
+                                <h4 class="text-[#8CC090] text-base font-bold"><?= $portfolio['subtitle'] ?></h4>
+                                <h2 class="text-yellow-100 text-2xl lg:text-3xl font-semibold"><?= $portfolio['subtitle'] ?></h2>
+                                <div
+                                    class="flex items-center gap-3 text-[#8CC090] text-base font-bold hover:text-cyan-400 hover:text-[18px] duration-700">
+                                    <a href="./dashboard/portfolios/single_portfolio.php?id=<?= $portfolio['id'] ?>" class="flex items-center gap-2"><?= $portfolio['title'] ?><i class="fa-solid fa-arrow-right-long hover-right-icon text-2xl"></i></a>
+                                </div>
                             </div>
                         </div>
+                        <div>
+                            <img class="rounded-lg  mx-auto h-[400px] lg:h-[620px] object-cover" src="./public/portfolio/<?= $portfolio['image']; ?>" alt="img">
+                        </div>
                     </div>
-                    <div>
-                        <img class="rounded-lg  mx-auto h-[400px] lg:h-[620px] object-cover" src="./public/portfolio/<?= $portfolio['image']; ?>" alt="img">
-                    </div>
-                </div>
                 <?php endforeach; ?>
 
             </div>
         </section>
         <!-- client -->
         <section id="client" class="shadow-2xl bg-[#1a2435] ">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-between gap-5 xl:max-w-[1280px] mx-auto py-20 lg:py-28 px-4 lg:px-0">
-                <div class="text-center p-6 rounded-xl achievement-shape">
-                    <div class="text-5xl text-[#8CC090] achievement-icon">
-                        <i class="fa-solid fa-award"></i>
+            <div class="pt-10">
+                <h4 class="text-base lg:text-xl font-bold text-[#8CC090] text-center" style="font-style: italic;">WHAT WE DO
+                </h4>
+                <h3 class="text-2xl lg:text-4xl font-semibold lg:font-black text-yellow-50 my-1 text-center"
+                    style="font-style: italic;">Services and Solutions</h3>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-between gap-5 xl:max-w-[1280px] mx-auto py-20 lg:pb-28 px-4 lg:px-0">
+
+                <?php
+                foreach ($feedbacks as $feedback) :
+                ?>
+                    <div class="text-center p-6 rounded-xl achievement-shape">
+                        <div class="text-5xl text-[#8CC090] achievement-icon">
+                            <i class="<?= $feedback['icon']; ?>"></i>
+                        </div>
+                        <h2 class="text-4xl text-yellow-100 font-semibold py-2"><?= $feedback['description']; ?></h2>
+                        <p class="text-[#8B98AF] font-medium"><?= $feedback['title']; ?></p>
                     </div>
-                    <h2 class="text-4xl text-yellow-100 font-semibold py-2">245</h2>
-                    <p class="text-[#8B98AF] font-medium">Feature Item</p>
-                </div>
-                <div class="text-center p-6 rounded-xl achievement-shape">
-                    <div class="text-5xl text-[#8CC090] achievement-icon">
-                        <i class="fa-regular fa-thumbs-up"></i>
-                    </div>
-                    <h2 class="text-4xl text-yellow-100 font-semibold py-2">345</h2>
-                    <p class="text-[#8B98AF] font-medium">Active Products</p>
-                </div>
-                <div class="text-center p-6 rounded-xl achievement-shape">
-                    <div class="text-5xl text-[#8CC090] achievement-icon">
-                        <i class="fa-solid fa-medal"></i>
-                    </div>
-                    <h2 class="text-4xl text-yellow-100 font-semibold py-2">39</h2>
-                    <p class="text-[#8B98AF] font-medium">Year Experience</p>
-                </div>
-                <div class="text-center p-6 rounded-xl achievement-shape">
-                    <div class="text-5xl text-[#8CC090] achievement-icon">
-                        <i class="fa-regular fa-face-smile-beam"></i>
-                    </div>
-                    <h2 class="text-4xl text-yellow-100 font-semibold py-2">3k</h2>
-                    <p class="text-[#8B98AF] font-medium">Our Clients</p>
-                </div>
+
+                <?php endforeach; ?>
+
 
             </div>
         </section>
@@ -403,79 +372,31 @@ $user_query = "SELECT * FROM users ";
                     <!-- Swiper -->
                     <div class="swiper mySwiper1">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <div class="card w-11/12 md:w-5/6 mx-auto">
-                                    <figure class="px-10 pt-10">
-                                        <img src="./front_assets/images/2.jpg" alt="Shoes"
-                                            class="rounded-full w-20 h-20" />
-                                    </figure>
-                                    <div class="card-body items-center text-center">
-                                        <h4 class="text-base md:text-2xl font-normal md:font-medium text-[#D8D8DA]">
-                                            <span class="text-[#8CC090] italic text-sm md:text-2xl">"</span> An event is
-                                            a message sent by an object to signal the occur rence of an action. The
-                                            action can causd user interaction such as a button click, or it can result
-                                            <span class="text-[#8CC090] italic text-2xl">"</span>
-                                        </h4>
-                                        <h3 class="text-yellow-50 text-xl font-bold uppercase mt-10">tony jackson</h3>
-                                        <h5 class="text-[#8CC090] text-base font-medium uppercase">Head of idea</h5>
-                                    </div>
 
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="card w-11/12 md:w-5/6 mx-auto">
-                                    <figure class="px-10 pt-10">
-                                        <img src="./front_assets/images/testi_avatar.png" alt="Shoes"
-                                            class="rounded-full w-20 h-20" />
-                                    </figure>
-                                    <div class="card-body items-center text-center">
-                                        <h4 class="text-base md:text-2xl font-normal md:font-medium text-[#D8D8DA]">
-                                            <span class="text-[#8CC090] italic text-sm md:text-2xl">"</span> An event is
-                                            a message sent by an object to signal the occur rence of an action. The
-                                            action can causd user interaction such as a button click, or it can result
-                                            <span class="text-[#8CC090] italic text-2xl">"</span>
-                                        </h4>
-                                        <h3 class="text-yellow-50 text-xl font-bold uppercase mt-10">tony jackson</h3>
-                                        <h5 class="text-[#8CC090] text-base font-medium uppercase">Head of idea</h5>
+                            <?php
+                            foreach ($testimonials as $testimonial) :
+                            ?>
+
+                                <div class="swiper-slide">
+                                    <div class="card w-11/12 md:w-5/6 mx-auto">
+                                        <figure class="px-10 pt-10">
+                                            <img src="./public/testimonials/<?= $testimonial['image'] ?>" alt="Shoes"
+                                                class="rounded-full w-20 h-20 object-cover" />
+                                        </figure>
+                                        <div class="card-body items-center text-center">
+                                            <h4 class="text-base md:text-2xl font-normal md:font-medium text-[#D8D8DA]">
+                                                <span class="text-[#8CC090] italic text-sm md:text-2xl">"</span><?= $testimonial['description'] ?>
+                                                <span class="text-[#8CC090] italic text-2xl">"</span>
+                                            </h4>
+                                            <h3 class="text-yellow-50 text-xl font-bold uppercase mt-10"><?= $testimonial['title'] ?></h3>
+                                            <h5 class="text-[#8CC090] text-base font-medium uppercase"><?= $testimonial['subtitle'] ?></h5>
+                                        </div>
+
                                     </div>
                                 </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="card w-11/12 md:w-5/6 mx-auto">
-                                    <figure class="px-10 pt-10">
-                                        <img src="./front_assets/images/testi_avatar.png" alt="Shoes"
-                                            class="rounded-full w-20 h-20" />
-                                    </figure>
-                                    <div class="card-body items-center text-center">
-                                        <h4 class="text-base md:text-2xl font-normal md:font-medium text-[#D8D8DA]">
-                                            <span class="text-[#8CC090] italic text-sm md:text-2xl">"</span> An event is
-                                            a message sent by an object to signal the occur rence of an action. The
-                                            action can causd user interaction such as a button click, or it can result
-                                            <span class="text-[#8CC090] italic text-2xl">"</span>
-                                        </h4>
-                                        <h3 class="text-yellow-50 text-xl font-bold uppercase mt-10">tony jackson</h3>
-                                        <h5 class="text-[#8CC090] text-base font-medium uppercase">Head of idea</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="card w-11/12 md:w-5/6 mx-auto">
-                                    <figure class="px-10 pt-10">
-                                        <img src="./front_assets/images/testi_avatar.png" alt="Shoes"
-                                            class="rounded-full w-20 h-20" />
-                                    </figure>
-                                    <div class="card-body items-center text-center">
-                                        <h4 class="text-base md:text-2xl font-normal md:font-medium text-[#D8D8DA]">
-                                            <span class="text-[#8CC090] italic text-sm md:text-2xl">"</span> An event is
-                                            a message sent by an object to signal the occur rence of an action. The
-                                            action can causd user interaction such as a button click, or it can result
-                                            <span class="text-[#8CC090] italic text-2xl">"</span>
-                                        </h4>
-                                        <h3 class="text-yellow-50 text-xl font-bold uppercase mt-10">tony jackson</h3>
-                                        <h5 class="text-[#8CC090] text-base font-medium uppercase">Head of idea</h5>
-                                    </div>
-                                </div>
-                            </div>
+                            <?php endforeach; ?>
+
+
                         </div>
                         <div class="swiper-button-next service-nav"></div>
                         <div class="swiper-button-prev service-nav"></div>
@@ -524,7 +445,7 @@ $user_query = "SELECT * FROM users ";
             </div>
         </section>
         <!-- contact -->
-        <section id="contact"  class="xl:max-w-[1280px] mx-auto py-20 lg:py-28 px-4 lg:px-0">
+        <section id="contact" class="xl:max-w-[1280px] mx-auto py-20 lg:py-28 px-4 lg:px-0">
             <div class="flex flex-col lg:flex-row justify-between gap-10">
                 <div class="w-full lg:w-6/12">
                     <h4 class="text-sm md:text-base font-bold text-[#8CC090] uppercase" style="font-style: italic;">
@@ -532,46 +453,44 @@ $user_query = "SELECT * FROM users ";
                     </h4>
                     <h3 class="text-xl md:text-3xl font-semibold lg:font-black text-yellow-50 my-1 uppercase"
                         style="font-style: italic;">Contact Information</h3>
-                    <p class="text-gray-400 font-medium py-8">Event definition is - somthing that happens occurre How
-                        evesnt
-                        sentence. Synonym when an unknown printer took a galley.</p>
+                    <p class="text-gray-400 font-medium py-8">I am a PHP & Laravel Developer with a strong focus on clean coding. Software Development seeks to attract, inspire, create desires, and motivate people to respond to messages, with the aim of making a favorable impact.</p>
                     <h4 class="text-sm md:text-base font-bold text-white uppercase pb-4" style="font-style: italic;">
-                        OFFICE IN <span class="text-sm md:text-base font-bold text-[#8CC090] uppercase">New York</span>
+                        OFFICE IN <span class="text-sm md:text-base font-bold text-[#8CC090] uppercase">Dhaka</span>
                     </h4>
                     <div class="space-y-1">
                         <div class="flex gap-2 md:gap-3">
                             <h4 class="text-gray-400 md:font-medium"><i
-                                    class="fa-solid fa-location-dot pr-2 text-[#8CC090]"></i> <b class="uppercase text-sm">Address :</b> <span>Event Center park WT 22 New York</span> </h4>
+                                    class="fa-solid fa-location-dot pr-2 text-[#8CC090]"></i> <b class="uppercase text-sm">Address :</b> <span>Nawabganj, Dhaka, Bangladesh</span> </h4>
                         </div>
                         <div class="flex gap-2 md:gap-3">
                             <h4 class="text-gray-400 md:font-medium"><i
                                     class="fa-solid fa-phone pr-2 text-[#8CC090]"></i>
-                                <b class="uppercase text-sm">Phone :</b> <span>+9 125 645 8654</span>
+                                <b class="uppercase text-sm">Phone :</b> <span>+880 193-165-4590</span>
                             </h4>
                         </div>
                         <div class="flex gap-2 md:gap-3">
                             <h4 class="text-gray-400 md:font-medium"><i
                                     class="fa-solid fa-envelope pr-2 text-[#8CC090]"></i> <b class="uppercase text-sm">e-mail
-                                    :</b> <span>info@exemple.com</span> </h4>
+                                    :</b> <span>anikmondol558363@gmail.com</span> </h4>
                         </div>
                     </div>
                 </div>
                 <div class="w-full lg:w-6/12">
-                    <form>
+                <form action="./dashboard/email/action.php" method="post">
                         <div class="pb-6">
-                            <input type="text" placeholder="Your Name *"
+                            <input name="name" type="text" placeholder="Your Name *"
                                 class="w-full py-5 pl-8 bg-[#19273E] text-[#9da5b3] outline-none text-[18px]" />
                         </div>
                         <div class="pb-6">
-                            <input type="email" placeholder="Your Email *"
+                            <input name="email" type="email" placeholder="Your Email *"
                                 class="w-full py-5 pl-8 bg-[#19273E] text-[#9da5b3] outline-none text-[18px]" />
                         </div>
                         <div class="pb-6">
-                            <textarea name="" id="" placeholder="Your Message *"
+                            <textarea name="body" id="" placeholder="Your Message *"
                                 class="w-full h-[170px] py-5 pl-8 bg-[#19273E] text-[#9da5b3] outline-none text-[18px]"></textarea>
                         </div>
                         <div>
-                            <button class="py-2 font-medium px-8 border-[1px] text-yellow-50 hover:bg-slate-500 duration-1000 hover:border-slate-500"> Send </button>
+                            <button name="email_sender" class="py-2 font-medium px-8 border-[1px] text-yellow-50 hover:bg-slate-500 duration-1000 hover:border-slate-500"> Send </button>
                         </div>
                     </form>
                 </div>

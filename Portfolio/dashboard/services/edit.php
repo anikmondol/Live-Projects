@@ -96,7 +96,7 @@ if (isset($_GET['edit'])) {
                                 <br>
                                 <div class="pb-6">
                                     <input readonly name="icon" type="text" placeholder="Type here"
-                                        class="w-full py-3 pl-8 text-[#262a31] outline-none text-[18px]" value="<?= $service['icon']; ?>"/>
+                                        class="w-full py-3 pl-8 text-[#262a31] outline-none text-[18px] icon_value" value="<?= $service['icon']; ?>"/>
                                 </div>
                             </div>
                             <div class="card my-3">
@@ -111,7 +111,7 @@ if (isset($_GET['edit'])) {
                                 </div>
                             </div>
                             <div>
-                                <button type="submit" name="create" class="btn btn-primary my-3"><i class="fa-solid fa-rotate-right" style="color: #ffffff;"></i>Update</button>
+                                <button type="submit" name="update" class="btn btn-primary my-3"><i class="fa-solid fa-rotate-right" style="color: #ffffff;"></i>Update</button>
                             </div>
 
                         </div>

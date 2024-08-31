@@ -5,6 +5,15 @@ include "../master/header.php";
 include "../../fonts/fonts.php";
 
 
+if (isset($_GET['edit'])) {
+    $id =  $_GET['edit'];
+
+    $select_query = "SELECT * FROM feedbacks WHERE id='$id'";
+    $connect = mysqli_query($connect_db, $select_query);
+    $feedbacks = mysqli_fetch_assoc($connect);
+}
+
+
 ?>
 
 
@@ -50,7 +59,7 @@ include "../../fonts/fonts.php";
 <div class="min-h-screen bg-blue-50 rounded">
     <section class="flex flex-col bg-white p-4">
         <div class="flex flex-row space-x-3">
-            <h3 class="font-bold text-gray-600 p-1 text-2xl">Services Create</h3>
+            <h3 class="font-bold text-gray-600 p-1 text-2xl">feedbacks Edit Page</h3>
         </div>
     </section>
 
@@ -58,10 +67,10 @@ include "../../fonts/fonts.php";
         <div class="px-4 lg:px-0 py-4 w-full lg:w-3/5 mx-auto">
             <div class="card flex items-center p-4 justify-between bg-red-50 rounded shadow-lg">
                 <div class="font-bold">
-                    USER-SERVICES
+                    USER-EDIT
                 </div>
                 <div>
-                    <form action="store.php" method="post">
+                    <form action="store.php?edit_id=<?= $feedbacks['id'] ?>" method="post">
                         <div class="w-lg:800px">
                             <div>
                                 <label class="pb-4 font-medium">Title</label>
@@ -69,7 +78,7 @@ include "../../fonts/fonts.php";
                                 <br>
                                 <div class="pb-6">
                                     <input name="title" type="text" placeholder="Type here"
-                                        class="w-full py-3 pl-8 text-[#262a31] outline-none text-[18px]" />
+                                        class="w-full py-3 pl-8 text-[#262a31] outline-none text-[18px]" value="<?= $feedbacks['title']; ?>" />
                                 </div>
                             </div>
                             <div>
@@ -78,7 +87,7 @@ include "../../fonts/fonts.php";
                                 <br>
                                 <div class="pb-6">
                                     <textarea name="description" id="" placeholder="description"
-                                        class="w-full h-[170px] py-5 pl-8 text-[#262a31] outline-none text-[18px]"></textarea>
+                                        class="w-full h-[170px] py-5 pl-8 text-[#262a31] outline-none text-[18px]"><?= $feedbacks['description']; ?></textarea>
                                 </div>
                             </div>
                             <div>
@@ -86,8 +95,8 @@ include "../../fonts/fonts.php";
                                 <br>
                                 <br>
                                 <div class="pb-6">
-                                    <input name="icon" type="text" placeholder="Click Icon"
-                                        class="w-full py-3 pl-8 text-[#262a31] outline-none text-[18px] icon_value" />
+                                    <input readonly name="icon" type="text" placeholder="Type here"
+                                        class="w-full py-3 pl-8 text-[#262a31] outline-none text-[18px] icon_value" value="<?= $feedbacks['icon']; ?>"/>
                                 </div>
                             </div>
                             <div class="card my-3">
@@ -102,7 +111,7 @@ include "../../fonts/fonts.php";
                                 </div>
                             </div>
                             <div>
-                                <button type="submit" name="create" class="btn btn-primary my-3"><i class="fa-solid fa-rotate-right" style="color: #ffffff;"></i>Update</button>
+                                <button type="submit" name="update" class="btn btn-primary my-3"><i class="fa-solid fa-rotate-right" style="color: #ffffff;"></i>Update</button>
                             </div>
 
                         </div>

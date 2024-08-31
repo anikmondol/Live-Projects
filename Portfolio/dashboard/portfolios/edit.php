@@ -74,7 +74,7 @@ if (isset($_GET['edit_id'])) {
                     USER-PORTFOLIO
                 </div>
                 <div>
-                    <form action="store.php" method="post" enctype="multipart/form-data">
+                <form action="store.php?edit_id=<?= $portfolio['id'] ?>" method="post" enctype="multipart/form-data">
                         <div class="lg:w-[800px] px-2">
                             <div>
                                 <label class="pb-4 font-medium">Project Title</label>
@@ -109,7 +109,7 @@ if (isset($_GET['edit_id'])) {
                                 <input onchange="document.getElementById('port_img').src= window.URL.createObjectURL(this.files[0])" type="file" name="image" placeholder="Type here" class="input input-bordered w-[300px] md:w-[400px] lg:w-[760px]  my-4 pt-2" />
                             </div>
                             <div>
-                                <button type="submit" name="create" class="btn btn-primary my-3"><i class="fa-solid fa-rotate-right" style="color: #ffffff;"></i>Update</button>
+                                <button type="submit" name="update" class="btn btn-primary my-3"><i class="fa-solid fa-rotate-right" style="color: #ffffff;"></i>Update</button>
                             </div>
 
                         </div>

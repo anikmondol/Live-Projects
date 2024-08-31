@@ -4,6 +4,15 @@ include "../../config/database.php";
 include "../master/header.php";
 include "../../fonts/fonts.php";
 
+if (isset($_GET['edit_id'])) {
+    $id =  $_GET['edit_id'];
+
+
+    $education_read = "SELECT * FROM educations WHERE id='$id'";
+    $educations = mysqli_query($connect_db, $education_read);
+    $education = mysqli_fetch_assoc($educations);
+
+}
 
 ?>
 
@@ -50,84 +59,59 @@ include "../../fonts/fonts.php";
 <div class="min-h-screen bg-blue-50 rounded">
     <section class="flex flex-col bg-white p-4">
         <div class="flex flex-row space-x-3">
-            <h3 class="font-bold text-gray-600 p-1 text-2xl">Services Create</h3>
+            <h3 class="font-bold text-gray-600 p-1 text-2xl">Education Insert</h3>
         </div>
     </section>
 
     <section>
-        <div class="px-4 lg:px-0 py-4 w-full lg:w-3/5 mx-auto">
-            <div class="card flex items-center p-4 justify-between bg-red-50 rounded shadow-lg">
+        <div class="px-4 lg:px-0 py-4 w-full lg:w-4/5 mx-auto">
+            <div class="card flex items-center p-4 md:justify-between bg-red-50 rounded shadow-lg">
                 <div class="font-bold">
-                    USER-SERVICES
+                    USER-Education
                 </div>
                 <div>
-                    <form action="store.php" method="post">
-                        <div class="w-lg:800px">
+                    <form action="store.php?edit_id=<?= $education['id'] ?>" method="post">
+                        <div class="lg:w-[800px] px-2">
                             <div>
-                                <label class="pb-4 font-medium">Title</label>
+                                <label class="pb-4 font-medium">Education Title</label>
                                 <br>
-                                <br>
-                                <div class="pb-6">
-                                    <input name="title" type="text" placeholder="Type here"
-                                        class="w-full py-3 pl-8 text-[#262a31] outline-none text-[18px]" />
+                                <div>
+                                    <input type="text" name="title" placeholder="Type here" class="input input-bordered w-[300px] md:w-[400px] lg:w-[760px]  my-4" value="<?= $education['title'] ?>" />
                                 </div>
                             </div>
                             <div>
-                                <label class="pb-4 font-medium">Description</label>
+                                <label class="pb-4 font-medium">Education Year</label>
                                 <br>
-                                <br>
-                                <div class="pb-6">
-                                    <textarea name="description" id="" placeholder="description"
-                                        class="w-full h-[170px] py-5 pl-8 text-[#262a31] outline-none text-[18px]"></textarea>
+                                <div>
+                                    <input type="text" name="year" placeholder="Type here" class="input input-bordered w-[300px] md:w-[400px] lg:w-[760px]  my-4" value="<?= $education['year'] ?>"/>
                                 </div>
                             </div>
                             <div>
-                                <label class="pb-4 font-medium">Icon</label>
+                                <label class="pb-4 font-medium">Education Ratio/Parsentage</label>
                                 <br>
-                                <br>
-                                <div class="pb-6">
-                                    <input name="icon" type="text" placeholder="Click Icon"
-                                        class="w-full py-3 pl-8 text-[#262a31] outline-none text-[18px] icon_value" />
-                                </div>
-                            </div>
-                            <div class="card my-3">
-                                <div style="overflow-X: hidden; height:200px;">
-                                    <div class="fa-2x">
-                                        <?php foreach ($fonts as $font) : ?>
-                                            <span class="m-2">
-                                                <i class=" <?= $font ?>" onclick="myFun(event)"></i>
-                                            </span>
-                                        <?php endforeach; ?>
-                                    </div>
+                                <div>
+                                    <select name="ration" class="border border-gray-300 outline-none rounded-md w-[300px] md:w-[400px] lg:w-[760px] py-4">
+                                        <option style="height: 100px !important;" value="0">Select Your Ratio</option>
+                                        <?php for ($i = 1; $i <= 100; $i++) : ?>
+                                            <option value="<?= $i ?>">
+                                                <?= $i ?> %
+                                            </option>
+                                        <?php endfor; ?>
+                                    </select>
                                 </div>
                             </div>
                             <div>
-                                <button type="submit" name="create" class="btn btn-primary my-3"><i class="fa-solid fa-rotate-right" style="color: #ffffff;"></i>Update</button>
+                                <button type="submit" name="update" class="btn btn-primary my-3"><i class="fa-solid fa-rotate-right" style="color: #ffffff;"></i>Update</button>
                             </div>
 
                         </div>
                     </form>
                 </div>
             </div>
-
-
-
         </div>
     </section>
 
-
-
-
 </div>
-
-<script>
-    let icon_value = document.querySelector('.icon_value');
-
-    function myFun(e) {
-        icon_value.value = e.target.classList.value
-
-    }
-</script>
 
 
 

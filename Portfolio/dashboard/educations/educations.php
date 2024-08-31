@@ -4,6 +4,7 @@ include "../master/header.php";
 
 $educations_query = "SELECT * FROM educations";
 $educations = mysqli_query($connect_db, $educations_query);
+$result = mysqli_fetch_assoc($educations);
 
 
 
@@ -79,61 +80,61 @@ $educations = mysqli_query($connect_db, $educations_query);
             <?php endif;
             unset($_SESSION['create_error']); ?>
 
-        <div>
-            <?php if (isset($_SESSION['delete_done'])) :    ?>
-                <div role="alert" class="alert px-2">
+            <div>
+                <?php if (isset($_SESSION['delete_done'])) :    ?>
+                    <div role="alert" class="alert px-2">
 
-                    <i class="fa-solid fa-skull-crossbones text-2xl text-red-300"></i>
-                    <div>
-                        <h5 class="text-base font-medium"> <?= $_SESSION['delete_done'] ?></h5>
+                        <i class="fa-solid fa-skull-crossbones text-2xl text-red-300"></i>
+                        <div>
+                            <h5 class="text-base font-medium"> <?= $_SESSION['delete_done'] ?></h5>
+                        </div>
                     </div>
-                </div>
 
-            <?php endif;
-            unset($_SESSION['delete_done']); ?>
-        </div>
+                <?php endif;
+                unset($_SESSION['delete_done']); ?>
+            </div>
 
-        <div>
-            <?php if (isset($_SESSION['service_update'])) :    ?>
-                <div role="alert" class="alert px-2">
+            <div>
+                <?php if (isset($_SESSION['service_update'])) :    ?>
+                    <div role="alert" class="alert px-2">
 
-                    <i class="fa-solid fa-hourglass text-2xl text-green-300"></i>
-                    <div>
-                        <h5 class="text-base font-medium"> <?= $_SESSION['service_update'] ?></h5>
+                        <i class="fa-solid fa-hourglass text-2xl text-green-300"></i>
+                        <div>
+                            <h5 class="text-base font-medium"> <?= $_SESSION['service_update'] ?></h5>
+                        </div>
                     </div>
-                </div>
 
-            <?php endif;
-            unset($_SESSION['service_update']); ?>
-        </div>
+                <?php endif;
+                unset($_SESSION['service_update']); ?>
+            </div>
 
-        <div>
-            <?php if (isset($_SESSION['active_status'])) :    ?>
-                <div role="alert" class="alert px-2">
+            <div>
+                <?php if (isset($_SESSION['active_status'])) :    ?>
+                    <div role="alert" class="alert px-2">
 
-                    <i class="fa-solid fa-bell text-2xl text-green-300"></i>
-                    <div>
-                        <h5 class="text-base font-medium"> <?= $_SESSION['active_status'] ?></h5>
+                        <i class="fa-solid fa-bell text-2xl text-green-300"></i>
+                        <div>
+                            <h5 class="text-base font-medium"> <?= $_SESSION['active_status'] ?></h5>
+                        </div>
                     </div>
-                </div>
 
-            <?php endif;
-            unset($_SESSION['active_status']); ?>
-        </div>
+                <?php endif;
+                unset($_SESSION['active_status']); ?>
+            </div>
 
-        <div>
-            <?php if (isset($_SESSION['deactive_status'])) :    ?>
-                <div role="alert" class="alert px-2">
+            <div>
+                <?php if (isset($_SESSION['deactive_status'])) :    ?>
+                    <div role="alert" class="alert px-2">
 
-                    <i class="fa-solid fa-bell-slash text-2xl text-red-300"></i>
-                    <div>
-                        <h5 class="text-base font-medium"> <?= $_SESSION['deactive_status'] ?></h5>
+                        <i class="fa-solid fa-bell-slash text-2xl text-red-300"></i>
+                        <div>
+                            <h5 class="text-base font-medium"> <?= $_SESSION['deactive_status'] ?></h5>
+                        </div>
                     </div>
-                </div>
 
-            <?php endif;
-            unset($_SESSION['deactive_status']); ?>
-        </div>
+                <?php endif;
+                unset($_SESSION['deactive_status']); ?>
+            </div>
 
     </section>
 
@@ -163,39 +164,49 @@ $educations = mysqli_query($connect_db, $educations_query);
                 <tbody>
                     <?php
                     $number = 1;
-                    foreach ($educations as $education) :
+                    if (empty($result)):
                     ?>
-                        <tr class="border-b border-gray-300">
-                            <th class="border text-base border-gray-300">
-                                <?= $number++; ?>
-                            </th>
-                            <td class="border text-base border-gray-300">
-                                <?= $education['title']; ?>
-                            </td>
-                            <td class="border text-base border-gray-300">
-                                <?= $education['year']; ?>
-                            </td>
-                            <td class="border text-base border-gray-300">
-                                <?= $education['ration']; ?>
-                            </td>
-                           
-                            <td class="border text-base border-gray-300">
-                                <a href="store.php?status_id=<?= $education['id'] ?>" class="p-1 rounded-sm text-white <?= ($education['status'] == 'deactive') ? 'bg-red-400' : 'bg-green-400'; ?>">
-                                    <?= $education['status'] ?>
-                                </a>
-                            </td>
-                            <td class="border text-base border-gray-300">
-                                <div class="flex justify-evenly gap-2">
-                                    <a href="./edit.php?edit_id=<?= $education['id'] ?>">
-                                        <i class="fa-2x fa-regular fa-pen-to-square text-cyan-500"></i>
-                                    </a>
-                                    <a href="./store.php?id=<?= $education['id'] ?>">
-                                        <i class="fa-2x fa-regular fa-trash-can text-red-400"></i>
-                                    </a>
-                                </div>
-                            </td>
+                        <tr>
+                            <td colspan="5" class="text-center text-red-400 text-xl font-normal border py-1">No portfolios found!</td>
                         </tr>
-                    <?php endforeach; ?>
+                        <?php
+                    else:
+                        foreach ($educations as $education):
+                        ?>
+                            <tr class="border-b border-gray-300">
+                                <th class="border text-base border-gray-300">
+                                    <?= $number++; ?>
+                                </th>
+                                <td class="border text-base border-gray-300">
+                                    <?= $education['title']; ?>
+                                </td>
+                                <td class="border text-base border-gray-300">
+                                    <?= $education['year']; ?>
+                                </td>
+                                <td class="border text-base border-gray-300">
+                                    <?= $education['ration']; ?>
+                                </td>
+
+                                <td class="border text-base border-gray-300">
+                                    <a href="store.php?status_id=<?= $education['id'] ?>" class="p-1 rounded-sm text-white <?= ($education['status'] == 'deactive') ? 'bg-red-400' : 'bg-green-400'; ?>">
+                                        <?= $education['status'] ?>
+                                    </a>
+                                </td>
+                                <td class="border text-base border-gray-300">
+                                    <div class="flex justify-evenly gap-2">
+                                        <a href="./edit.php?edit_id=<?= $education['id'] ?>">
+                                            <i class="fa-2x fa-regular fa-pen-to-square text-cyan-500"></i>
+                                        </a>
+                                        <a href="./store.php?id=<?= $education['id'] ?>">
+                                            <i class="fa-2x fa-regular fa-trash-can text-red-400"></i>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                    <?php
+                        endforeach;
+                    endif;
+                    ?>
                 </tbody>
 
             </table>

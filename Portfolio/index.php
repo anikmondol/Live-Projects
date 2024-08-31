@@ -8,6 +8,8 @@ $user_query = "SELECT * FROM users ";
 $user_connect = mysqli_query($connect_db, $user_query);
 $user = mysqli_fetch_assoc($user_connect);
 
+
+
 $link_query = "SELECT * FROM links";
 $link_connect = mysqli_query($connect_db, $link_query);
 $link = mysqli_fetch_assoc($link_connect);
@@ -27,8 +29,6 @@ $testimonials = mysqli_query($connect_db, $testimonials_query);
 $feedbacks_query = "SELECT * FROM feedbacks WHERE status='active'";
 $feedbacks = mysqli_query($connect_db, $feedbacks_query);
 
-
-
 ?>
 
 
@@ -39,18 +39,17 @@ $feedbacks = mysqli_query($connect_db, $feedbacks_query);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio_Front</title>
-    <link rel="shortcut icon" href="./neptune.png" type="image/x-icon">
+    <link rel="shortcut icon" href="./images/neptune.png" type="image/x-icon">
 
+    <!-- font awesome 6.6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-
-    <!-- font awesome -->
+    <!-- font awesome 4.7 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
 
     <!-- daisyUI link and tailwind css link -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
-
 
     <!-- google font link -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -58,20 +57,14 @@ $feedbacks = mysqli_query($connect_db, $feedbacks_query);
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
 
-
-    <!-- flowbite css link -->
-    <!-- <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css" rel="stylesheet" /> -->
-
-
     <!-- flowbite js link -->
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
-
-    <!-- custom css file link -->
-    <link rel="stylesheet" href="styles/index.css">
 
     <!--   Swiper Js css link  -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
+    <!-- custom css file link -->
+    <link rel="stylesheet" href="styles/index.css">
 
 </head>
 
@@ -89,36 +82,53 @@ $feedbacks = mysqli_query($connect_db, $feedbacks_query);
                         id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown"
                         data-dropdown-placement="bottom">
                         <span class="sr-only">Open user menu</span>
-                        <img class="w-10 h-10 rounded-full" src="front_assets/blog/comment_avatar01.jpg"
-                            alt="user photo">
+                        <img class="w-12 h-12 rounded-full object-cover" <img src="./public/profile/<?= $user['image'] ?>" alt="user photo">
                     </button>
                     <!-- Dropdown menu -->
                     <div class="z-50 hidden my-4 text-base list-none divide-y divide-gray-100 shadow-2xl bg-white"
                         id="user-dropdown" style="background-color: aliceblue !important;">
                         <div class="px-4 py-3 bg-white">
-                            <span class="block text-sm text-gray-900 dark:text-white">Bonnie Green</span>
+                            <span class="block text-sm text-gray-900 dark:text-white"><?= $user['name'] ?></span>
                             <span
-                                class="block text-sm  text-gray-500 truncate dark:text-gray-400">name@flowbite.com</span>
+                                class="block text-sm  text-gray-500 truncate dark:text-gray-400"><?= $user['email'] ?></span>
                         </div>
                         <ul class="py-2 bg-white" aria-labelledby="user-menu-button">
-                            <li>
-                                <a href="#"
+                            <li class="hidden md:flex lg:hidden">
+                                <a href="./authetication/login.php"
                                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Dashboard</a>
                             </li>
-                            <li>
-                                <a href="#"
-                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Settings</a>
+                            <li class="hidden md:flex lg:hidden">
+                                <a href="#contact"
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Contact</a>
                             </li>
-                            <li>
-                                <a href="#"
-                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Earnings</a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign
-                                    out</a>
-                            </li>
+
                         </ul>
+                        <div class="flex gap-2 px-3 pb-2">
+                            <a href="<?= $link['facebook'] ?>" target="_blank">
+                                <button type="button"
+                                    class="text-cyan-400 border-2 border-[#8CC090] hover:border-red-500 hover:text-gray-600 rounded-full px-[10px] py-[5px] text-center duration-500">
+                                    <i class="fa-brands fa-facebook text-sm"></i>
+                                </button>
+                            </a>
+                            <a href="<?= $link['github'] ?>" target="_blank">
+                                <button type="button"
+                                    class="text-cyan-400 border-2 border-[#8CC090] hover:border-red-500 hover:text-gray-600 rounded-full px-[10px] py-[5px] text-center duration-500">
+                                    <i class="fa-brands fa-github text-sm"></i>
+                                </button>
+                            </a>
+                            <a href="<?= $link['linkedin'] ?>" target="_blank">
+                                <button type="button"
+                                    class="text-cyan-400 border-2 border-[#8CC090] hover:border-red-500 hover:text-gray-600 rounded-full px-[10px] py-[5px] text-center duration-500">
+                                    <i class="fa-brands fa-linkedin text-sm"></i>
+                                </button>
+                            </a>
+                            <a href="<?= $link['whatsapp'] ?>" target="_blank">
+                                <button type="button"
+                                    class="text-cyan-400 border-2 border-[#8CC090] hover:border-red-500 hover:text-gray-600 rounded-full px-[10px] py-[5px] text-center duration-500">
+                                    <i class="fa-brands fa-whatsapp text-sm"></i>
+                                </button>
+                            </a>
+                        </div>
                     </div>
                     <button data-collapse-toggle="navbar-user" type="button"
                         class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
@@ -142,6 +152,11 @@ $feedbacks = mysqli_query($connect_db, $feedbacks_query);
                             <a href="#about"
                                 class="block py-2 px-3 text-white  rounded md:bg-transparent md:p-0 hover:text-[#8CC090] duration-500 font-bold"
                                 aria-current="page">About</a>
+                        </li>
+                        <li>
+                            <a href="#skills"
+                                class="block py-2 px-3 text-white  rounded md:bg-transparent md:p-0 hover:text-[#8CC090] font-bold duration-500"
+                                aria-current="page">Skills</a>
                         </li>
                         <li>
                             <a href="#services"
@@ -207,7 +222,7 @@ $feedbacks = mysqli_query($connect_db, $feedbacks_query);
                         <a href="<?= $link['facebook'] ?>" target="_blank">
                             <button type="button"
                                 class="text-cyan-400 border-2 border-[#8CC090] hover:border-red-500 hover:text-white rounded-full px-4 py-3 text-center duration-500">
-                                <i class="fa-brands fa-facebook text-2xl"></i>
+                                <i class="fa-brands fa-facebook text-sm"></i>
                             </button>
                         </a>
                         <a href="<?= $link['github'] ?>" target="_blank">
@@ -251,7 +266,7 @@ $feedbacks = mysqli_query($connect_db, $feedbacks_query);
                     <?php
                     foreach ($educations as $education) :
                     ?>
-                        <div class="flex items-center justify-between md:justify-start md:flex-row md:items-center gap-5 space-y-2">
+                        <div class="flex items-center gap-3 md:justify-start md:flex-row md:items-center md:gap-5 space-y-2">
                             <div class="w-[100px] flex gap-5 justify-between items-center">
                                 <h4 class="text-xl font-bold text-yellow-50"><?= $education['year']; ?></h4>
                                 <div class="w-16 md:w-10 text-white">
@@ -259,9 +274,12 @@ $feedbacks = mysqli_query($connect_db, $feedbacks_query);
                                 </div>
                             </div>
                             <div>
-                                <p class="text-gray-300 font-medium pr-2"><?= $education['title']; ?></p>
-                                <div class="w-[180px] md:w-[300px]">
-                                    <progress class="progress progress-success" value="<?= $education['ration']; ?>" max="100"></progress>
+                                <div class="flex justify-between items-center">
+                                    <p class="text-gray-300 font-medium pr-2 text-xl"><?= $education['title']; ?></p>
+                                    <p class="text-white"><?= $education['ration']; ?> %</p>
+                                </div>
+                                <div class="w-[190px] md:w-[500px]">
+                                    <progress class="progress progress-success  h-1" value="<?= $education['ration']; ?>" max="100"></progress>
                                 </div>
                             </div>
                         </div>
@@ -278,6 +296,169 @@ $feedbacks = mysqli_query($connect_db, $feedbacks_query);
                 </div>
             </div>
         </section>
+
+        <!-- skill -->
+        <section id="skills" class="xl:max-w-[1280px] mx-auto py-20 lg:py-28 px-4 lg:px-0 text-white">
+            <h4 class="text-base lg:text-xl font-bold text-[#8CC090] text-center pb-8" style="font-style: italic;">MY SKILLS
+            </h4>
+            <div class="text-center text-9xl py-10">
+                <i class="fa-solid fa-dove fa-bounce"></i>
+            </div>
+            <div class="flex flex-col md:flex-row gap-[4%] items-center">
+                <div class="w-full space-y-5 pt-10 md:pt-0 lg:w-[48%]">
+                    <h3 class="text-center">Technical Skills</h3>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-base font-semibold">Laravel</span>
+                            <span class="text-sm font-medium text-[#FEC544] dark:text-white">70%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-1 dark:bg-gray-700">
+                            <div class="bg-[#FEC544] h-1 rounded-full" style="width: 70%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-base font-semibold">PHP</span>
+                            <span class="text-sm font-medium text-[#FEC544] dark:text-white">75%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-1 dark:bg-gray-700">
+                            <div class="bg-[#FEC544] h-1 rounded-full" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-base font-semibold">MySQL</span>
+                            <span class="text-sm font-medium text-[#FEC544] dark:text-white">55%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-1 dark:bg-gray-700">
+                            <div class="bg-[#FEC544] h-1 rounded-full" style="width: 55%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-base font-semibold">REACT JS</span>
+                            <span class="text-sm font-medium text-[#FEC544] dark:text-white">68%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-1 dark:bg-gray-700">
+                            <div class="bg-[#FEC544] h-1 rounded-full" style="width: 68%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-base font-semibold">JavaScript</span>
+                            <span class="text-sm font-medium text-[#FEC544] dark:text-white">71%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-1 dark:bg-gray-700">
+                            <div class="bg-[#FEC544] h-1 rounded-full" style="width: 71%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-base font-semibold">Tailwind CSS</span>
+                            <span class="text-sm font-medium text-[#FEC544] dark:text-white">80%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-1 dark:bg-gray-700">
+                            <div class="bg-[#FEC544] h-1 rounded-full" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-base font-semibold">CSS</span>
+                            <span class="text-sm font-medium text-[#FEC544] dark:text-white">83%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-1 dark:bg-gray-700">
+                            <div class="bg-[#FEC544] h-1 rounded-full" style="width: 83%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-base font-semibold">HTML</span>
+                            <span class="text-sm font-medium text-[#FEC544] dark:text-white">85%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-1 dark:bg-gray-700">
+                            <div class="bg-[#FEC544] h-1 rounded-full" style="width: 85%"></div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="w-full space-y-5 pt-10 md:pt-0 lg:w-[48%]">
+                    <h3 class="text-center">Technical Skills</h3>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-base font-semibold">Communication</span>
+                            <span class="text-sm font-medium text-[#FEC544] dark:text-white">65%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-1 dark:bg-gray-700">
+                            <div class="bg-[#FEC544] h-1 rounded-full" style="width: 65%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-base font-semibold">Problem-Solving</span>
+                            <span class="text-sm font-medium text-[#FEC544] dark:text-white">67%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-1 dark:bg-gray-700">
+                            <div class="bg-[#FEC544] h-1 rounded-full" style="width: 67%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-base font-semibold">Teamwork & Collaboration</span>
+                            <span class="text-sm font-medium text-[#FEC544] dark:text-white">78%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-1 dark:bg-gray-700">
+                            <div class="bg-[#FEC544] h-1 rounded-full" style="width: 68%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-base font-semibold">Time Management</span>
+                            <span class="text-sm font-medium text-[#FEC544] dark:text-white">69%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-1 dark:bg-gray-700">
+                            <div class="bg-[#FEC544] h-1 rounded-full" style="width: 69%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-base font-semibold">Adaptability</span>
+                            <span class="text-sm font-medium text-[#FEC544] dark:text-white">79%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-1 dark:bg-gray-700">
+                            <div class="bg-[#FEC544] h-1 rounded-full" style="width: 79%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-base font-semibold">Leadership</span>
+                            <span class="text-sm font-medium text-[#FEC544] dark:text-white">60%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-1 dark:bg-gray-700">
+                            <div class="bg-[#FEC544] h-1 rounded-full" style="width: 60%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-base font-semibold">Negotiation</span>
+                            <span class="text-sm font-medium text-[#FEC544] dark:text-white">62%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-1 dark:bg-gray-700">
+                            <div class="bg-[#FEC544] h-1 rounded-full" style="width: 62%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-base font-semibold">Continuous Learning</span>
+                            <span class="text-sm font-medium text-[#FEC544] dark:text-white">75%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-1 dark:bg-gray-700">
+                            <div class="bg-[#FEC544] h-1 rounded-full" style="width: 62%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- services -->
         <section id="services" class="xl:max-w-[1280px] mx-auto py-20 lg:py-28 px-4 lg:px-0">
             <h4 class="text-base lg:text-xl font-bold text-[#8CC090] text-center" style="font-style: italic;">WHAT WE DO
@@ -354,10 +535,7 @@ $feedbacks = mysqli_query($connect_db, $feedbacks_query);
                         <h2 class="text-4xl text-yellow-100 font-semibold py-2"><?= $feedback['description']; ?></h2>
                         <p class="text-[#8B98AF] font-medium"><?= $feedback['title']; ?></p>
                     </div>
-
                 <?php endforeach; ?>
-
-
             </div>
         </section>
         <!-- testimonialSwiper -->
@@ -395,8 +573,6 @@ $feedbacks = mysqli_query($connect_db, $feedbacks_query);
                                     </div>
                                 </div>
                             <?php endforeach; ?>
-
-
                         </div>
                         <div class="swiper-button-next service-nav"></div>
                         <div class="swiper-button-prev service-nav"></div>
@@ -476,7 +652,7 @@ $feedbacks = mysqli_query($connect_db, $feedbacks_query);
                     </div>
                 </div>
                 <div class="w-full lg:w-6/12">
-                <form action="./dashboard/email/action.php" method="post">
+                    <form action="./dashboard/email/action.php" method="post">
                         <div class="pb-6">
                             <input name="name" type="text" placeholder="Your Name *"
                                 class="w-full py-5 pl-8 bg-[#19273E] text-[#9da5b3] outline-none text-[18px]" />
@@ -498,7 +674,8 @@ $feedbacks = mysqli_query($connect_db, $feedbacks_query);
         </section>
     </main>
     <footer class="footer-center bg-[#162239] text-gray-200 p-10 shadow-2xl">
-        <p>Copyright &copy; <span id="year"></span> - All right reserved by Portfolio</p>
+        <p><small>© <span id="year"></span>. Develop by Anik Mondal. All right reserved.</small></p>
+        <!-- <p>Copyright &copy;  - All right reserved by Portfolio</p> -->
     </footer>
 </body>
 

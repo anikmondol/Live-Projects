@@ -4,6 +4,7 @@ include "../master/header.php";
 
 $portfolio_query = "SELECT * FROM portfolios";
 $portfolios = mysqli_query($connect_db, $portfolio_query);
+$result = mysqli_fetch_assoc($portfolios);
 
 ?>
 
@@ -161,37 +162,47 @@ $portfolios = mysqli_query($connect_db, $portfolio_query);
 
                     <?php
                     $number = 1;
-                    foreach ($portfolios as $portfolio) :
+                    if (empty($result)):
                     ?>
-
-                        <tr class="border-b border-gray-300">
-                            <th class="border text-base border-gray-300">
-                                <?= $number++ ?>
-                            </th>
-                            <td class="border text-base border-gray-300">
-                                <img class="rounded-sm" src="../../public/portfolio/<?= $portfolio['image'] ?>" alt="portfolio image" style="width: 70px; height: 50px; object-fit: cover;">
-                            </td>
-                            <td class="border text-base border-gray-300">
-                                <?= $portfolio['title'] ?>
-                            </td>
-                            <td class="border text-base border-gray-300">
-                                <a href="store.php?status_id=<?= $portfolio['id'] ?>" class="p-1 rounded-sm text-white <?= ($portfolio['status'] == 'deactive') ? 'bg-red-400' : 'bg-green-400'; ?>">
-                                    <?= $portfolio['status'] ?>
-                                </a>
-                            </td>
-                            <td class="border text-base border-gray-300">
-                                <div class="flex justify-evenly gap-2">
-                                    <a href="./edit.php?edit_id=<?= $portfolio['id'] ?>">
-                                        <i class="fa-2x fa-regular fa-pen-to-square text-cyan-500"></i>
-                                    </a>
-                                    <a href="./store.php?id_delete=<?= $portfolio['id'] ?>"
-                                        <i class="fa-2x fa-regular fa-trash-can text-red-400"></i>
-                                    </a>
-                                </div>
-                            </td>
+                        <tr>
+                            <td colspan="5" class="text-center text-red-400 text-xl font-normal border py-1">No portfolios found!</td>
                         </tr>
+                        <?php
+                    else:
+                        foreach ($portfolios as $portfolio):
+                        ?>
 
-                    <?php endforeach; ?>
+                            <tr class="border-b border-gray-300">
+                                <th class="border text-base border-gray-300">
+                                    <?= $number++ ?>
+                                </th>
+                                <td class="border text-base border-gray-300">
+                                    <img class="rounded-sm" src="../../public/portfolio/<?= $portfolio['image'] ?>" alt="portfolio image" style="width: 70px; height: 50px; object-fit: cover;">
+                                </td>
+                                <td class="border text-base border-gray-300">
+                                    <?= $portfolio['title'] ?>
+                                </td>
+                                <td class="border text-base border-gray-300">
+                                    <a href="store.php?status_id=<?= $portfolio['id'] ?>" class="p-1 rounded-sm text-white <?= ($portfolio['status'] == 'deactive') ? 'bg-red-400' : 'bg-green-400'; ?>">
+                                        <?= $portfolio['status'] ?>
+                                    </a>
+                                </td>
+                                <td class="border text-base border-gray-300">
+                                    <div class="flex justify-evenly gap-2">
+                                        <a href="./edit.php?edit_id=<?= $portfolio['id'] ?>">
+                                            <i class="fa-2x fa-regular fa-pen-to-square text-cyan-500"></i>
+                                        </a>
+                                        <a href="./store.php?id_delete=<?= $portfolio['id'] ?>"
+                                            <i class="fa-2x fa-regular fa-trash-can text-red-400"></i>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+
+                    <?php
+                        endforeach;
+                    endif;
+                    ?>
 
                 </tbody>
 

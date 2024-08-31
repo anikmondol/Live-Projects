@@ -15,11 +15,6 @@ if (isset($_POST['email_sender'])) {
     $sander_email = $_POST['email'];
     $sander_body = $_POST['body'];
 
-
-    if (!$sander_name || !$sander_email || !$sander_body) {
-        $_SESSION["create_error "] = "something error try more !!!";
-        header('location: ../../index.php#contact');
-    } else {
         if ($sander_name && $sander_email && $sander_body) {
 
             //Create an instance; passing `true` enables exceptions
@@ -50,9 +45,9 @@ if (isset($_POST['email_sender'])) {
             if ($mail->send()) {
                 $insert = "INSERT INTO emails (name,email,body) VALUES ('$sander_name','$sander_email','$sander_body')";
                 mysqli_query($connect_db, $insert);
-                $_SESSION["insert_done "] = "all is done !!!";
-                header('location: ../../index.php#contact');
+                $_SESSION["insert_done"] = "all is done !!!";
+               header("location: ../../index.php#contact");
             }
         }
     }
-}
+

@@ -29,9 +29,33 @@ $user = mysqli_fetch_assoc($user_connect);
     <title>Portfolio_Dashboard</title>
     <link rel="shortcut icon" href="../../images/neptune.png" type="image/x-icon">
 
-     <!-- font-awesome cnd link 4.7 -->
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+   
+    <!-- font awesome 6.6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- font awesome 4.7 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <!-- daisyUI link and tailwind css link -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- google font link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <!-- flowbite js link -->
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
+
+    <!--   Swiper Js css link  -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <!-- custom css file link -->
+    <link rel="stylesheet" href="styles/index.css">
 
 </head>
 
@@ -65,7 +89,7 @@ $user = mysqli_fetch_assoc($user_connect);
             <div class="flex flex-col flex-auto gap-4 md:gap-5 mx-3">
                 <div class="p-3 px-5 hover:bg-green-200 rounded">
                     <div class="flex flex-row space-x-3 items-center">
-                    <i class="fa-solid fa-globe font-normal text-gray-500 text-sm lg:text-xl"></i>
+                    <i class="fa-regular fa-eye font-normal"></i>
                         <h1 class="font-normal text-gray-700 text-sm lg:text-xl">
                             <a target="_blank" href="../../index.php">Web Site</a>
                         </h1>
@@ -73,9 +97,7 @@ $user = mysqli_fetch_assoc($user_connect);
                 </div>
                 <div class="p-3 px-5 <?= ($link == 'home.php') ? 'bg-slate-200 hover:bg-slate-200' : '' ?> hover:bg-green-200 rounded">
                     <div class="flex flex-row space-x-3 items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" class="h-6 w-6">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M3.375 19.5h17.25m-17.25 0a1.125 1.125 0 0 1-1.125-1.125M3.375 19.5h7.5c.621 0 1.125-.504 1.125-1.125m-9.75 0V5.625m0 12.75v-1.5c0-.621.504-1.125 1.125-1.125m18.375 2.625V5.625m0 12.75c0 .621-.504 1.125-1.125 1.125m1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125m0 3.75h-7.5A1.125 1.125 0 0 1 12 18.375m9.75-12.75c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125m19.5 0v1.5c0 .621-.504 1.125-1.125 1.125M2.25 5.625v1.5c0 .621.504 1.125 1.125 1.125m0 0h17.25m-17.25 0h7.5c.621 0 1.125.504 1.125 1.125M3.375 8.25c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125m17.25-3.75h-7.5c-.621 0-1.125.504-1.125 1.125m8.625-1.125c.621 0 1.125.504 1.125 1.125v1.5c0 .621-.504 1.125-1.125 1.125m-17.25 0h7.5m-7.5 0c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125M12 10.875v-1.5m0 1.5c0 .621-.504 1.125-1.125 1.125M12 10.875c0 .621.504 1.125 1.125 1.125m-2.25 0c.621 0 1.125.504 1.125 1.125M13.125 12h7.5m-7.5 0c-.621 0-1.125.504-1.125 1.125M20.625 12c.621 0 1.125.504 1.125 1.125v1.5c0 .621-.504 1.125-1.125 1.125m-17.25 0h7.5M12 14.625v-1.5m0 1.5c0 .621-.504 1.125-1.125 1.125M12 14.625c0 .621.504 1.125 1.125 1.125m-2.25 0c.621 0 1.125.504 1.125 1.125m0 1.5v-1.5m0 0c0-.621.504-1.125 1.125-1.125m0 0h7.5" />
-                        </svg>
+                    <i class="fa-solid fa-list"></i>
                         <h1 class="font-normal text-gray-700 text-sm lg:text-xl">
                             <a href="../../dashboard/home/home.php">Dashboard</a>
                         </h1>
@@ -84,25 +106,28 @@ $user = mysqli_fetch_assoc($user_connect);
                 <div class="p-3 px-5 <?= ($link == '') ? 'bg-slate-200 hover:bg-slate-200' : '' ?> hover:bg-green-200 rounded">
                     <div class="flex flex-row space-x-3 items-center">
                         <a href="../logout/logout.php">
-                            <button class="font-normal text-gray-700 text-sm lg:text-xl"><i class="fa-solid fa-arrow-right-from-bracket h-6 w-6 font-light"> </i> Logout</button>
+                            <button class="font-normal text-gray-700 text-sm lg:text-xl">
+                                
+                            <i class="fa-solid fa-arrow-right-from-bracket"></i> 
+                                Logout</button>
                         </a>
                     </div>
                 </div>
                 <div class="p-3 px-5 <?= ($link == 'profile.php') ? 'bg-slate-200 hover:bg-slate-200' : '' ?> hover:bg-green-200 rounded">
                     <div class="flex flex-row space-x-3 items-center">
-                        <i class="fa-solid fa-user-gear font-normal text-gray-500 text-sm lg:text-xl"></i>
+                    <i class="fa-solid fa-screwdriver-wrench"></i>
                         <h1 class="font-normal text-green-7000 text-sm lg:text-xl"><a href="../profile/profile.php">Setting</a></h1>
                     </div>
                 </div>
                 <div class="p-3 px-5 <?= ($link == 'links.php') ? 'bg-slate-200 hover:bg-slate-200' : '' ?> hover:bg-green-200 rounded">
                     <div class="flex flex-row space-x-3 items-center">
-                        <i class="fa-solid fa-link font-normal text-gray-500 text-sm lg:text-xl"></i>
+                    <i class="fa-solid fa-link"></i>
                         <h1 class="font-normal text-green-7000 text-sm lg:text-xl"><a href="../links/links.php">Links</a></h1>
                     </div>
                 </div>
                 <div class="p-3 px-5 <?= ($link == 'services.php') ? 'bg-slate-200 hover:bg-slate-200' : '' ?> hover:bg-green-200 rounded">
                     <div class="flex flex-row space-x-3 items-center">
-                        <i class="fa-solid fa-hand-holding-medical font-normal text-gray-500 text-sm lg:text-xl"></i>
+                    <i class="fa-solid fa-briefcase-medical"></i>
                         <h1 class="font-normal text-green-7000 text-sm lg:text-xl"><a href="../services/services.php">Services</a></h1>
                     </div>
                 </div>
@@ -114,13 +139,13 @@ $user = mysqli_fetch_assoc($user_connect);
                 </div>
                 <div class="p-3 px-5 <?= ($link == 'educations.php') ? 'bg-slate-200 hover:bg-slate-200' : '' ?> hover:bg-green-200 rounded">
                     <div class="flex flex-row space-x-3 items-center">
-                        <i class="fa-solid fa-user-graduate font-normal text-gray-500 text-sm lg:text-xl"></i>
+                    <i class="fa-solid fa-graduation-cap"></i>
                         <h1 class="font-normal text-green-7000 text-sm lg:text-xl"><a href="../educations/educations.php">Educations</a></h1>
                     </div>
                 </div>
                 <div class="p-3 px-5 <?= ($link == 'testimonials.php') ? 'bg-slate-200 hover:bg-slate-200' : '' ?> hover:bg-green-200 rounded">
                     <div class="flex flex-row space-x-3 items-center">
-                        <i class="fa-solid fa-users-viewfinder font-normal text-gray-500 text-sm lg:text-xl"></i>
+                    <i class="fa-solid fa-users-viewfinder"></i>
                         <h1 class="font-normal text-green-7000 text-sm lg:text-xl"><a href="../testimonials/testimonials.php">Testimonials</a></h1>
                     </div>
                 </div>
@@ -129,7 +154,7 @@ $user = mysqli_fetch_assoc($user_connect);
                         <i class="fa-solid fa-message font-normal text-gray-500 text-sm lg:text-xl"></i>
                         <h1 class="font-normal text-green-7000 text-sm lg:text-xl"><a href="../feedbacks/feedbacks.php">Feedbacks</a></h1>
                     </div>
-                </div>                
+                </div>
             </div>
 
         </nav>

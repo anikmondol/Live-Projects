@@ -4,6 +4,7 @@ include "../master/header.php";
 
 $testimonials_query = "SELECT * FROM testimonials";
 $testimonials = mysqli_query($connect_db, $testimonials_query);
+$result = mysqli_fetch_assoc($testimonials);
 
 ?>
 
@@ -159,10 +160,17 @@ $testimonials = mysqli_query($connect_db, $testimonials_query);
                 </thead>
                 <tbody>
 
-                    <?php
+                <?php
                     $number = 1;
-                    foreach ($testimonials as $testimonial) :
+                    if (empty($result)):
                     ?>
+                        <tr>
+                            <td colspan="5" class="text-center text-red-400 text-xl font-normal border py-1">No portfolios found!</td>
+                        </tr>
+                        <?php
+                    else:
+                        foreach ($testimonials as $testimonial):
+                        ?>
 
                         <tr class="border-b border-gray-300">
                             <th class="border text-base border-gray-300">
@@ -191,7 +199,10 @@ $testimonials = mysqli_query($connect_db, $testimonials_query);
                             </td>
                         </tr>
 
-                    <?php endforeach; ?>
+                        <?php
+                        endforeach;
+                    endif;
+                    ?>
 
                 </tbody>
 

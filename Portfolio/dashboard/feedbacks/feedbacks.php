@@ -4,7 +4,7 @@ include "../master/header.php";
 
 $feedbacks_query = "SELECT * FROM feedbacks";
 $feedbacks = mysqli_query($connect_db, $feedbacks_query);
-
+$result = mysqli_fetch_assoc($feedbacks);
 
 
 ?>
@@ -160,10 +160,17 @@ $feedbacks = mysqli_query($connect_db, $feedbacks_query);
                     </tr>
                 </thead>
                 <tbody>
-                    <?php
+                <?php
                     $number = 1;
-                    foreach ($feedbacks as $feedback) :
+                    if (empty($result)):
                     ?>
+                        <tr>
+                            <td colspan="5" class="text-center text-red-400 text-xl font-normal border py-1">No portfolios found!</td>
+                        </tr>
+                        <?php
+                    else:
+                        foreach ($feedbacks as $feedback):
+                        ?>
                         <tr class="border-b border-gray-300">
                             <th class="border text-base border-gray-300">
                                 <?= $number++; ?>
@@ -190,7 +197,10 @@ $feedbacks = mysqli_query($connect_db, $feedbacks_query);
                                 </div>
                             </td>
                         </tr>
-                    <?php endforeach; ?>
+                        <?php
+                        endforeach;
+                    endif;
+                    ?>
                 </tbody>
 
             </table>

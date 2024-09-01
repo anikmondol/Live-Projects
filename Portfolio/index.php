@@ -4,7 +4,7 @@ session_start();
 include "./config/database.php";
 
 
-$user_query = "SELECT * FROM users ";
+$user_query = "SELECT * FROM users WHERE status='active'";
 $user_connect = mysqli_query($connect_db, $user_query);
 $user = mysqli_fetch_assoc($user_connect);
 
@@ -71,7 +71,7 @@ $feedbacks = mysqli_query($connect_db, $feedbacks_query);
 <body>
     <header id="header" class="shadow-2xl transition-all duration-500 top-0 left-0 right-0 z-10">
         <nav class="xl:max-w-[1280px] mx-auto">
-            <div class="flex flex-wrap items-center justify-between py-4 mx-auto xl:max-w-[1280px] px-4 lg:px-0">
+            <div class="flex flex-wrap items-center justify-between py-3 mx-auto xl:max-w-[1280px] px-4 lg:px-0">
                 <a class="flex items-center space-x-3 rtl:space-x-reverse">
                     <span
                         class="self-center text-xl md:text-[22px] font-bold whitespace-nowrap text-[#FFFFFF]">Portfolio</span>
@@ -199,8 +199,8 @@ $feedbacks = mysqli_query($connect_db, $feedbacks_query);
                     <div class="sipner-img mx-auto">
                         <img class="" src="./front_assets/shape/dot_circle.png" alt="">
                     </div>
-                    <div class="absolute banner-man-image">
-                        <img src="./front_assets/banner/banner_img.png" />
+                    <div class="absolute pt-3 md:pt-0 lg:-top-24 object-cover banner-man-image">
+                        <img src="./front_assets/banner/banner_img8.webp" />
                     </div>
                 </div>
                 <div class="lg:w-7/12 space-y-5 mt-4 md:mt-0">
@@ -252,8 +252,8 @@ $feedbacks = mysqli_query($connect_db, $feedbacks_query);
             </div>
         </section>
         <!-- about section-->
-        <section id="about" class="xl:max-w-[1280px] mx-auto py-20 lg:py-36 px-4 lg:px-0">
-            <div class="flex flex-col lg:flex-row-reverse gap-16 md:gap-0 justify-between ">
+        <section id="about" class="xl:max-w-[1280px] mx-auto py-20 lg:pt-32  px-4 lg:px-0">
+            <div class="flex flex-col lg:flex-row-reverse gap-16 md:gap-5 justify-between ">
                 <div class="lg:w-7/12 space-y-4 mt-4 md:mt-0">
                     <h4 class="text-base lg:text-xl font-bold text-[#8CC090]" style="font-style: italic;">Introduction
                     </h4>
@@ -262,48 +262,46 @@ $feedbacks = mysqli_query($connect_db, $feedbacks_query);
                     <p class=" text-gray-400 font-medium mb-3">
                         Hi, my name is Anik Mondal. I am a Jr. PHP & Laravel Developer . But I mostly work in frontend development I have more than 1 year experience in web design and web development.I have skills in HTML5, CSS3, bootstrap, tailwind css, javaScript, Es6, PHP, Laravel, Mysqul etc.
                     </p>
-                    <h5 class="text-[18px] font-black text-yellow-50">Education :</h5>
-                    <?php
-                    foreach ($educations as $education) :
-                    ?>
-                        <div class="flex items-center gap-3 md:justify-start md:flex-row md:items-center md:gap-5 space-y-2">
-                            <div class="w-[100px] flex gap-5 justify-between items-center">
-                                <h4 class="text-xl font-bold text-yellow-50"><?= $education['year']; ?></h4>
-                                <div class="w-16 md:w-10 text-white">
-                                    <hr>
+                    <div class="hidden md:flex flex-col">
+                        <h5 class="text-[18px] font-black text-yellow-50">Education :</h5>
+                        <?php
+                        foreach ($educations as $education) :
+                        ?>
+                            <div class="flex items-center gap-3 md:justify-start md:flex-row md:items-center md:gap-5 space-y-2">
+                                <div class="w-[100px] flex gap-5 justify-between items-center">
+                                    <h4 class="text-xl font-bold text-yellow-50"><?= $education['year']; ?></h4>
+                                    <div class="w-16 md:w-10 text-white">
+                                        <hr>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between items-center">
+                                        <p class="text-gray-300 font-medium pr-2 text-xl"><?= $education['title']; ?></p>
+                                        <p class="text-white"><?= $education['ration']; ?> %</p>
+                                    </div>
+                                    <div class="w-[190px] md:w-[500px]">
+                                        <progress class="progress progress-success  h-1" value="<?= $education['ration']; ?>" max="100"></progress>
+                                    </div>
                                 </div>
                             </div>
-                            <div>
-                                <div class="flex justify-between items-center">
-                                    <p class="text-gray-300 font-medium pr-2 text-xl"><?= $education['title']; ?></p>
-                                    <p class="text-white"><?= $education['ration']; ?> %</p>
-                                </div>
-                                <div class="w-[190px] md:w-[500px]">
-                                    <progress class="progress progress-success  h-1" value="<?= $education['ration']; ?>" max="100"></progress>
-                                </div>
-                            </div>
-                        </div>
-                    <?php endforeach; ?>
-
+                        <?php endforeach; ?>
+                    </div>
                 </div>
-                <div class="lg:w-5/12 md:pt-12 relative md:flex md:justify-center items-center">
+                <div class="lg:w-5/12 relative md:pt-10 lg:pt-0 md:flex md:justify-center items-center">
                     <div class="sipner-img mx-auto hidden md:flex">
                         <img class="" src="./front_assets/shape/dot_circle.png" alt="">
                     </div>
-                    <div class="about-man-image md:absolute mx-auto">
-                        <img src="./front_assets/banner/banner_img2.png" />
+                    <div class="about-man-image object-cover pb-10- md:absolute mx-auto">
+                        <img src="./front_assets/banner/banner_img4.webp" />
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- skill -->
-        <section id="skills" class="xl:max-w-[1280px] mx-auto py-20 lg:py-28 px-4 lg:px-0 text-white">
+        <section id="skills" class="xl:max-w-[1280px] mx-auto py-20 lg:py-24 px-4 lg:px-0 text-white">
             <h4 class="text-base lg:text-xl font-bold text-[#8CC090] text-center pb-8" style="font-style: italic;">MY SKILLS
             </h4>
-            <div class="text-center text-9xl py-10">
-                <i class="fa-solid fa-dove fa-bounce"></i>
-            </div>
             <div class="flex flex-col md:flex-row gap-[4%] items-center">
                 <div class="w-full space-y-5 pt-10 md:pt-0 lg:w-[48%]">
                     <h3 class="text-center">Technical Skills</h3>
@@ -382,7 +380,7 @@ $feedbacks = mysqli_query($connect_db, $feedbacks_query);
 
                 </div>
                 <div class="w-full space-y-5 pt-10 md:pt-0 lg:w-[48%]">
-                    <h3 class="text-center">Technical Skills</h3>
+                    <h3 class="text-center">Soft Skills</h3>
                     <div>
                         <div class="flex justify-between mb-1">
                             <span class="text-base font-semibold">Communication</span>
@@ -499,11 +497,11 @@ $feedbacks = mysqli_query($connect_db, $feedbacks_query);
                             class="absolute top-0 left-0 w-full h-full bg-[rgba(20,20,20,0.5)] flex items-end text-white opacity-0 transition-all duration-700 ease-in-out group-hover:opacity-100">
                             <div
                                 class="-translate-y-5 transition-all duration-700 ease-in-out mb-12 ml-12 md:ml-6 group-hover:translate-y-0">
-                                <h4 class="text-[#8CC090] text-base font-bold"><?= $portfolio['subtitle'] ?></h4>
+                                <h4 class="text-[#8CC090] text-base font-bold"><?= $portfolio['title'] ?></h4>
                                 <h2 class="text-yellow-100 text-2xl lg:text-3xl font-semibold"><?= $portfolio['subtitle'] ?></h2>
                                 <div
-                                    class="flex items-center gap-3 text-[#8CC090] text-base font-bold hover:text-cyan-400 hover:text-[18px] duration-700">
-                                    <a href="./dashboard/portfolios/single_portfolio.php?id=<?= $portfolio['id'] ?>" class="flex items-center gap-2"><?= $portfolio['title'] ?><i class="fa-solid fa-arrow-right-long hover-right-icon text-2xl"></i></a>
+                                    class="flex items-center gap-3 text-[#cdea0fa3] text-base font-bold hover:text-cyan-400 hover:text-[18px] duration-700">
+                                    <a href="./dashboard/portfolios/single_portfolio.php?id=<?= $portfolio['id'] ?>" class="flex items-center gap-2">More Information<i class="fa-solid fa-arrow-right-long hover-right-icon text-2xl"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -562,9 +560,9 @@ $feedbacks = mysqli_query($connect_db, $feedbacks_query);
                                                 class="rounded-full w-20 h-20 object-cover" />
                                         </figure>
                                         <div class="card-body items-center text-center">
-                                            <h4 class="text-base md:text-2xl font-normal md:font-medium text-[#D8D8DA]">
-                                                <span class="text-[#8CC090] italic text-sm md:text-2xl">"</span><?= $testimonial['description'] ?>
-                                                <span class="text-[#8CC090] italic text-2xl">"</span>
+                                            <h4 class="text-base md:text-xl font-normal md:font-medium text-[#D8D8DA]">
+                                                <span class="text-[#8CC090] italic text-sm md:text-xl">" </span><?= $testimonial['description'] ?>
+                                                <span class="text-[#8CC090] italic text-xl">"</span>
                                             </h4>
                                             <h3 class="text-yellow-50 text-xl font-bold uppercase mt-10"><?= $testimonial['title'] ?></h3>
                                             <h5 class="text-[#8CC090] text-base font-medium uppercase"><?= $testimonial['subtitle'] ?></h5>
@@ -574,48 +572,8 @@ $feedbacks = mysqli_query($connect_db, $feedbacks_query);
                                 </div>
                             <?php endforeach; ?>
                         </div>
-                        <div class="swiper-button-next service-nav"></div>
-                        <div class="swiper-button-prev service-nav"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- sponsorship -->
-        <section id="sponsorship" class="hidden lg:flex shadow-2xl py-16 bg-[#1a2435] p-4">
-            <!-- Swiper -->
-            <div class="xl:max-w-[1280px] mx-auto py-20 lg:py-28 px-4 lg:px-0">
-                <div class="swiper mySwiper2">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div class="md:bg-red-100 p-4 rounded">
-                                <img src="./front_assets/brand/brand_img01.png" alt="">
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="md:bg-red-100 p-4 rounded">
-                                <img src="./front_assets/brand/brand_img02.png" alt="">
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="md:bg-red-100 p-4 rounded">
-                                <img src="./front_assets/brand/brand_img03.png" alt="">
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="md:bg-red-100 p-4 rounded">
-                                <img src="./front_assets/brand/brand_img04.png" alt="">
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="md:bg-red-100 p-4 rounded">
-                                <img src="./front_assets/brand/brand_img05.png" alt="">
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="md:bg-red-100 p-4 rounded">
-                                <img src="./front_assets/brand/brand_img04.png" alt="">
-                            </div>
-                        </div>
+                        <div class="swiper-button-next hover:bg-red-300 duration-700 service-nav"></div>
+                        <div class="swiper-button-prev hover:bg-red-300 duration-700 service-nav"></div>
                     </div>
                 </div>
             </div>
@@ -675,7 +633,6 @@ $feedbacks = mysqli_query($connect_db, $feedbacks_query);
     </main>
     <footer class="footer-center bg-[#162239] text-gray-200 p-10 shadow-2xl">
         <p><small>© <span id="year"></span>. Develop by Anik Mondal. All right reserved.</small></p>
-        <!-- <p>Copyright &copy;  - All right reserved by Portfolio</p> -->
     </footer>
 </body>
 

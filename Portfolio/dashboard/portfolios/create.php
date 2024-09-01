@@ -85,6 +85,15 @@ include "../../fonts/fonts.php";
                                     placeholder="description"
                                     class="textarea textarea-bordered textarea-lg w-[300px] md:w-[400px] lg:w-[760px]" name="description"></textarea>
                             </div>
+                            <div>
+                                <label class="pb-4 font-medium">Live</label>
+                                <br>
+                                <br>
+                                <div class="pb-6">
+                                    <input name="live" type="text" placeholder="Type here"
+                                        class="w-full py-3 pl-8 text-[#262a31] outline-none text-[18px] md:w-[435px] lg:w-[700px]" />
+                                </div>
+                            </div>
 
                             <picture class="d-block my-4">
                                 <img class="w-full h-[300px] object-contain" id="port_img" src="../../public/default/default1.jpg" alt="image">

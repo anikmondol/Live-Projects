@@ -8,16 +8,17 @@ if (isset($_POST['create'])) {
     $title = $_POST['title'];
     $subtitle = $_POST['subtitle'];
     $description = $_POST['description'];
+    $live = $_POST['live'];
 
 
     $image = $_FILES['image']['name'];
     $tmp_img = $_FILES['image']['tmp_name'];
 
-   if (!$image || !$subtitle || !$title || !$description) {
+   if (!$image || !$subtitle || !$title || !$description || !$live) {
     $_SESSION['port_error'] = "Image Field is Required!!";
     header("location: portfolio.php");
    }else{
-    if ($image && $subtitle && $title && $description) {
+    if ($image && $subtitle && $title && $description && $live) {
         $explode = explode('.', $image);
         $extension = end($explode);
         $custom_name_img = $_SESSION['auth_id'].'-'.$title.'-'.date("d-m-Y").".".$extension;
@@ -25,7 +26,7 @@ if (isset($_POST['create'])) {
 
         if (move_uploaded_file($tmp_img, $local_path)) {
 
-            $query = "INSERT INTO portfolios (title,subtitle,description,image) VALUES ('$title','$subtitle','$description','$custom_name_img')";
+            $query = "INSERT INTO portfolios (title,subtitle,description,live,image) VALUES ('$title','$subtitle','$description','$live','$custom_name_img')";
             mysqli_query($connect_db, $query);
             $_SESSION["port_create"] = "new portfolio create successfully !!!";
             header("location: portfolio.php");
@@ -71,13 +72,14 @@ if (isset($_POST['update'])) {
         $title = $_POST['title'];
         $subtitle = $_POST['subtitle'];
         $description = $_POST['description'];
+        $live = $_POST['live'];
 
         $image = $_FILES['image']['name'];
         $tmp_img = $_FILES['image']['tmp_name'];
 
 
 
-        if ($image && $subtitle && $title && $description) {
+        if ($image && $subtitle && $title && $description && $live) {
             $select_port = "SELECT * FROM portfolios WHERE id='$id'";
             $connectdb = mysqli_query($connect_db, $select_port);
             $port = mysqli_fetch_assoc($connectdb);
@@ -97,13 +99,13 @@ if (isset($_POST['update'])) {
 
             if (move_uploaded_file($tmp_img, $local_path)) {
 
-                $query = "UPDATE portfolios SET title='$title',subtitle='$subtitle',description='$description',image='$custom_name_img' WHERE id='$id'";
+                $query = "UPDATE portfolios SET title='$title',subtitle='$subtitle',description='$description',live='$live',image='$custom_name_img' WHERE id='$id'";
                 mysqli_query($connect_db, $query);
                 $_SESSION['port_create'] = "portfolios update successfully complete";
                 header('location: portfolio.php');
             }
         } else {
-            $query = "UPDATE portfolios SET title='$title',subtitle='$subtitle',description='$description' WHERE id='$id'";
+            $query = "UPDATE portfolios SET title='$title',subtitle='$subtitle',description='$description',live='$live' WHERE id='$id'";
             mysqli_query($connect_db, $query);
             $_SESSION['port_create'] = "portfolios update successfully complete";
             header('location: portfolio.php');

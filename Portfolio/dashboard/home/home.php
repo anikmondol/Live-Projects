@@ -3,8 +3,7 @@
 include "../master/header.php";
 include "../../config/database.php";
 
-$users_query = "select * FROM users";
-
+$users_query = "SELECT * FROM users";
 $users = mysqli_query($connect_db, $users_query);
 
 
@@ -53,17 +52,47 @@ $users = mysqli_query($connect_db, $users_query);
         <div class="flex flex-row space-x-3">
             <h3 class="font-bold text-gray-600 p-1 text-2xl">Dashboard</h3>
         </div>
-        <?php if (isset($_SESSION['team_name'])) :    ?>
-            <div role="alert" class="alert">
-                <i class="fa-solid fa-user-check text-2xl text-red-300"></i>
-                <div>
-                    <h5 class="text-xl font-medium">Welcome Mr. <?= $_SESSION['team_name'] ?></h5>
-                    <p class="text-sm"> Your Email is <?= $_SESSION['auth_email'] ?></p>
-                </div>
-            </div>
 
-        <?php endif;
-        unset($_SESSION['team_name']); ?>
+        <div>
+            <?php if (isset($_SESSION['team_name'])) :    ?>
+                <div role="alert" class="alert">
+                    <i class="fa-solid fa-user-check text-2xl text-red-300"></i>
+                    <div>
+                        <h5 class="text-xl font-medium">Welcome Mr. <?= $_SESSION['team_name'] ?></h5>
+                        <p class="text-sm"> Your Email is <?= $_SESSION['auth_email'] ?></p>
+                    </div>
+                </div>
+            <?php endif;
+            unset($_SESSION['team_name']); ?>
+        </div>
+
+        <div>
+            <?php if (isset($_SESSION['active_status'])) :    ?>
+                <div role="alert" class="alert px-2">
+
+                    <i class="fa-solid fa-bell text-2xl text-green-300"></i>
+                    <div>
+                        <h5 class="text-base font-medium"> <?= $_SESSION['active_status'] ?></h5>
+                    </div>
+                </div>
+
+            <?php endif;
+            unset($_SESSION['active_status']); ?>
+        </div>
+
+        <div>
+            <?php if (isset($_SESSION['deactive_status'])) :    ?>
+                <div role="alert" class="alert px-2">
+
+                    <i class="fa-solid fa-bell-slash text-2xl text-red-300"></i>
+                    <div>
+                        <h5 class="text-base font-medium"> <?= $_SESSION['deactive_status'] ?></h5>
+                    </div>
+                </div>
+
+            <?php endif;
+            unset($_SESSION['deactive_status']); ?>
+        </div>
 
     </section>
 
@@ -76,12 +105,12 @@ $users = mysqli_query($connect_db, $users_query);
                         <th class="px-4 py-2 border border-gray-300">Id</th>
                         <th class="px-4 py-2 border border-gray-300">Name</th>
                         <th class="px-4 py-2 border border-gray-300">Email</th>
-                        <th class="px-4 py-2 border border-gray-300">company</th>
+                        <th class="px-4 py-2 border border-gray-300">Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php $number = 1;
-                        $id = $_SESSION['auth_id'];
+                    $id = $_SESSION['auth_id'];
                     ?>
                     <?php foreach ($users as $user) {
                         if ($user['id'] == $id) {
@@ -92,7 +121,11 @@ $users = mysqli_query($connect_db, $users_query);
                             <th class="px-4 py-2 border border-gray-300"><?= $number++ ?></th>
                             <td class="px-4 py-2 border border-gray-300"><?= $user["name"] ?></td>
                             <td class="px-4 py-2 border border-gray-300"><?= $user["email"] ?></td>
-                            <td class="px-4 py-2 border border-gray-300">Littel, Schaden and Vandervort</td>
+                            <td class="border text-base border-gray-300">
+                                <a href="store.php?status_id=<?= $user['id'] ?>" class="p-1 rounded-sm text-white <?= ($user['status'] == 'deactive') ? 'bg-red-400' : 'bg-green-400'; ?>">
+                                    <?= $user['status'] ?>
+                                </a>
+                            </td>
                         </tr>
                     <?php } ?>
                 </tbody>
@@ -101,23 +134,6 @@ $users = mysqli_query($connect_db, $users_query);
         </div>
     </section>
     <!-- table section end -->
-
-    <!-- second grid start here -->
-    <!-- <section class="p-4 lg:p-0">
-        <div class="grid lg:grid-cols-3 lg:p-4 gap-4">
-            <div class="col-span-2 lg:col-span-2 flex flex-col p-3 bg-white rounded shadow-sm">
-                <b class="flex flex-row text-gray-500 py-2">Property Release for today</b>
-                <canvas id="chartLine"></canvas>
-            </div>
-
-            <div class="col-span-2  py-2 lg:col-span-1 flex flex-col  p-3 bg-white rounded shadow-sm">
-                <b class="flex flex-row text-gray-500">Occupancy Percentage</b>
-                <canvas id="chartRadar"></canvas>
-            </div>
-        </div>
-    </section> -->
-    <!-- second grid end here -->
-
 
 
 </div>

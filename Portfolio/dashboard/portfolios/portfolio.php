@@ -203,9 +203,7 @@ $result = mysqli_fetch_assoc($portfolios);
                         endforeach;
                     endif;
                     ?>
-
                 </tbody>
-
             </table>
         </div>
     </section>

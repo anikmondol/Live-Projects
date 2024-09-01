@@ -11,7 +11,6 @@ if (isset($_GET['edit_id'])) {
     $select_query = "SELECT * FROM portfolios WHERE id='$id'";
     $connect = mysqli_query($connect_db, $select_query);
     $portfolio = mysqli_fetch_assoc($connect);
-
 }
 
 
@@ -74,7 +73,7 @@ if (isset($_GET['edit_id'])) {
                     USER-PORTFOLIO
                 </div>
                 <div>
-                <form action="store.php?edit_id=<?= $portfolio['id'] ?>" method="post" enctype="multipart/form-data">
+                    <form action="store.php?edit_id=<?= $portfolio['id'] ?>" method="post" enctype="multipart/form-data">
                         <div class="lg:w-[800px] px-2">
                             <div>
                                 <label class="pb-4 font-medium">Project Title</label>
@@ -98,9 +97,16 @@ if (isset($_GET['edit_id'])) {
                                     placeholder="description"
                                     class="textarea textarea-bordered textarea-lg w-[300px] md:w-[400px] lg:w-[760px]" name="description"><?= $portfolio['description'] ?></textarea>
                             </div>
+                            <div>
+                                <label class="pb-4 font-medium">Live links</label>
+                                <br>
+                                <div>
+                                    <input type="text" name="live" placeholder="Type here" class="input input-bordered w-[300px] md:w-[400px] lg:w-[760px]  my-4" value="<?= $portfolio['live'] ?>" />
+                                </div>
+                            </div>
 
                             <picture class="d-block my-4">
-                                <img class="w-full h-[200px] md:h-[300px] object-contain" id="port_img"id="port_img" src="../../public/portfolio/<?= $portfolio['image'] ?>" alt="image">
+                                <img class="w-full h-[200px] md:h-[300px] object-contain" id="port_img" id="port_img" src="../../public/portfolio/<?= $portfolio['image'] ?>" alt="image">
                             </picture>
 
                             <div>

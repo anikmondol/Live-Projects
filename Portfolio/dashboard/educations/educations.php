@@ -6,11 +6,7 @@ $educations_query = "SELECT * FROM educations";
 $educations = mysqli_query($connect_db, $educations_query);
 $result = mysqli_fetch_assoc($educations);
 
-
-
 ?>
-
-
 
 
 <!-- content start -->
@@ -138,7 +134,6 @@ $result = mysqli_fetch_assoc($educations);
 
     </section>
 
-
     <!-- table section start -->
     <section class="mt-3 p-3 w-full lg:w-10/12 mx-auto">
         <div style="overflow-y: scroll; height: 400px;">
@@ -213,10 +208,6 @@ $result = mysqli_fetch_assoc($educations);
         </div>
     </section>
     <!-- table section end -->
-
-
-
-
 
 
     <?php include "../master/footer.php";

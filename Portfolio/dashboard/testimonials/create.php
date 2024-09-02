@@ -4,11 +4,7 @@ include "../../config/database.php";
 include "../master/header.php";
 include "../../fonts/fonts.php";
 
-
 ?>
-
-
-
 
 <!-- content start -->
 
@@ -58,7 +54,7 @@ include "../../fonts/fonts.php";
         <div class="px-4 lg:px-0 py-4 w-full lg:w-4/5 mx-auto">
             <div class="card flex items-center p-4 md:justify-between bg-red-50 rounded shadow-lg">
                 <div class="font-bold uppercase">
-                USER-testimonial
+                    USER-testimonial
                 </div>
                 <div>
                     <form action="store.php" method="post" enctype="multipart/form-data">
@@ -104,17 +100,11 @@ include "../../fonts/fonts.php";
                 </div>
             </div>
 
-
-
         </div>
     </section>
 
 
-
-
 </div>
-
-
 
 <?php include "../master/footer.php";
 ?>

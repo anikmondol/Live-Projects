@@ -4,11 +4,7 @@ include "../../config/database.php";
 include "../master/header.php";
 include "../../fonts/fonts.php";
 
-
 ?>
-
-
-
 
 <!-- content start -->
 
@@ -45,7 +41,6 @@ include "../../fonts/fonts.php";
     </div>
 </section>
 <!-- first grid end here -->
-
 
 <div class="min-h-screen bg-blue-50 rounded">
     <section class="flex flex-col bg-white p-4">
@@ -112,9 +107,6 @@ include "../../fonts/fonts.php";
 
         </div>
     </section>
-
-
-
 
 </div>
 

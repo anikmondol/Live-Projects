@@ -3,7 +3,6 @@
 session_start();
 include '../../config/database.php';
 
-
 if (isset($_POST['create'])) {
     $title = $_POST['title'];
     $description = $_POST['description'];
@@ -22,7 +21,6 @@ if (isset($_POST['create'])) {
     }
 }
 
-
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
     $query = "DELETE FROM services WHERE id='$id'";
@@ -30,8 +28,6 @@ if (isset($_GET['id'])) {
     $_SESSION["delete_done"] = "old service  delete successfully !!!";
     header("location: services.php");
 }
-
-
 
 if (isset($_GET['status_id'])) {
     $status_id =  $_GET['status_id'];
@@ -46,17 +42,14 @@ if (isset($_GET['status_id'])) {
         mysqli_query($connect_db, $update_query);
         $_SESSION["active_status"] = "services status active successfully complete !!!";
         header("location: services.php");
-
-       
     } else {
-       
+
         $update_query = "UPDATE services SET status='deactive' WHERE id='$status_id'";
         mysqli_query($connect_db, $update_query);
         $_SESSION["deactive_status"] = "services status deactive successfully complete !!!";
         header("location: services.php");
     }
 }
-
 
 if (isset($_POST['update'])) {
     if (isset($_GET['edit_id'])) {
@@ -69,9 +62,5 @@ if (isset($_POST['update'])) {
         mysqli_query($connect_db, $update_query);
         $_SESSION["service_update"] = "services update successfully complete !!!";
         header("location: services.php");
-        
     }
 }
-
-
-?>

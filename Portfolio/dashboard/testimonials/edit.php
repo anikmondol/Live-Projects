@@ -12,10 +12,7 @@ if (isset($_GET['edit_id'])) {
     $testimonial = mysqli_fetch_assoc($connect);
 }
 
-
 ?>
-
-
 
 
 <!-- content start -->
@@ -75,14 +72,14 @@ if (isset($_GET['edit_id'])) {
                                 <label class="pb-4 font-medium">Title</label>
                                 <br>
                                 <div>
-                                    <input type="text" name="title" placeholder="Type here" class="input input-bordered w-[300px] md:w-[400px] lg:w-[760px]  my-4" value="<?= $testimonial['title'] ?>"/>
+                                    <input type="text" name="title" placeholder="Type here" class="input input-bordered w-[300px] md:w-[400px] lg:w-[760px]  my-4" value="<?= $testimonial['title'] ?>" />
                                 </div>
                             </div>
                             <div>
                                 <label class="pb-4 font-medium">Sub-Title</label>
                                 <br>
                                 <div>
-                                    <input type="text" name="subtitle" placeholder="Type here" class="input input-bordered w-[300px] md:w-[400px] lg:w-[760px]  my-4" value="<?= $testimonial['subtitle'] ?>"/>
+                                    <input type="text" name="subtitle" placeholder="Type here" class="input input-bordered w-[300px] md:w-[400px] lg:w-[760px]  my-4" value="<?= $testimonial['subtitle'] ?>" />
                                 </div>
                             </div>
                             <div>
@@ -112,13 +109,8 @@ if (isset($_GET['edit_id'])) {
                 </div>
             </div>
 
-
-
         </div>
     </section>
-
-
-
 
 </div>
 

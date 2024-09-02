@@ -62,7 +62,6 @@ include "../../config/database.php";
                         <div>
                             <label class="pb-4 font-medium">UserName</label>
                             <input type="text" name="name" placeholder="Type here" class="input input-bordered w-full max-w-xs my-4" />
-
                             <!-- name error start -->
                             <?php if (isset($_SESSION["name_error"])) :
                             ?>
@@ -70,7 +69,6 @@ include "../../config/database.php";
                             <?php endif;
                             unset($_SESSION["name_error"]); ?>
                             <!-- name error end -->
-
                             <!-- name update start -->
                             <?php if (isset($_SESSION["name_update"])) :
                             ?>
@@ -78,7 +76,6 @@ include "../../config/database.php";
                             <?php endif;
                             unset($_SESSION["name_update"]); ?>
                             <!-- name update end -->
-
                             <div>
                                 <button type="submit" name="name_btn" class="btn btn-primary my-3"><i class="fa-solid fa-rotate-right" style="color: #ffffff;"></i>Update</button>
                             </div>
@@ -87,7 +84,6 @@ include "../../config/database.php";
                     </form>
                 </div>
             </div>
-
             <!-- email update -->
             <div class="card flex items-center p-4 justify-between bg-red-50 rounded shadow-lg" style="overflow-y: scroll; height: 280px;">
                 <div class="font-bold">
@@ -98,7 +94,6 @@ include "../../config/database.php";
                         <div>
                             <label class="pb-4 font-medium">UserEmail</label>
                             <input type="text" name="email" placeholder="Type here" class="input input-bordered w-full max-w-xs my-4" />
-
                             <!-- name error start -->
                             <?php if (isset($_SESSION["email_error"])) :
                             ?>
@@ -106,7 +101,6 @@ include "../../config/database.php";
                             <?php endif;
                             unset($_SESSION["email_error"]); ?>
                             <!-- name error end -->
-
                             <!-- name update start -->
                             <?php if (isset($_SESSION["update_email"])) :
                             ?>
@@ -120,7 +114,6 @@ include "../../config/database.php";
                     </form>
                 </div>
             </div>
-
             <!-- password update -->
             <div class="card flex items-center p-4 justify-between bg-red-50 rounded shadow-lg" style="overflow-y: scroll; height: 280px;">
                 <div class="font-bold mb-16">
@@ -139,7 +132,6 @@ include "../../config/database.php";
                             <?php endif;
                             unset($_SESSION["old_pass_error"]); ?>
                             <!-- old_pass_error end -->
-
                             <!-- old_password_update start -->
                             <?php if (isset($_SESSION["old_password_update"])) :
                             ?>
@@ -151,7 +143,6 @@ include "../../config/database.php";
                             <label class="pb-4 font-medium">New Password</label>
                             <br>
                             <input type="text" name="new_password" placeholder="Type here" class="input input-bordered w-full max-w-xs my-4" />
-
                             <!-- new_pass_error start -->
                             <?php if (isset($_SESSION["new_pass_error"])) :
                             ?>
@@ -159,7 +150,6 @@ include "../../config/database.php";
                             <?php endif;
                             unset($_SESSION["new_pass_error"]); ?>
                             <!-- new_pass_error end -->
-
                             <!-- new_password_update start -->
                             <?php if (isset($_SESSION["new_password_update"])) :
                             ?>
@@ -167,12 +157,9 @@ include "../../config/database.php";
                             <?php endif;
                             unset($_SESSION["new_password_update"]); ?>
                             <!-- new_password_update end -->
-
-
                             <label class="pb-4 font-medium">Confirm Password</label>
                             <br>
                             <input type="text" name="confirm_password" placeholder="Type here" class="input input-bordered w-full max-w-xs my-4" />
-
                             <!-- confirm_error start -->
                             <?php if (isset($_SESSION["confirm_error"])) :
                             ?>
@@ -180,7 +167,6 @@ include "../../config/database.php";
                             <?php endif;
                             unset($_SESSION["confirm_error"]); ?>
                             <!-- confirm_error end -->
-
                             <!-- confirm_update start -->
                             <?php if (isset($_SESSION["confirm_update"])) :
                             ?>
@@ -188,11 +174,9 @@ include "../../config/database.php";
                             <?php endif;
                             unset($_SESSION["confirm_update"]); ?>
                             <!-- confirm_update end -->
-
                             <div>
                                 <button type="submit" name="password_btn" class="btn btn-primary my-3"><i class="fa-solid fa-rotate-right" style="color: #ffffff;"></i>Update</button>
                             </div>
-
                             <!-- password_update start -->
                             <?php if (isset($_SESSION["pass_error"])) :
                             ?>
@@ -200,7 +184,6 @@ include "../../config/database.php";
                             <?php endif;
                             unset($_SESSION["pass_error"]); ?>
                             <!-- password_update end -->
-
                             <!-- password_update_error start -->
                             <?php if (isset($_SESSION["pass_update"])) :
                             ?>
@@ -208,25 +191,24 @@ include "../../config/database.php";
                             <?php endif;
                             unset($_SESSION["pass_update"]); ?>
                             <!-- password_update_error end -->
-
                         </div>
                     </form>
                 </div>
             </div>
 
-             <!-- Image update -->
-             <div class="card flex items-center p-4 justify-between bg-red-50 rounded shadow-lg" style="overflow-y: scroll; height: 280px;">
+            <!-- Image update -->
+            <div class="card flex items-center p-4 justify-between bg-red-50 rounded shadow-lg" style="overflow-y: scroll; height: 280px;">
                 <div class="font-bold">
                     USER-IMAGE
                 </div>
                 <div>
-                <form action="update.php" method="post" enctype="multipart/form-data">
+                    <form action="update.php" method="post" enctype="multipart/form-data">
                         <div>
                             <label class="pb-4 font-medium">UserImage</label>
-                            <input type="file" name="image"  class="input input-bordered w-full max-w-xs my-4 pt-2" />
+                            <input type="file" name="image" class="input input-bordered w-full max-w-xs my-4 pt-2" />
 
-                        <!-- image error start -->
-                        <?php if (isset($_SESSION["image_error"])) :
+                            <!-- image error start -->
+                            <?php if (isset($_SESSION["image_error"])) :
                             ?>
                                 <div id="emailHelp" class="form-text text-red-400 text-base mt-3"><?= $_SESSION["image_error"] ?></div>
                             <?php endif;
@@ -239,8 +221,7 @@ include "../../config/database.php";
                                 <div id="emailHelp" class="form-text text-success text-base mt-3"><?= $_SESSION["image_update"] ?></div>
                             <?php endif;
                             unset($_SESSION["image_update"]); ?>
-                             <!-- image update start -->
-
+                            <!-- image update start -->
                             <div>
                                 <button type="submit" name="image_btn" class="btn btn-primary my-3"><i class="fa-solid fa-rotate-right" style="color: #ffffff;"></i>Update</button>
                             </div>

@@ -6,8 +6,6 @@ $services_query = "SELECT * FROM services";
 $services = mysqli_query($connect_db, $services_query);
 $result = mysqli_fetch_assoc($services);
 
-
-
 ?>
 
 
@@ -48,7 +46,6 @@ $result = mysqli_fetch_assoc($services);
     </div>
 </section>
 <!-- first grid end here -->
-
 <div class="min-h-screen bg-blue-50">
     <section class="flex flex-col bg-white py-4">
         <div class="flex flex-row space-x-3">
@@ -66,7 +63,6 @@ $result = mysqli_fetch_assoc($services);
             <?php endif;
             unset($_SESSION['create_done']); ?>
         </div>
-
         <div>
             <?php if (isset($_SESSION['create_error'])) : ?>
                 <div role="alert" class="alert px-2">
@@ -76,10 +72,8 @@ $result = mysqli_fetch_assoc($services);
                         <h5 class="text-base font-medium"> <?= $_SESSION['create_error'] ?></h5>
                     </div>
                 </div>
-
             <?php endif;
             unset($_SESSION['create_error']); ?>
-
             <div>
                 <?php if (isset($_SESSION['delete_done'])) :    ?>
                     <div role="alert" class="alert px-2">
@@ -89,11 +83,9 @@ $result = mysqli_fetch_assoc($services);
                             <h5 class="text-base font-medium"> <?= $_SESSION['delete_done'] ?></h5>
                         </div>
                     </div>
-
                 <?php endif;
                 unset($_SESSION['delete_done']); ?>
             </div>
-
             <div>
                 <?php if (isset($_SESSION['service_update'])) :    ?>
                     <div role="alert" class="alert px-2">
@@ -107,7 +99,6 @@ $result = mysqli_fetch_assoc($services);
                 <?php endif;
                 unset($_SESSION['service_update']); ?>
             </div>
-
             <div>
                 <?php if (isset($_SESSION['active_status'])) :    ?>
                     <div role="alert" class="alert px-2">
@@ -137,7 +128,6 @@ $result = mysqli_fetch_assoc($services);
             </div>
 
     </section>
-
 
     <!-- table section start -->
     <section class="mt-3 p-3 w-full lg:w-10/12 mx-auto">
@@ -203,16 +193,10 @@ $result = mysqli_fetch_assoc($services);
                     endif;
                     ?>
                 </tbody>
-
             </table>
         </div>
     </section>
     <!-- table section end -->
-
-
-
-
-
 
     <?php include "../master/footer.php";
     ?>

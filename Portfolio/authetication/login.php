@@ -39,12 +39,11 @@ if (isset($_SESSION['auth_id'])) {
 
     <!-- custom css file link -->
     <link rel="stylesheet" href="styles/index.css">
-
-
 </head>
 
 <body>
-    <section class="">
+
+    <section>
 
         <div class=" bg-gradient-to-r from-red-100 to-blue-200  flex flex-col items-center justify-center px-6 py-8 mx-auto h-screen">
             <p class="flex items-center mb-6 text-3xl font-semibold text-gray-500 dark:text-white">
@@ -53,16 +52,13 @@ if (isset($_SESSION['auth_id'])) {
             <p class="text-center  lg:w-2/4 mb-4 ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo voluptatum sed dolore, fuga quis expedita.Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo voluptatum sed dolore, fuga quis expedita.</p>
             </p>
 
-
             <!-- register successful start  -->
             <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 ">
                 <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
                     <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                         Sign in to your account
                     </h1>
-
                     <!-- register successful start  -->
-
                     <?php
                     if (isset($_SESSION["register_success"])) {
                     ?>
@@ -79,7 +75,6 @@ if (isset($_SESSION['auth_id'])) {
 
                     <!-- register register_success end  -->
 
-
                     <!-- login error start  -->
                     <?php
                     if (isset($_SESSION["login_error"])) {
@@ -95,7 +90,6 @@ if (isset($_SESSION['auth_id'])) {
                     unset($_SESSION["login_error"]); ?>
 
                     <!-- register error end  -->
-
 
                     <form class="space-y-4 md:space-y-6" action="login_post.php" method="post">
                         <div>
@@ -126,11 +120,9 @@ if (isset($_SESSION['auth_id'])) {
                             <!-- password error end -->
                         </div>
 
-
                         <div>
                             <button name="submit_btn" class="btn btn-info text-yellow-50" type="submit">Submit</button>
                         </div>
-
 
                         <p class="text-base font-light text-gray-500 dark:text-gray-400">
                             Please enter your credentials to create an account.
@@ -141,7 +133,6 @@ if (isset($_SESSION['auth_id'])) {
             </div>
         </div>
     </section>
-
 </body>
 
 </html>

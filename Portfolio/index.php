@@ -3,12 +3,9 @@
 session_start();
 include "./config/database.php";
 
-
 $user_query = "SELECT * FROM users WHERE status='active'";
 $user_connect = mysqli_query($connect_db, $user_query);
 $user = mysqli_fetch_assoc($user_connect);
-
-
 
 $link_query = "SELECT * FROM links";
 $link_connect = mysqli_query($connect_db, $link_query);
@@ -548,7 +545,6 @@ $feedbacks = mysqli_query($connect_db, $feedbacks_query);
                     <!-- Swiper -->
                     <div class="swiper mySwiper1">
                         <div class="swiper-wrapper">
-
                             <?php
                             foreach ($testimonials as $testimonial) :
                             ?>
@@ -660,7 +656,6 @@ $feedbacks = mysqli_query($connect_db, $feedbacks_query);
     // Remove the sticky class when you leave the scroll position
     function stickyNavbar() {
         console.log(window.pageYOffset);
-
         if (window.pageYOffset >= sticky) {
             navbar.classList.add("sticky");
             navbar.classList.add("bg-blue-300");
@@ -669,7 +664,6 @@ $feedbacks = mysqli_query($connect_db, $feedbacks_query);
             navbar.classList.remove("bg-blue-300");
         }
     }
-
     // When the user scrolls the page, execute stickyNavbar
     window.onscroll = function() {
         stickyNavbar();

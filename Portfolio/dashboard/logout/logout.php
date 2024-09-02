@@ -6,5 +6,4 @@ session_unset();
 
 header("location: ../../authetication/login.php");
 
-
 ?>

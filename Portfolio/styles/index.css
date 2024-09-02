@@ -9,7 +9,6 @@ body {
     height: 98%;
 }
 
-
 @keyframes spin {
     0% {
         transform: rotate(0deg);
@@ -59,22 +58,19 @@ body {
 
 /* swiperjs btn */
 
-.service-nav{
+.service-nav {
     height: 55px !important;
     width: 55px !important;
     border-radius: 50%;
     background-color: rgb(167, 237, 237);
 }
 
-.service-nav::after{
+.service-nav::after {
     font-size: 20px !important;
     color: white !important;
 }
 
-
-
 /* tablet device */
-
 
 @media screen and (max-width: 992px) {
 
@@ -82,8 +78,9 @@ body {
         top: -70px;
         max-width: 300px;
     }
-      /* banner */
-      .about-man-image {
+
+    /* banner */
+    .about-man-image {
         top: 40px;
         max-width: 300px;
     }
@@ -138,18 +135,16 @@ body {
 
     /* swiperjs btn */
 
-.service-nav{
-    height: 40px !important;
-    width: 40px !important;
-    border-radius: 50%;
-    background-color: rgb(167, 237, 237);
+    .service-nav {
+        height: 40px !important;
+        width: 40px !important;
+        border-radius: 50%;
+        background-color: rgb(167, 237, 237);
+    }
+
+    .service-nav::after {
+        font-size: 16px !important;
+        color: white !important;
+    }
+
 }
-
-.service-nav::after{
-    font-size: 16px !important;
-    color: white !important;
-}
-
-
-}
-

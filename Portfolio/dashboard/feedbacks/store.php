@@ -3,7 +3,6 @@
 session_start();
 include '../../config/database.php';
 
-
 if (isset($_POST['create'])) {
     $title = $_POST['title'];
     $description = $_POST['description'];
@@ -46,10 +45,8 @@ if (isset($_GET['status_id'])) {
         mysqli_query($connect_db, $update_query);
         $_SESSION["active_status"] = "feedbacks status active successfully complete !!!";
         header("location: feedbacks.php");
-
-       
     } else {
-       
+
         $update_query = "UPDATE feedbacks SET status='deactive' WHERE id='$status_id'";
         mysqli_query($connect_db, $update_query);
         $_SESSION["deactive_status"] = "feedbacks status deactive successfully complete !!!";
@@ -69,9 +66,5 @@ if (isset($_POST['update'])) {
         mysqli_query($connect_db, $update_query);
         $_SESSION["service_update"] = "feedbacks update successfully complete !!!";
         header("location: feedbacks.php");
-        
     }
 }
-
-
-?>

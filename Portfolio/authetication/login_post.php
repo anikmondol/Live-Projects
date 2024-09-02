@@ -1,7 +1,7 @@
 <?php
 
 
-require"../config/database.php";
+require "../config/database.php";
 session_start();
 
 
@@ -9,14 +9,11 @@ if (isset($_POST["submit_btn"])) {
 
     $flag = false;
 
-
     // email validation 
     $email = $_POST["email"];
 
     // email regex 
     $email_regex = '/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/';
-
-
 
 
     if (!$email) {
@@ -28,9 +25,6 @@ if (isset($_POST["submit_btn"])) {
         $flag = true;
         header("location: login.php");
     }
-
-
-
 
     // password validation
     $password = $_POST["password"];
@@ -70,7 +64,6 @@ if (isset($_POST["submit_btn"])) {
         header("location: login.php");
     }
 
-
     // condition for go dashboard
 
     if (!$flag) {
@@ -91,7 +84,6 @@ if (isset($_POST["submit_btn"])) {
             $_SESSION['auth_email'] = $user['email'];
 
             header("location: ../dashboard/home/home.php");
-
         } else {
             $_SESSION['login_error'] = "credential doesn't match";
             header("location: login.php");

@@ -6,10 +6,10 @@ include "../../config/database.php";
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
 
-    
-$user_query = "SELECT * FROM users WHERE status='active'";
-$user_connect = mysqli_query($connect_db, $user_query);
-$user = mysqli_fetch_assoc($user_connect);
+
+    $user_query = "SELECT * FROM users WHERE status='active'";
+    $user_connect = mysqli_query($connect_db, $user_query);
+    $user = mysqli_fetch_assoc($user_connect);
 
 
     $user_query = "SELECT * FROM users ";
@@ -26,9 +26,7 @@ $user = mysqli_fetch_assoc($user_connect);
     $link = mysqli_fetch_assoc($link_connect);
 }
 
-
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -38,8 +36,6 @@ $user = mysqli_fetch_assoc($user_connect);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio_Front</title>
     <link rel="shortcut icon" href="./neptune.png" type="image/x-icon">
-
-
 
     <!-- font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -65,7 +61,6 @@ $user = mysqli_fetch_assoc($user_connect);
 
     <!--   Swiper Js css link  -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-
 
 </head>
 
@@ -177,8 +172,7 @@ $user = mysqli_fetch_assoc($user_connect);
                     <div class="">
                         <h2 class="text-xl font-medium"><?= $user['name']; ?></h2>
                         <p class="text-[#8792AB] font-medium">I'm Anik, a professional web developer with long time experience in this field​. Committed to advancing my knowledge in the IT field, always eager to explore and adopt new technologies for web development. Dedicated to continuous learning and staying current with industry trends.
-
-</p>
+                        </p>
                         <div class="my-5 flex flex-row gap-2">
                             <a href="<?= $link['facebook'] ?>" target="_blank">
                                 <button type="button"
@@ -209,12 +203,11 @@ $user = mysqli_fetch_assoc($user_connect);
                 </div>
             </section>
 
-
     </main>
     <footer class="footer-center bg-[#162239] text-gray-200 p-10 shadow-2xl">
         <p><small>© <span id="year"></span>. Develop by Anik Mondal. All right reserved.</small></p>
     </footer>
-      
+
 </body>
 
 <!-- ======== Custom js Link ======== -->

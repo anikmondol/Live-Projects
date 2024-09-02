@@ -23,7 +23,6 @@ if (isset($_POST['email_sender'])) {
             //Create an instance; passing `true` enables exceptions
             $mail = new PHPMailer(true);
 
-
             //Server settings
             $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
             $mail->isSMTP();                                            //Send using SMTP
@@ -38,7 +37,6 @@ if (isset($_POST['email_sender'])) {
             $mail->setFrom($mail->Username, 'Anik Mondal');
             $mail->addAddress($sander_email,  $sander_name);     //Add a recipient
             $mail->addReplyTo($mail->Username);
-
 
             //Content
             $mail->isHTML(true);                                  //Set email format to HTML

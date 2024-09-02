@@ -11,12 +11,10 @@ if (!isset($_SESSION['auth_id'])) {
 $explode = explode('/', $_SERVER['PHP_SELF']);
 $link = end($explode);
 
-
 $id = $_SESSION['auth_id'];
 $user_query = "SELECT * FROM users WHERE id='$id'";
 $user_connect = mysqli_query($connect_db, $user_query);
 $user = mysqli_fetch_assoc($user_connect);
-
 
 ?>
 
@@ -30,7 +28,6 @@ $user = mysqli_fetch_assoc($user_connect);
     <link rel="shortcut icon" href="../../images/neptune.png" type="image/x-icon">
 
 
-   
     <!-- font awesome 6.6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -61,7 +58,6 @@ $user = mysqli_fetch_assoc($user_connect);
 
 <body>
 
-
     <div class="flex flex-col md:flex-row">
 
         <!-- nav component start here -->
@@ -89,7 +85,7 @@ $user = mysqli_fetch_assoc($user_connect);
             <div class="flex flex-col flex-auto gap-4 md:gap-5 mx-3">
                 <div class="p-3 px-5 hover:bg-green-200 rounded">
                     <div class="flex flex-row space-x-3 items-center">
-                    <i class="fa-regular fa-eye font-normal"></i>
+                        <i class="fa-regular fa-eye font-normal"></i>
                         <h1 class="font-normal text-gray-700 text-sm lg:text-xl">
                             <a target="_blank" href="../../index.php">Web Site</a>
                         </h1>
@@ -97,7 +93,7 @@ $user = mysqli_fetch_assoc($user_connect);
                 </div>
                 <div class="p-3 px-5 <?= ($link == 'home.php') ? 'bg-slate-200 hover:bg-slate-200' : '' ?> hover:bg-green-200 rounded">
                     <div class="flex flex-row space-x-3 items-center">
-                    <i class="fa-solid fa-list"></i>
+                        <i class="fa-solid fa-list"></i>
                         <h1 class="font-normal text-gray-700 text-sm lg:text-xl">
                             <a href="../../dashboard/home/home.php">Dashboard</a>
                         </h1>
@@ -107,27 +103,27 @@ $user = mysqli_fetch_assoc($user_connect);
                     <div class="flex flex-row space-x-3 items-center">
                         <a href="../logout/logout.php">
                             <button class="font-normal text-gray-700 text-sm lg:text-xl">
-                                
-                            <i class="fa-solid fa-arrow-right-from-bracket"></i> 
+
+                                <i class="fa-solid fa-arrow-right-from-bracket"></i>
                                 Logout</button>
                         </a>
                     </div>
                 </div>
                 <div class="p-3 px-5 <?= ($link == 'profile.php') ? 'bg-slate-200 hover:bg-slate-200' : '' ?> hover:bg-green-200 rounded">
                     <div class="flex flex-row space-x-3 items-center">
-                    <i class="fa-solid fa-screwdriver-wrench"></i>
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
                         <h1 class="font-normal text-green-7000 text-sm lg:text-xl"><a href="../profile/profile.php">Setting</a></h1>
                     </div>
                 </div>
                 <div class="p-3 px-5 <?= ($link == 'links.php') ? 'bg-slate-200 hover:bg-slate-200' : '' ?> hover:bg-green-200 rounded">
                     <div class="flex flex-row space-x-3 items-center">
-                    <i class="fa-solid fa-link"></i>
+                        <i class="fa-solid fa-link"></i>
                         <h1 class="font-normal text-green-7000 text-sm lg:text-xl"><a href="../links/links.php">Links</a></h1>
                     </div>
                 </div>
                 <div class="p-3 px-5 <?= ($link == 'services.php') ? 'bg-slate-200 hover:bg-slate-200' : '' ?> hover:bg-green-200 rounded">
                     <div class="flex flex-row space-x-3 items-center">
-                    <i class="fa-solid fa-briefcase-medical"></i>
+                        <i class="fa-solid fa-briefcase-medical"></i>
                         <h1 class="font-normal text-green-7000 text-sm lg:text-xl"><a href="../services/services.php">Services</a></h1>
                     </div>
                 </div>
@@ -139,13 +135,13 @@ $user = mysqli_fetch_assoc($user_connect);
                 </div>
                 <div class="p-3 px-5 <?= ($link == 'educations.php') ? 'bg-slate-200 hover:bg-slate-200' : '' ?> hover:bg-green-200 rounded">
                     <div class="flex flex-row space-x-3 items-center">
-                    <i class="fa-solid fa-graduation-cap"></i>
+                        <i class="fa-solid fa-graduation-cap"></i>
                         <h1 class="font-normal text-green-7000 text-sm lg:text-xl"><a href="../educations/educations.php">Educations</a></h1>
                     </div>
                 </div>
                 <div class="p-3 px-5 <?= ($link == 'testimonials.php') ? 'bg-slate-200 hover:bg-slate-200' : '' ?> hover:bg-green-200 rounded">
                     <div class="flex flex-row space-x-3 items-center">
-                    <i class="fa-solid fa-users-viewfinder"></i>
+                        <i class="fa-solid fa-users-viewfinder"></i>
                         <h1 class="font-normal text-green-7000 text-sm lg:text-xl"><a href="../testimonials/testimonials.php">Testimonials</a></h1>
                     </div>
                 </div>
@@ -156,7 +152,6 @@ $user = mysqli_fetch_assoc($user_connect);
                     </div>
                 </div>
             </div>
-
         </nav>
         <!-- nav component end here -->
 

@@ -45,12 +45,10 @@ $result = mysqli_fetch_assoc($testimonials);
 <!-- first grid end here -->
 
 <div class="min-h-screen bg-blue-50">
-
     <section class="flex flex-col bg-white py-4">
         <div class="flex flex-row space-x-3">
             <h3 class="font-bold text-gray-600 p-1 text-2xl">Service</h3>
         </div>
-
         <div>
             <?php if (isset($_SESSION['testimonials_update'])) :    ?>
                 <div role="alert" class="alert px-2">
@@ -77,7 +75,6 @@ $result = mysqli_fetch_assoc($testimonials);
             <?php endif;
             unset($_SESSION['port_create']); ?>
         </div>
-
         <div>
             <?php if (isset($_SESSION['port_error'])) : ?>
                 <div role="alert" class="alert px-2">
@@ -91,7 +88,6 @@ $result = mysqli_fetch_assoc($testimonials);
             <?php endif;
             unset($_SESSION['port_error']); ?>
         </div>
-
         <div>
             <?php if (isset($_SESSION['active_status'])) :    ?>
                 <div role="alert" class="alert px-2">
@@ -105,7 +101,6 @@ $result = mysqli_fetch_assoc($testimonials);
             <?php endif;
             unset($_SESSION['active_status']); ?>
         </div>
-
         <div>
             <?php if (isset($_SESSION['deactive_status'])) :    ?>
                 <div role="alert" class="alert px-2">
@@ -119,7 +114,6 @@ $result = mysqli_fetch_assoc($testimonials);
             <?php endif;
             unset($_SESSION['deactive_status']); ?>
         </div>
-
         <div>
             <?php if (isset($_SESSION['delete_done'])) :    ?>
                 <div role="alert" class="alert px-2">
@@ -133,9 +127,7 @@ $result = mysqli_fetch_assoc($testimonials);
             <?php endif;
             unset($_SESSION['delete_done']); ?>
         </div>
-
     </section>
-
 
     <!-- table section start -->
     <section class="mt-3 p-3 w-full lg:w-11/12 mx-auto">
@@ -159,8 +151,7 @@ $result = mysqli_fetch_assoc($testimonials);
                     </tr>
                 </thead>
                 <tbody>
-
-                <?php
+                    <?php
                     $number = 1;
                     if (empty($result)):
                     ?>
@@ -171,50 +162,43 @@ $result = mysqli_fetch_assoc($testimonials);
                     else:
                         foreach ($testimonials as $testimonial):
                         ?>
-
-                        <tr class="border-b border-gray-300">
-                            <th class="border text-base border-gray-300">
-                                <?= $number++ ?>
-                            </th>
-                            <td class="border text-base border-gray-300">
-                                <img class="rounded-sm" src="../../public/testimonials/<?= $testimonial['image'] ?>" alt="testimonials image" style="width: 70px; height: 50px; object-fit: cover;">
-                            </td>
-                            <td class="border text-base border-gray-300">
-                                <?= $testimonial['title'] ?>
-                            </td>
-                            <td class="border text-base border-gray-300">
-                                <a href="store.php?status_id=<?= $testimonial['id'] ?>" class="p-1 rounded-sm text-white <?= ($testimonial['status'] == 'deactive') ? 'bg-red-400' : 'bg-green-400'; ?>">
-                                    <?= $testimonial['status'] ?>
-                                </a>
-                            </td>
-                            <td class="border text-base border-gray-300">
-                                <div class="flex justify-evenly gap-2">
-                                    <a href="./edit.php?edit_id=<?= $testimonial['id'] ?>">
-                                        <i class="fa-2x fa-regular fa-pen-to-square text-cyan-500"></i>
+                            <tr class="border-b border-gray-300">
+                                <th class="border text-base border-gray-300">
+                                    <?= $number++ ?>
+                                </th>
+                                <td class="border text-base border-gray-300">
+                                    <img class="rounded-sm" src="../../public/testimonials/<?= $testimonial['image'] ?>" alt="testimonials image" style="width: 70px; height: 50px; object-fit: cover;">
+                                </td>
+                                <td class="border text-base border-gray-300">
+                                    <?= $testimonial['title'] ?>
+                                </td>
+                                <td class="border text-base border-gray-300">
+                                    <a href="store.php?status_id=<?= $testimonial['id'] ?>" class="p-1 rounded-sm text-white <?= ($testimonial['status'] == 'deactive') ? 'bg-red-400' : 'bg-green-400'; ?>">
+                                        <?= $testimonial['status'] ?>
                                     </a>
-                                    <a href="./store.php?id_delete=<?= $testimonial['id'] ?>"
-                                        <i class="fa-2x fa-regular fa-trash-can text-red-400"></i>
-                                    </a>
-                                </div>
-                            </td>
-                        </tr>
+                                </td>
+                                <td class="border text-base border-gray-300">
+                                    <div class="flex justify-evenly gap-2">
+                                        <a href="./edit.php?edit_id=<?= $testimonial['id'] ?>">
+                                            <i class="fa-2x fa-regular fa-pen-to-square text-cyan-500"></i>
+                                        </a>
+                                        <a href="./store.php?id_delete=<?= $testimonial['id'] ?>"
+                                            <i class="fa-2x fa-regular fa-trash-can text-red-400"></i>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
 
-                        <?php
+                    <?php
                         endforeach;
                     endif;
                     ?>
-
                 </tbody>
 
             </table>
         </div>
     </section>
     <!-- table section end -->
-
-
-
-
-
 
     <?php include "../master/footer.php";
     ?>

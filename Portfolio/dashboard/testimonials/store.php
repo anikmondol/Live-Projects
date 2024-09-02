@@ -3,41 +3,37 @@
 session_start();
 include '../../config/database.php';
 
-
 if (isset($_POST['create'])) {
     $title = $_POST['title'];
     $subtitle = $_POST['subtitle'];
     $description = $_POST['description'];
 
-
     $image = $_FILES['image']['name'];
     $tmp_img = $_FILES['image']['tmp_name'];
 
-   if (!$image || !$subtitle || !$title || !$description) {
-    $_SESSION['port_error'] = "Image Field is Required!!";
-    header("location: testimonials.php");
-   }else{
-    if ($image && $subtitle && $title && $description) {
-        $explode = explode('.', $image);
-        $extension = end($explode);
-        $custom_name_img = $_SESSION['auth_id'].'-'.$title.'-'.date("d-m-Y").".".$extension;
-        $local_path = "../../public/testimonials/".$custom_name_img;
+    if (!$image || !$subtitle || !$title || !$description) {
+        $_SESSION['port_error'] = "Image Field is Required!!";
+        header("location: testimonials.php");
+    } else {
+        if ($image && $subtitle && $title && $description) {
+            $explode = explode('.', $image);
+            $extension = end($explode);
+            $custom_name_img = $_SESSION['auth_id'] . '-' . $title . '-' . date("d-m-Y") . "." . $extension;
+            $local_path = "../../public/testimonials/" . $custom_name_img;
 
-        if (move_uploaded_file($tmp_img, $local_path)) {
+            if (move_uploaded_file($tmp_img, $local_path)) {
 
-            $query = "INSERT INTO testimonials (title,subtitle,description,image) VALUES ('$title','$subtitle','$description','$custom_name_img')";
-            mysqli_query($connect_db, $query);
-            $_SESSION["port_create"] = "new testimonials create successfully !!!";
-            header("location: testimonials.php");
-        }else {
-            $_SESSION["port_error"] = "something error !!!";
-            header("location: testimonials.php");
+                $query = "INSERT INTO testimonials (title,subtitle,description,image) VALUES ('$title','$subtitle','$description','$custom_name_img')";
+                mysqli_query($connect_db, $query);
+                $_SESSION["port_create"] = "new testimonials create successfully !!!";
+                header("location: testimonials.php");
+            } else {
+                $_SESSION["port_error"] = "something error !!!";
+                header("location: testimonials.php");
+            }
         }
     }
-   }
-
 }
-
 
 
 if (isset($_GET['status_id'])) {
@@ -53,10 +49,7 @@ if (isset($_GET['status_id'])) {
         mysqli_query($connect_db, $update_query);
         $_SESSION["active_status"] = "testimonials status active successfully complete !!!";
         header("location: testimonials.php");
-
-       
     } else {
-       
         $update_query = "UPDATE testimonials SET status='deactive' WHERE id='$status_id'";
         mysqli_query($connect_db, $update_query);
         $_SESSION["deactive_status"] = "testimonials status deactive successfully complete !!!";
@@ -74,8 +67,6 @@ if (isset($_POST['update'])) {
 
         $image = $_FILES['image']['name'];
         $tmp_img = $_FILES['image']['tmp_name'];
-
-
 
         if ($image && $subtitle && $title && $description) {
             $select_port = "SELECT * FROM testimonials WHERE id='$id'";
@@ -135,43 +126,3 @@ if (isset($_GET['id_delete'])) {
         header("location: testimonials.php");
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-?>

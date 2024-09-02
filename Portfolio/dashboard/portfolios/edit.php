@@ -4,7 +4,6 @@ include "../../config/database.php";
 include "../master/header.php";
 include "../../fonts/fonts.php";
 
-
 if (isset($_GET['edit_id'])) {
     $id =  $_GET['edit_id'];
 
@@ -13,14 +12,7 @@ if (isset($_GET['edit_id'])) {
     $portfolio = mysqli_fetch_assoc($connect);
 }
 
-
-
-
 ?>
-
-
-
-
 
 <!-- content start -->
 
@@ -57,7 +49,6 @@ if (isset($_GET['edit_id'])) {
     </div>
 </section>
 <!-- first grid end here -->
-
 
 <div class="min-h-screen bg-blue-50 rounded">
     <section class="flex flex-col bg-white p-4">
@@ -104,11 +95,9 @@ if (isset($_GET['edit_id'])) {
                                     <input type="text" name="live" placeholder="Type here" class="input input-bordered w-[300px] md:w-[400px] lg:w-[760px]  my-4" value="<?= $portfolio['live'] ?>" />
                                 </div>
                             </div>
-
                             <picture class="d-block my-4">
                                 <img class="w-full h-[200px] md:h-[300px] object-contain" id="port_img" id="port_img" src="../../public/portfolio/<?= $portfolio['image'] ?>" alt="image">
                             </picture>
-
                             <div>
                                 <label class="pb-4 font-medium">Image</label>
                                 <br>
@@ -117,23 +106,14 @@ if (isset($_GET['edit_id'])) {
                             <div>
                                 <button type="submit" name="update" class="btn btn-primary my-3"><i class="fa-solid fa-rotate-right" style="color: #ffffff;"></i>Update</button>
                             </div>
-
                         </div>
                     </form>
                 </div>
             </div>
-
-
-
         </div>
     </section>
 
-
-
-
 </div>
-
-
 
 <?php include "../master/footer.php";
 ?>

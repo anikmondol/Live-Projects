@@ -1,7 +1,3 @@
-<?php
-include "../../config/database.php";
-?>
-
 <?php include "../master/header.php";
 ?>
 
@@ -42,7 +38,6 @@ include "../../config/database.php";
 </section>
 <!-- first grid end here -->
 
-
 <div class="min-h-screen bg-blue-50 rounded">
     <section class="flex flex-col bg-white p-4">
         <div class="flex flex-row space-x-3">
@@ -77,8 +72,8 @@ include "../../config/database.php";
                                         class="w-full py-3 pl-8 text-[#262a31] outline-none text-[18px] md:w-[435px] lg:w-[700px]" />
                                 </div>
                             </div>
-                            
-                           
+
+
                             <div>
                                 <label class="pb-4 font-medium">Linkedin</label>
                                 <br>
@@ -98,7 +93,7 @@ include "../../config/database.php";
                                 </div>
                             </div>
 
-                             <!-- link_update start -->
+                            <!-- link_update start -->
                             <?php if (isset($_SESSION["link_update"])) :
                             ?>
                                 <div id="emailHelp" class="form-text text-success text-base mt-3"><?= $_SESSION["link_update"] ?></div>
@@ -113,20 +108,8 @@ include "../../config/database.php";
                 </div>
             </div>
 
-
-
         </div>
     </section>
-
-
-
-
-
-
-
-
-
-
 </div>
 
 

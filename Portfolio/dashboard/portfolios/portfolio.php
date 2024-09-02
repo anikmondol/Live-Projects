@@ -50,11 +50,9 @@ $result = mysqli_fetch_assoc($portfolios);
         <div class="flex flex-row space-x-3">
             <h3 class="font-bold text-gray-600 p-1 text-2xl">Service</h3>
         </div>
-
         <div>
             <?php if (isset($_SESSION['portfolio_update'])) :    ?>
                 <div role="alert" class="alert px-2">
-
                     <i class="fa-solid fa-hourglass text-2xl text-green-300"></i>
                     <div>
                         <h5 class="text-base font-medium"> <?= $_SESSION['portfolio_update'] ?></h5>
@@ -64,7 +62,6 @@ $result = mysqli_fetch_assoc($portfolios);
             <?php endif;
             unset($_SESSION['portfolio_update']); ?>
         </div>
-
         <div>
             <?php if (isset($_SESSION['port_create'])) : ?>
                 <div role="alert" class="alert px-2">
@@ -77,7 +74,6 @@ $result = mysqli_fetch_assoc($portfolios);
             <?php endif;
             unset($_SESSION['port_create']); ?>
         </div>
-
         <div>
             <?php if (isset($_SESSION['port_error'])) : ?>
                 <div role="alert" class="alert px-2">
@@ -91,7 +87,6 @@ $result = mysqli_fetch_assoc($portfolios);
             <?php endif;
             unset($_SESSION['port_error']); ?>
         </div>
-
         <div>
             <?php if (isset($_SESSION['active_status'])) :    ?>
                 <div role="alert" class="alert px-2">
@@ -101,11 +96,9 @@ $result = mysqli_fetch_assoc($portfolios);
                         <h5 class="text-base font-medium"> <?= $_SESSION['active_status'] ?></h5>
                     </div>
                 </div>
-
             <?php endif;
             unset($_SESSION['active_status']); ?>
         </div>
-
         <div>
             <?php if (isset($_SESSION['deactive_status'])) :    ?>
                 <div role="alert" class="alert px-2">
@@ -119,7 +112,6 @@ $result = mysqli_fetch_assoc($portfolios);
             <?php endif;
             unset($_SESSION['deactive_status']); ?>
         </div>
-
         <div>
             <?php if (isset($_SESSION['delete_done'])) :    ?>
                 <div role="alert" class="alert px-2">
@@ -133,7 +125,6 @@ $result = mysqli_fetch_assoc($portfolios);
             <?php endif;
             unset($_SESSION['delete_done']); ?>
         </div>
-
     </section>
 
 
@@ -159,7 +150,6 @@ $result = mysqli_fetch_assoc($portfolios);
                     </tr>
                 </thead>
                 <tbody>
-
                     <?php
                     $number = 1;
                     if (empty($result)):
@@ -171,7 +161,6 @@ $result = mysqli_fetch_assoc($portfolios);
                     else:
                         foreach ($portfolios as $portfolio):
                         ?>
-
                             <tr class="border-b border-gray-300">
                                 <th class="border text-base border-gray-300">
                                     <?= $number++ ?>
@@ -198,7 +187,6 @@ $result = mysqli_fetch_assoc($portfolios);
                                     </div>
                                 </td>
                             </tr>
-
                     <?php
                         endforeach;
                     endif;

@@ -1,9 +1,7 @@
 <?php
 
-include "../../config/database.php";
 include "../master/header.php";
 include "../../fonts/fonts.php";
-
 
 ?>
 
@@ -99,18 +97,10 @@ include "../../fonts/fonts.php";
                     </form>
                 </div>
             </div>
-
-
-
         </div>
     </section>
-
-
-
-
 </div>
-
-
+<!-- content start -->
 
 <?php include "../master/footer.php";
 ?>

@@ -4,11 +4,7 @@ include "../../config/database.php";
 include "../master/header.php";
 include "../../fonts/fonts.php";
 
-
 ?>
-
-
-
 
 <!-- content start -->
 
@@ -46,14 +42,12 @@ include "../../fonts/fonts.php";
 </section>
 <!-- first grid end here -->
 
-
 <div class="min-h-screen bg-blue-50 rounded">
     <section class="flex flex-col bg-white p-4">
         <div class="flex flex-row space-x-3">
             <h3 class="font-bold text-gray-600 p-1 text-2xl">Portfolio Create</h3>
         </div>
     </section>
-
     <section>
         <div class="px-4 lg:px-0 py-4 w-full lg:w-4/5 mx-auto">
             <div class="card flex items-center p-4 md:justify-between bg-red-50 rounded shadow-lg">
@@ -112,18 +106,9 @@ include "../../fonts/fonts.php";
                     </form>
                 </div>
             </div>
-
-
-
         </div>
     </section>
-
-
-
-
 </div>
-
-
 
 <?php include "../master/footer.php";
 ?>

@@ -4,7 +4,6 @@ include "../../config/database.php";
 include "../master/header.php";
 include "../../fonts/fonts.php";
 
-
 if (isset($_GET['edit'])) {
     $id =  $_GET['edit'];
 
@@ -12,12 +11,7 @@ if (isset($_GET['edit'])) {
     $connect = mysqli_query($connect_db, $select_query);
     $feedbacks = mysqli_fetch_assoc($connect);
 }
-
-
 ?>
-
-
-
 
 <!-- content start -->
 
@@ -54,7 +48,6 @@ if (isset($_GET['edit'])) {
     </div>
 </section>
 <!-- first grid end here -->
-
 
 <div class="min-h-screen bg-blue-50 rounded">
     <section class="flex flex-col bg-white p-4">
@@ -96,7 +89,7 @@ if (isset($_GET['edit'])) {
                                 <br>
                                 <div class="pb-6">
                                     <input readonly name="icon" type="text" placeholder="Type here"
-                                        class="w-full py-3 pl-8 text-[#262a31] outline-none text-[18px] icon_value" value="<?= $feedbacks['icon']; ?>"/>
+                                        class="w-full py-3 pl-8 text-[#262a31] outline-none text-[18px] icon_value" value="<?= $feedbacks['icon']; ?>" />
                                 </div>
                             </div>
                             <div class="card my-3">
@@ -119,13 +112,8 @@ if (isset($_GET['edit'])) {
                 </div>
             </div>
 
-
-
         </div>
     </section>
-
-
-
 
 </div>
 
@@ -137,7 +125,6 @@ if (isset($_GET['edit'])) {
 
     }
 </script>
-
 
 
 <?php include "../master/footer.php";

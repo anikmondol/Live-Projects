@@ -7,9 +7,6 @@ include "../../fonts/fonts.php";
 
 ?>
 
-
-
-
 <!-- content start -->
 
 <!-- first grid stars here -->
@@ -110,13 +107,8 @@ include "../../fonts/fonts.php";
                 </div>
             </div>
 
-
-
         </div>
     </section>
-
-
-
 
 </div>
 

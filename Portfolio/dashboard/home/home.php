@@ -6,7 +6,6 @@ include "../../config/database.php";
 $users_query = "SELECT * FROM users";
 $users = mysqli_query($connect_db, $users_query);
 
-
 ?>
 
 
@@ -45,7 +44,6 @@ $users = mysqli_query($connect_db, $users_query);
     </div>
 </section>
 <!-- first grid end here -->
-
 
 <div class="min-h-screen bg-blue-50 rounded">
     <section class="flex flex-col bg-white p-4">
@@ -138,9 +136,7 @@ $users = mysqli_query($connect_db, $users_query);
 
 </div>
 
-
 <!-- content end-->
-
 
 <?php
 

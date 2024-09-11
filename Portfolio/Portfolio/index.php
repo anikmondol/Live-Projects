@@ -219,7 +219,7 @@ $feedbacks = mysqli_query($connect_db, $feedbacks_query);
                         <a href="<?= $link['facebook'] ?>" target="_blank">
                             <button type="button"
                                 class="text-cyan-400 border-2 border-[#8CC090] hover:border-red-500 hover:text-white rounded-full px-4 py-3 text-center duration-500">
-                                <i class="fa-brands fa-facebook text-2xl"></i>
+                                <i class="fa-brands fa-facebook text-sm"></i>
                             </button>
                         </a>
                         <a href="<?= $link['github'] ?>" target="_blank">

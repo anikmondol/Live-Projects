@@ -36,7 +36,6 @@ if (isset($_GET['id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio_Front</title>
     <link rel="shortcut icon" href="./neptune.png" type="image/x-icon">
-    <link rel="shortcut icon" href="../../images/neptune.png" type="image/x-icon">
 
     <!-- font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -85,12 +84,29 @@ if (isset($_GET['id'])) {
                     <div class="z-50 hidden my-4 text-base list-none divide-y divide-gray-100 shadow-2xl bg-white"
                         id="user-dropdown" style="background-color: aliceblue !important;">
                         <div class="px-4 py-3 bg-white">
-                        <span class="block text-sm text-gray-900 dark:text-white"><?= $user['name'] ?></span>
+                            <span class="block text-sm text-gray-900 dark:text-white">Bonnie Green</span>
                             <span
-                                class="block text-sm  text-gray-500 truncate dark:text-gray-400"><?= $user['email'] ?></span>
-                                <span class="block text-sm text-gray-900 dark:text-white">+880 193-165-4590 </span>
+                                class="block text-sm  text-gray-500 truncate dark:text-gray-400">name@flowbite.com</span>
                         </div>
-                        
+                        <ul class="py-2 bg-white" aria-labelledby="user-menu-button">
+                            <li>
+                                <a href="#"
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Dashboard</a>
+                            </li>
+                            <li>
+                                <a href="#"
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Settings</a>
+                            </li>
+                            <li>
+                                <a href="#"
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Earnings</a>
+                            </li>
+                            <li>
+                                <a href="#"
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign
+                                    out</a>
+                            </li>
+                        </ul>
                     </div>
                     <button data-collapse-toggle="navbar-user" type="button"
                         class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
